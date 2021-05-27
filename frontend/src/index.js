@@ -7,7 +7,8 @@ import App from "./App";
 
 import configureStore from "./store";
 import "./index.css";
-import profile_pic from "./icons/Profile_Pic.jpg";
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import profile_pic from "./icons/Profile_Pic.jpg";
 
 
 
