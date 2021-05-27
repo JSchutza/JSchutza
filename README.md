@@ -1,2 +1,4 @@
 # JSchutza
- My personal portfolio site. 
+# Skills
+
+# About
