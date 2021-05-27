@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 // import LogoutButton from "../LogoutButton"
 import styles from "./navbar.module.css";
 import { useDispatch } from "react-redux"
-
+import { FiLogIn } from 'react-icons/fi'
 
 
 import ToolTip from "../ToolTip";
