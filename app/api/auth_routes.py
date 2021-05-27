@@ -1,9 +1,9 @@
 from flask import Blueprint, session, request
-from app.models import User, db
+from app.models import User
 from app.forms import LoginForm
-from app.forms import SignUpForm
+
 from flask_login import current_user, login_user, logout_user, login_required
-from random import randint
+# from random import randint
 
 
 auth_routes = Blueprint('auth', __name__)
@@ -48,22 +48,6 @@ def logout():
     return {'message': 'User logged out'}
 
 
-
-
-
-
-@auth_routes.route('/signup', methods=['POST'])
-def sign_up():
-    form = SignUpForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        user = User(the_search_id=f'{randint(1, 100)}{randint(1, 10000000000)}',
-                    user_name=form.data['username'], email=form.data['email'], password=form.data['password'])
-        db.session.add(user)
-        db.session.commit()
-        login_user(user)
-        return user.to_dict()
-    return { 'errors': "Invalid sign-in, please try again." }, 401
 
 
 

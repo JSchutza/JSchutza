@@ -1,5 +1,5 @@
 
-import { SET_USER, REMOVE_USER, VALIDATION_ERRORS, CLEAR_ERRORS, USER_SEARCH } from '../types'
+import { SET_USER, REMOVE_USER, VALIDATION_ERRORS, CLEAR_ERRORS } from '../types'
 
 
 const setUser = (user) => ({
@@ -24,12 +24,6 @@ const clearErrors = () => ({
 });
 
 
-const userSearch = (searchedUser) => ({
-  type: USER_SEARCH,
-  searchedUser
-});
-
-
 
 
 
@@ -40,7 +34,7 @@ export {
   removeUser,
   setErrors,
   clearErrors,
-  userSearch,
+
 
 
 }

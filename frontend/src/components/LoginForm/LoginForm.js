@@ -8,7 +8,7 @@ import ToolTip from "../ToolTip";
 import styles from "./loginform.module.css"
 
 import { IoIosPower } from "react-icons/io";
-import { hideModal, contentModal } from "../../store/actions/modal.js";
+
 
 
 
@@ -22,16 +22,9 @@ const LoginForm = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    dispatch(hideModal());
-    dispatch(contentModal(null));
-    dispatch(login(email, password));
+    // dispatch(login(email, password));
   }
 
-
-  const handleDemo = event => {
-    event.preventDefault();
-    dispatch(login("demo@aa.io", "password"));
-  }
 
 
 
@@ -71,20 +64,14 @@ const LoginForm = () => {
         </div>
 
       </form>
-
-      <div className={styles.demo_button}>
-        <div className={styles.spacer}>
-        <ToolTip content={"Demo"}>
-          <a href='/' onClick={event => handleDemo(event)}> Demo </a>
-        </ToolTip>
-        </div>
-      </div>
-
     </div>
-
     </>
   )
+
+
 };
+
+
 
 
 export default LoginForm;

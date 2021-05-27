@@ -6,25 +6,22 @@ from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
 
 from .models import db, User
-from .api.user_routes import user_routes
+
 from .api.auth_routes import auth_routes
-from .api.character_routes import character_routes
-from .api.book_routes import book_routes
-from .api.book_resource_routes import resource_routes
-from .api.poll_routes import poll_routes
 
-
-
-
-from .seeds import seed_commands
+# from .seeds import seed_commands
 
 from .config import Config
 
 app = Flask(__name__)
 
+
 # Setup login manager
 login = LoginManager(app)
 login.login_view = 'auth.unauthorized'
+
+
+
 
 
 @login.user_loader
@@ -33,22 +30,19 @@ def load_user(id):
 
 
 # Tell flask about our seed commands
-app.cli.add_command(seed_commands)
+# app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
-app.register_blueprint(user_routes, url_prefix='/api/users')
-app.register_blueprint(auth_routes, url_prefix='/api/auth')
-app.register_blueprint(character_routes, url_prefix='/api/characters')
-app.register_blueprint(book_routes, url_prefix='/api/books')
-app.register_blueprint(resource_routes, url_prefix='/api/book')
-app.register_blueprint(poll_routes, url_prefix='/api/polls')
 
+app.register_blueprint(auth_routes, url_prefix='/api/auth')
 
 
 
 db.init_app(app)
 Migrate(app, db)
 CORS(app)
+
+
 
 
 
