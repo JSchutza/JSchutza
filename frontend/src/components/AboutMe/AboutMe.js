@@ -11,11 +11,8 @@ const AboutMe = () => {
       <Jumbotron fluid>
         <Container>
           <h1>Joshua Schutza</h1>
-          <Image src={personalImg} fluid />
-          <p>
-            This is a modified jumbotron that occupies the entire horizontal space of
-            its parent.
-          </p>
+            <Image src={personalImg} fluid />
+          <h2>Software Engineer - Leader - Advocate</h2>
         </Container>
       </Jumbotron>
     </>
