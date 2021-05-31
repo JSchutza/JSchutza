@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import CardGroup from 'react-bootstrap/CardGroup';
+import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
 import defaultImg from "../../icons/default_img.JPG";
 
@@ -12,7 +12,10 @@ const ProjectViewer = () => {
     <div>
       <Container>
 
-        <CardGroup>
+          <Container>
+            <h1> Projects </h1>
+          </Container>
+        <CardColumns>
           <Card>
             <Card.Img variant="top" src={defaultImg} />
             <Card.Body>
@@ -125,7 +128,7 @@ const ProjectViewer = () => {
           </Card>
 
 
-        </CardGroup>
+        </CardColumns>
       </Container>
     </div>
     </>
