@@ -2,9 +2,9 @@ import React from 'react';
 import { useHistory } from "react-router-dom";
 // import LogoutButton from "../LogoutButton"
 import styles from "./navbar.module.css";
-import { useDispatch } from "react-redux"
-import { FiLogIn } from 'react-icons/fi'
-import Nav from 'react-bootstrap/Nav'
+import { useDispatch } from "react-redux";
+import { FiLogIn } from 'react-icons/fi';
+import Nav from 'react-bootstrap/Nav';
 
 import ToolTip from "../ToolTip";
 

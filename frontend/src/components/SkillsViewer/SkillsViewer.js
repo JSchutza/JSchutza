@@ -1,5 +1,7 @@
 import React from 'react';
-import ListGroup from 'react-bootstrap/ListGroup'
+import Container from 'react-bootstrap/Container';
+
+import ListGroup from 'react-bootstrap/ListGroup';
 
 
 
@@ -9,7 +11,9 @@ const SkillsViewer = () => {
   return (
     <>
     <div>
+      <Container >
       <h1>Skills</h1>
+
         <ListGroup variant="flush">
           <ListGroup.Item> JavaScript </ListGroup.Item>
           <ListGroup.Item> Python </ListGroup.Item>
@@ -34,6 +38,7 @@ const SkillsViewer = () => {
           <ListGroup.Item> Go </ListGroup.Item>
           <ListGroup.Item> C++ </ListGroup.Item>
         </ListGroup>
+      </Container>
     </div>
     </>
   )
