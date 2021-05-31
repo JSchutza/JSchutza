@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-import styles from "./tooltip.module.css"
+import styles from "./tooltip.module.css";
 
 
 
