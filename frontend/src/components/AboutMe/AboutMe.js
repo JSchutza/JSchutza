@@ -9,11 +9,14 @@ const AboutMe = () => {
   return (
     <>
       <Jumbotron fluid>
+        <h3>GitHub, LinkedIn, ect... </h3>
         <Container>
           <h1>Joshua Schutza</h1>
             <Image src={personalImg} fluid />
           <h2>Software Engineer - Leader - Advocate</h2>
         </Container>
+
+        <h2>About Me</h2>
       </Jumbotron>
     </>
   )
