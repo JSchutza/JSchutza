@@ -2,7 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Card from 'react-bootstrap/Card';
-
+import defaultImg from "../../icons/default_img.JPG";
 
 
 
@@ -14,7 +14,7 @@ const ProjectViewer = () => {
 
         <CardGroup>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src={defaultImg} />
             <Card.Body>
               <Card.Title> Book Organizer </Card.Title>
               <Card.Text>
@@ -35,7 +35,7 @@ const ProjectViewer = () => {
 
 
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src={defaultImg} />
             <Card.Body>
               <Card.Title> Remind Me </Card.Title>
               <Card.Text>
@@ -58,7 +58,7 @@ const ProjectViewer = () => {
 
 
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src={defaultImg} />
             <Card.Body>
               <Card.Title> Instagram_Clone </Card.Title>
               <Card.Text>
@@ -81,7 +81,7 @@ const ProjectViewer = () => {
 
 
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src={defaultImg} />
             <Card.Body>
               <Card.Title> Podemic </Card.Title>
               <Card.Text>
@@ -104,7 +104,7 @@ const ProjectViewer = () => {
 
 
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src={defaultImg} />
             <Card.Body>
               <Card.Title> Median </Card.Title>
               <Card.Text>
