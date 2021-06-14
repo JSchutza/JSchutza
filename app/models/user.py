@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
 
-from random import randint
+# from random import randint
 
 
 
@@ -19,6 +19,10 @@ class User(db.Model, UserMixin):
     bio = db.Column(db.Text)
     avatar = db.Column(db.Text)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now)
+
+
+    resumes = db.relationship("Resume", backref="users", cascade="all, delete")
+
 
 
 
@@ -44,5 +48,4 @@ class User(db.Model, UserMixin):
             "bio": self.bio,
             "avatar": self.avatar,
             "created_at": self.created_at,
-
         }
