@@ -9,7 +9,8 @@ from .models import db, User
 
 from .api.auth_routes import auth_routes
 
-# from .seeds import seed_commands
+from .seeds import seed_commands
+
 
 from .config import Config
 
@@ -30,7 +31,7 @@ def load_user(id):
 
 
 # Tell flask about our seed commands
-# app.cli.add_command(seed_commands)
+app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
 
