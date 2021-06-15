@@ -1,9 +1,8 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from datetime import datetime
 
-# from random import randint
+
 
 
 
@@ -13,12 +12,16 @@ class User(db.Model, UserMixin):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
-    user_name = db.Column(db.String(45), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    bio = db.Column(db.Text)
     avatar = db.Column(db.Text)
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.now)
+    firstname = db.Column(db.String(255), nullable=False)
+    lastname = db.Column(db.String(255), nullable=False)
+    jobtitle = db.Column(db.Text)
+    about_text = db.Column(db.Text)
+    github_link = db.Column(db.Text)
+    linkedin_link = db.Column(db.Text)
+
 
 
     resumes = db.relationship("Resume", backref="users", cascade="all, delete")
