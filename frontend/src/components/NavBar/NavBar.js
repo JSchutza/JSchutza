@@ -41,6 +41,14 @@ const NavBar = ({ userStatus }) => {
   }
 
 
+  const initLogout = event => {
+    event.preventDefault();
+    // dispatch to logout thunk here
+  }
+
+
+
+
 
   if (userStatus === false){
     return (
@@ -75,8 +83,19 @@ const NavBar = ({ userStatus }) => {
   return (
     <>
     <div>
-      <nav className={styles.nav}>
-      </nav>
+        <Nav justify variant="tabs" defaultActiveKey="/">
+
+          <Nav.Item>
+            <ToolTip content={'Logout'} >
+              <Nav.Link href="/logout" onClick={event => initLogout(event)}> <FiLogIn /> </Nav.Link>
+            </ToolTip>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/" onClick={event => showHome(event)}> Home </Nav.Link>
+          </Nav.Item>
+
+        </Nav>
     </div>
     </>
   );
