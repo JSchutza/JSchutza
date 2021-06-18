@@ -25,7 +25,7 @@ const LoginForm = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    // dispatch(login(email, password));
+    dispatch(login(email, password));
   }
 
 
@@ -36,12 +36,22 @@ const LoginForm = () => {
       <form onSubmit={onSubmit}>
           <Jumbotron fluid>
             <Container>
-            <Form.Control type="email" placeholder="name@example.com" />
+            <Form.Control
+              type="email"
+              placeholder="name@example.com"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              />
 
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              />
 
           <ToolTip content={"Enter"}>
-              <IoIosPower />
+                <button> <IoIosPower /> </button>
           </ToolTip>
         </Container>
       </Jumbotron>
