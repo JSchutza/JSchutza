@@ -75,6 +75,29 @@ function App() {
         <NavBar userStatus={true} />
 
           <Switch>
+            <Route path='/' exact>
+              <h1>Admin Dashboard</h1>
+            </Route>
+
+            <Route path='/profile' exact>
+              <h1>Profile</h1>
+            </Route>
+
+            <Route path='/aboutme' exact>
+              <h1>About Me</h1>
+            </Route>
+
+            <Route path='/skillsviewer' exact>
+              <h1>Skills Viewer</h1>
+            </Route>
+
+            <Route path='/projectviewer' exact>
+              <h1>Project Viewer</h1>
+            </Route>
+
+            <Route path='/projectviewer' exact>
+              <h1>Project Viewer</h1>
+            </Route>
 
           </Switch>
       </BrowserRouter>
