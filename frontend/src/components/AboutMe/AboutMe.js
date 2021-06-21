@@ -10,6 +10,11 @@ import personalImg from "../../icons/Profile_Pic.jpg";
 const AboutMe = ({ isAdmin=false }) => {
   return (
     <>
+      {isAdmin ? <div>
+        <a href="/" onClick={event => event.preventDefault()}> Update </a>
+      </div> : <></>}
+
+
       <Jumbotron fluid>
         <Container>
 
@@ -36,7 +41,7 @@ const AboutMe = ({ isAdmin=false }) => {
         </Container>
       </Jumbotron>
 
-      {isAdmin ? <div></div> : <></> }
+
     </>
   )
 };

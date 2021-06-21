@@ -77,10 +77,10 @@ function App() {
           <Switch>
             <Route path='/' exact>
               <h1>Admin Dashboard</h1>
-            </Route>
-
-            <Route path='/profile' exact>
-              <h1>Profile</h1>
+                <AboutMe isAdmin={true} />
+                <SkillsViewer isAdmin={true} />
+                <ProjectViewer isAdmin={true} />
+                <Resume isAdmin={true} />
             </Route>
 
             <Route path='/aboutme' exact>
@@ -95,8 +95,8 @@ function App() {
               <h1>Project Viewer</h1>
             </Route>
 
-            <Route path='/projectviewer' exact>
-              <h1>Project Viewer</h1>
+            <Route path='/resume' exact>
+              <h1>Resume</h1>
             </Route>
 
           </Switch>

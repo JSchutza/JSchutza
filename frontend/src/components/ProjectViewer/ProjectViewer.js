@@ -9,6 +9,10 @@ import defaultImg from "../../icons/default_img.JPG";
 const ProjectViewer = ({ isAdmin = false }) => {
   return (
     <>
+      {isAdmin ? <div>
+        <a href="/" onClick={event => event.preventDefault()}> Update </a>
+      </div> : <></>}
+
     <div>
       <Container>
 
@@ -133,7 +137,6 @@ const ProjectViewer = ({ isAdmin = false }) => {
       </Container>
     </div>
 
-      {isAdmin ? <div></div> : <></>}
     </>
   )
 };

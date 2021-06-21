@@ -12,7 +12,10 @@ import Button from 'react-bootstrap/Button'
 const Resume = ({ isAdmin = false }) => {
   return (
     <>
-      {isAdmin ? <div></div> : <></>}
+      {isAdmin ? <div>
+        <a href="/" onClick={event => event.preventDefault()}> Update </a>
+      </div> : <></>}
+
 
     <div>
         <Container>
