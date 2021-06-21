@@ -9,9 +9,14 @@ import Button from 'react-bootstrap/Button'
 
 
 
-const Resume = () => {
+const Resume = ({ isAdmin = false }) => {
   return (
     <>
+      {isAdmin ? <div>
+        <a href="/" onClick={event => event.preventDefault()}> Update </a>
+      </div> : <></>}
+
+
     <div>
         <Container>
           <h1> Joshua Schutza </h1>
@@ -301,6 +306,8 @@ const Resume = () => {
           <Button variant="primary"> Download </Button>
     </Container>
     </div>
+
+
     </>
   )
 

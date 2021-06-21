@@ -9,9 +9,13 @@ import Card from 'react-bootstrap/Card';
 
 
 
-const SkillsViewer = () => {
+const SkillsViewer = ({ isAdmin = false }) => {
   return (
     <>
+      {isAdmin ? <div>
+        <a href="/" onClick={event => event.preventDefault()}> Update </a>
+      </div> : <></>}
+
     <div>
       <Container >
           <Accordion defaultActiveKey="0">
@@ -54,6 +58,7 @@ const SkillsViewer = () => {
           </Accordion>
       </Container>
     </div>
+
     </>
   )
 };
