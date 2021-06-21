@@ -7,7 +7,7 @@ import personalImg from "../../icons/Profile_Pic.jpg";
 
 
 
-const AboutMe = () => {
+const AboutMe = ({ isAdmin=false }) => {
   return (
     <>
       <Jumbotron fluid>
@@ -35,6 +35,8 @@ const AboutMe = () => {
 
         </Container>
       </Jumbotron>
+
+      {isAdmin ? <div></div> : <></> }
     </>
   )
 };

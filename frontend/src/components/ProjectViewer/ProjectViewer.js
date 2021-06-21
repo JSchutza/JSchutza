@@ -6,7 +6,7 @@ import defaultImg from "../../icons/default_img.JPG";
 
 
 
-const ProjectViewer = () => {
+const ProjectViewer = ({ isAdmin = false }) => {
   return (
     <>
     <div>
@@ -132,6 +132,8 @@ const ProjectViewer = () => {
         </CardColumns>
       </Container>
     </div>
+
+      {isAdmin ? <div></div> : <></>}
     </>
   )
 };

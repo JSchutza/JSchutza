@@ -9,7 +9,7 @@ import Card from 'react-bootstrap/Card';
 
 
 
-const SkillsViewer = () => {
+const SkillsViewer = ({ isAdmin = false }) => {
   return (
     <>
     <div>
@@ -54,6 +54,8 @@ const SkillsViewer = () => {
           </Accordion>
       </Container>
     </div>
+
+      {isAdmin ? <div></div> : <></>}
     </>
   )
 };
