@@ -3,14 +3,23 @@ import Container from 'react-bootstrap/Container';
 import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
 import defaultImg from "../../icons/default_img.JPG";
-
+import { useHistory } from "react-router-dom";
 
 
 const ProjectViewer = ({ isAdmin = false }) => {
+  const history = useHistory();
+
+
+  const handleUpdate = event => {
+    event.preventDefault();
+    history.push('/projectviewer');
+  }
+
+
   return (
     <>
       {isAdmin ? <div>
-        <a href="/" onClick={event => event.preventDefault()}> Update </a>
+        <a href="/" onClick={event => handleUpdate(event)}> Update </a>
       </div> : <></>}
 
     <div>

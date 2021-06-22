@@ -4,14 +4,25 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Nav from 'react-bootstrap/Nav';
 import personalImg from "../../icons/Profile_Pic.jpg";
+import { useHistory } from "react-router-dom";
 
 
 
 const AboutMe = ({ isAdmin=false }) => {
+  const history = useHistory();
+
+
+  const handleUpdate = event => {
+    event.preventDefault();
+    history.push('/aboutme');
+  }
+
+
+
   return (
     <>
       {isAdmin ? <div>
-        <a href="/" onClick={event => event.preventDefault()}> Update </a>
+        <a href="/" onClick={event => handleUpdate(event)}> Update </a>
       </div> : <></>}
 
 

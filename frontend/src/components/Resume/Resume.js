@@ -3,17 +3,26 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
-
+import { useHistory } from "react-router-dom";
 
 
 
 
 
 const Resume = ({ isAdmin = false }) => {
+  const history = useHistory();
+
+
+  const handleUpdate = event => {
+    event.preventDefault();
+    history.push('/resume');
+  }
+
+
   return (
     <>
       {isAdmin ? <div>
-        <a href="/" onClick={event => event.preventDefault()}> Update </a>
+        <a href="/" onClick={event => handleUpdate(event)}> Update </a>
       </div> : <></>}
 
 

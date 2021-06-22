@@ -4,17 +4,27 @@ import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
-
+import { useHistory } from "react-router-dom";
 
 
 
 
 const SkillsViewer = ({ isAdmin = false }) => {
+  const history = useHistory();
+
+
+  const handleUpdate = event => {
+    event.preventDefault();
+    history.push('/skillsviewer');
+  }
+
+
   return (
     <>
       {isAdmin ? <div>
-        <a href="/" onClick={event => event.preventDefault()}> Update </a>
+        <a href="/" onClick={event => handleUpdate(event)}> Update </a>
       </div> : <></>}
+
 
     <div>
       <Container >
