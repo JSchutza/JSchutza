@@ -9,7 +9,7 @@ import Resume from "./components/Resume";
 import LoginForm from "./components/LoginForm";
 import NavBar from "./components/NavBar";
 import { useUser } from "./context/UserContext.js";
-
+import UpdateInfo from "./components/UpdateInfo";
 
 
 
@@ -82,19 +82,22 @@ function App() {
 
             <Route path='/aboutme' exact>
               <h1>'Admin' About Me</h1>
-                {/* <a href='/' onClick={event => goBack(event)}> Back </a> */}
+                <UpdateInfo />
             </Route>
 
             <Route path='/skillsviewer' exact>
-            <h1>'Admin' Skills Viewer</h1>
+              <h1>'Admin' Skills Viewer</h1>
+                <UpdateInfo />
             </Route>
 
             <Route path='/projectviewer' exact>
-            <h1>'Admin' Project Viewer</h1>
+              <h1>'Admin' Project Viewer</h1>
+                <UpdateInfo />
             </Route>
 
             <Route path='/resume' exact>
-            <h1>'Admin' Resume</h1>
+              <h1>'Admin' Resume</h1>
+                <UpdateInfo />
             </Route>
 
           </Switch>
