@@ -21,12 +21,9 @@ function App() {
 
 
 
-
   useEffect(() => {
     setLoaded(true);
   }, [dispatch]);
-
-
 
 
 
@@ -84,19 +81,20 @@ function App() {
             </Route>
 
             <Route path='/aboutme' exact>
-              <h1>About Me</h1>
+              <h1>'Admin' About Me</h1>
+                {/* <a href='/' onClick={event => goBack(event)}> Back </a> */}
             </Route>
 
             <Route path='/skillsviewer' exact>
-              <h1>Skills Viewer</h1>
+            <h1>'Admin' Skills Viewer</h1>
             </Route>
 
             <Route path='/projectviewer' exact>
-              <h1>Project Viewer</h1>
+            <h1>'Admin' Project Viewer</h1>
             </Route>
 
             <Route path='/resume' exact>
-              <h1>Resume</h1>
+            <h1>'Admin' Resume</h1>
             </Route>
 
           </Switch>
