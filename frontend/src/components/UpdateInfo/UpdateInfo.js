@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-
+import AboutMeForm from "../AboutMeForm";
 
 
 
@@ -27,7 +27,7 @@ const UpdateInfo = ({ the_type }) => {
     <div>
         {the_type === 'aboutme' ? <div>
           <h1>Update about me</h1>
-          
+              <AboutMeForm />
         </div> : <></>}
     </div>
 
