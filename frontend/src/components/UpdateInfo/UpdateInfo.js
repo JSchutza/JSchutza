@@ -1,8 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import AboutMeForm from "../AboutMeForm";
-
-
+import SkillsViewerForm from "../SkillsViewerForm";
+import ProjectViewerForm from "../ProjectViewerForm";
+import ResumeForm from "../ResumeForm";
 
 
 const UpdateInfo = ({ the_type }) => {
@@ -35,7 +36,7 @@ const UpdateInfo = ({ the_type }) => {
     <div>
         {the_type === 'skillsviewer' ? <div>
           <h1>Update skillsviewer</h1>
-
+              <SkillsViewerForm />
         </div> : <></>}
     </div>
 
@@ -43,7 +44,7 @@ const UpdateInfo = ({ the_type }) => {
     <div>
         {the_type === 'projectviewer' ? <div>
           <h1>Update projectviewer</h1>
-
+              <ProjectViewerForm />
         </div> : <></>}
     </div>
 
@@ -51,7 +52,7 @@ const UpdateInfo = ({ the_type }) => {
     <div>
         {the_type === 'resume' ? <div>
           <h1>Update resume</h1>
-
+              <ResumeForm />
         </div> : <></>}
     </div>
 
