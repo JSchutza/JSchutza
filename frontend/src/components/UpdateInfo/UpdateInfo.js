@@ -22,6 +22,10 @@ const UpdateInfo = ({ the_type }) => {
     <div>
         <a href='/' onClick={event => goBack(event)}> Back </a>
     </div>
+
+    <div>
+      
+    </div>
     </>
   )
 };

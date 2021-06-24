@@ -82,22 +82,22 @@ function App() {
 
             <Route path='/aboutme' exact>
               <h1>'Admin' About Me</h1>
-                <UpdateInfo />
+                <UpdateInfo the_type={'aboutme'} />
             </Route>
 
             <Route path='/skillsviewer' exact>
               <h1>'Admin' Skills Viewer</h1>
-                <UpdateInfo />
+                <UpdateInfo the_type={'skillsviewer'} />
             </Route>
 
             <Route path='/projectviewer' exact>
               <h1>'Admin' Project Viewer</h1>
-                <UpdateInfo />
+                <UpdateInfo the_type={'projectviewer'} />
             </Route>
 
             <Route path='/resume' exact>
               <h1>'Admin' Resume</h1>
-                <UpdateInfo />
+                <UpdateInfo the_type={'resume'} />
             </Route>
 
           </Switch>
