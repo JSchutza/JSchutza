@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EducationForm from "../EducationForm";
+import ExperienceForm from "../ExperienceForm";
 
 
 
@@ -16,6 +17,7 @@ const ResumeForm = () => {
   return (
     <>
       <EducationForm />
+      <ExperienceForm />
     </>
   )
 };
