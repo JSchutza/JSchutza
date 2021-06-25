@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-
+import EducationForm from "../EducationForm";
 
 
 
 
 const ResumeForm = () => {
-  const [ educationtitle, setEducationTitle ] = useState(null);
 
 
   const onSubmit = event => {
@@ -16,32 +15,7 @@ const ResumeForm = () => {
 
   return (
     <>
-    <form onSubmit={onSubmit}>
-
-    <label>
-      Education Title
-      <input
-        type="text"
-        name="educationtitle"
-        value={educationtitle}
-        onChange={event => setEducationTitle(event.target.value)}
-      />
-    </label>
-
-    <label>
-      School Name
-    </label>
-
-    <label>
-      Start Year
-    </label>
-
-    <label>
-      End Year
-    </label>
-
-
-    </form>
+      <EducationForm />
     </>
   )
 };
