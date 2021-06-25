@@ -5,10 +5,7 @@ import React, { useEffect, useState } from "react";
 
 
 const ResumeForm = () => {
-  const [ skillChoice, setSkillChoice ] = useState(null);
-  const [ projectChoice, setProjectChoice ] = useState(null);
-  const [ experienceChoice, setExperienceChoice ] = useState(null);
-  const [ educationChoice, setEducationChoice ] = useState(null);
+  const [ educationtitle, setEducationTitle ] = useState(null);
 
 
   const onSubmit = event => {
@@ -22,20 +19,27 @@ const ResumeForm = () => {
     <form onSubmit={onSubmit}>
 
     <label>
-      Confirm Skills
+      Education Title
+      <input
+        type="text"
+        name="educationtitle"
+        value={educationtitle}
+        onChange={event => setEducationTitle(event.target.value)}
+      />
     </label>
 
     <label>
-      Confirm Skills
+      School Name
     </label>
 
     <label>
-      Confirm Skills
+      Start Year
     </label>
 
     <label>
-      Confirm Skills
+      End Year
     </label>
+
 
     </form>
     </>
