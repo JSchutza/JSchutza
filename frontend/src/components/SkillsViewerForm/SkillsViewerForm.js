@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
 
 
 
@@ -21,22 +23,23 @@ const SkillsViewerForm = () => {
       {/* display list of the current skills in db with delete / remove button next to each */}
 
 
-
-
+      <Jumbotron fluid>
+        <Container>
     <form onSubmit={onSubmit}>
       <label>
         Title
-        <input
+        <Form.Control
           type="text"
           name="title"
           value={title}
             onChange={event => setTitle(event.target.value)}
         />
       </label>
+    <br />
 
       <label>
         Percentage
-        <input
+        <Form.Control
           type="number"
           name="percentage"
           value={percentage}
@@ -44,6 +47,8 @@ const SkillsViewerForm = () => {
         />
       </label>
     </form>
+        </Container>
+      </Jumbotron>
     </>
   )
 };
