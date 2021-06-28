@@ -5,12 +5,14 @@ import thunk from "redux-thunk";
 import { usersReducer } from './reducers/session.js';
 import { personalInfoReducer } from './reducers/personal.js';
 import { skillsReducer } from './reducers/skills.js';
+import { projectsReducer } from './reducers/projects.js';
 
 // root reducer here
 const rootReducer = combineReducers({
   usersReducer,
   personalInfoReducer,
   skillsReducer,
+  projectsReducer,
 
 
 });
