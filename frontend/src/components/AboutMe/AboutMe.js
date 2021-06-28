@@ -5,19 +5,20 @@ import Image from 'react-bootstrap/Image';
 import Nav from 'react-bootstrap/Nav';
 import personalImg from "../../icons/Profile_Pic.jpg";
 import { useHistory } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 
 
 
 
 const AboutMe = ({ isAdmin=false }) => {
   const history = useHistory();
-
+  const aboutInfo = useSelector(store => store.personalInfoReducer.user);
 
   const handleUpdate = event => {
     event.preventDefault();
     history.push('/aboutme');
   }
+
 
 
 
@@ -33,23 +34,32 @@ const AboutMe = ({ isAdmin=false }) => {
 
           <Nav className="justify-content-center">
             <Nav.Item>
-              <Nav.Link href="https://github.com/JSchutza">Github</Nav.Link>
+              <Nav.Link href={aboutInfo?.github_link}>Github</Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link href="https://www.linkedin.com/in/joshua-schutza-559819ba/">Linkedin</Nav.Link>
+              <Nav.Link href={aboutInfo?.linkedin_link}>Linkedin</Nav.Link>
             </Nav.Item>
           </Nav>
 
 
 
 
-          <h1>Joshua Schutza</h1>
+          <h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
+          {aboutInfo?.avatar === null ?
             <Image src={personalImg} fluid />
-          <h2>Software Engineer - Leader - Advocate</h2>
+            :
+            <Image src={aboutInfo?.avatar} fluid />
+          }
 
+          {aboutInfo?.jobtitle === null ?
+            <h2>Software Engineer - Leader - Advocate</h2>
+            :
+            <h2>{aboutInfo?.jobtitle}</h2>
+          }
 
           <h2>About Me</h2>
+
 
         </Container>
       </Jumbotron>
