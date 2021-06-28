@@ -22,7 +22,8 @@ const GET_PERSONAL_INFO = 'personal/GET_PERSONAL_INFO';
 // skills info
 const GET_SKILLS = 'skills/GET_SKILLS';
 
-
+// project info
+const GET_PROJECTS = 'projects/GET_PROJECTS';
 
 
 export {
@@ -34,6 +35,7 @@ export {
   RESET_ERRORS,
   GET_PERSONAL_INFO,
   GET_SKILLS,
+  GET_PROJECTS,
 
 
 
