@@ -59,6 +59,16 @@ const AboutMe = ({ isAdmin=false }) => {
           }
 
           <h2>About Me</h2>
+          {aboutInfo?.about_text === null ?
+            <p>
+              I am a determined individual who is working towards a career as a leader, visionary, and advocate.
+              One of my many objectives is to impact the workforce through developing individuals and drawing out their strengths.
+              I am seeking a working and learning opportunity that will utilize my research skills and natural ability to see
+                growth and potential within people and businesses.
+            </p>
+          :
+            <p>{aboutInfo?.about_text}</p>
+          }
 
 
         </Container>
