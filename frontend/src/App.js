@@ -12,6 +12,7 @@ import { useUser } from "./context/UserContext.js";
 import UpdateInfo from "./components/UpdateInfo";
 import { thunk_getPersonalInfo } from './store/thunks/personal.js';
 import { thunk_getSkills } from "./store/thunks/skills.js";
+import { thunk_getProjects } from "./store/thunks/projects.js";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
   useEffect(() => {
     dispatch(thunk_getPersonalInfo());
     dispatch(thunk_getSkills());
+    dispatch(thunk_getProjects());
     setLoaded(true);
   }, [dispatch]);
 
