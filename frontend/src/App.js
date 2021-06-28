@@ -11,7 +11,7 @@ import NavBar from "./components/NavBar";
 import { useUser } from "./context/UserContext.js";
 import UpdateInfo from "./components/UpdateInfo";
 import { thunk_getPersonalInfo } from './store/thunks/personal.js';
-
+import { thunk_getSkills } from "./store/thunks/skills.js";
 
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
 
   useEffect(() => {
     dispatch(thunk_getPersonalInfo());
+    dispatch(thunk_getSkills());
     setLoaded(true);
   }, [dispatch]);
 
