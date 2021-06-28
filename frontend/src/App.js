@@ -10,6 +10,7 @@ import LoginForm from "./components/LoginForm";
 import NavBar from "./components/NavBar";
 import { useUser } from "./context/UserContext.js";
 import UpdateInfo from "./components/UpdateInfo";
+import { thunk_getPersonalInfo } from './store/thunks/personal.js';
 
 
 
@@ -22,6 +23,7 @@ function App() {
 
 
   useEffect(() => {
+    dispatch(thunk_getPersonalInfo());
     setLoaded(true);
   }, [dispatch]);
 
