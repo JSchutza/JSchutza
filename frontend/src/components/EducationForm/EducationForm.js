@@ -19,6 +19,7 @@ const EducationForm = () => {
 
   return (
     <>
+      <h2>Education</h2>
       <form onSubmit={onSubmit}>
 
         <label>

@@ -19,6 +19,7 @@ const ExperienceForm = () => {
 
   return (
     <>
+    <h2>Work Experience</h2>
       <form onSubmit={onSubmit}>
 
         <label>

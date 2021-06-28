@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-
-
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
 
 
 
@@ -24,36 +25,41 @@ const AboutMeForm = () => {
 
   return (
     <>
+      <Jumbotron fluid>
+      <Container>
       <form onSubmit={onSubmit}>
         <label>
           First Name
-          <input
+          <Form.Control
             type="text"
             name="firstname"
             value={firstname}
             onChange={event => setFirstName(event.target.value)}
           />
         </label>
+        <br />
 
         <label>
           Last Name
-          <input
+          <Form.Control
             type="text"
             name="lastname"
             value={lastname}
             onChange={event => setLastName(event.target.value)}
           />
         </label>
+        <br />
 
         <label>
           Job Title
-          <input
+          <Form.Control
             type="text"
             name="jobtitle"
             value={jobtitle}
             onChange={event => setJobTitle(event.target.value)}
           />
         </label>
+        <br />
 
         <label>
           About Text
@@ -63,20 +69,22 @@ const AboutMeForm = () => {
             onChange={event => setAboutText(event.target.value)}
           />
         </label>
+        <br />
 
         <label>
           GitHub Link
-          <input
+          <Form.Control
             type="text"
             name="githublink"
             value={githublink}
             onChange={event => setGitHubLink(event.target.value)}
           />
         </label>
+        <br />
 
         <label>
           Linkedin Link
-          <input
+          <Form.Control
             type="text"
             name="linkedinlink"
             value={linkedinlink}
@@ -84,9 +92,9 @@ const AboutMeForm = () => {
           />
         </label>
 
-
-
       </form>
+      </Container>
+      </Jumbotron>
     </>
   )
 };
