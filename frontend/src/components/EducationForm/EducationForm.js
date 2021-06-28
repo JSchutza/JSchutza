@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
 
 
 
@@ -19,42 +21,47 @@ const EducationForm = () => {
 
   return (
     <>
+      <Jumbotron fluid>
+        <Container>
       <h2>Education</h2>
       <form onSubmit={onSubmit}>
 
         <label>
           Education Title
-          <input
+          <Form.Control
             type="text"
             name="educationtitle"
             value={educationtitle}
             onChange={event => setEducationTitle(event.target.value)}
           />
         </label>
+          <br />
 
         <label>
           School Name
-          <input
+          <Form.Control
             type="text"
             name="schoolname"
             value={schoolname}
             onChange={event => setSchoolName(event.target.value)}
           />
         </label>
+            <br />
 
         <label>
           Start Year
-          <input
+          <Form.Control
             type="text"
             name="startyear"
             value={startyear}
             onChange={event => setStartYear(event.target.value)}
           />
         </label>
+            <br />
 
         <label>
           End Year
-          <input
+          <Form.Control
             type="text"
             name="endyear"
             value={endyear}
@@ -64,6 +71,8 @@ const EducationForm = () => {
 
 
       </form>
+        </Container>
+      </Jumbotron>
     </>
   )
 };

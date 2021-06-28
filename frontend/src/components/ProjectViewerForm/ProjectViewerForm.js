@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
 
 
 
@@ -23,57 +25,64 @@ const ProjectViewerForm = () => {
 
   return (
     <>
+      <Jumbotron fluid>
+        <Container>
     <form onSubmit={onSubmit}>
 
     <label>
       Project Name
-      <input
+      <Form.Control
         type="text"
         name='projectname'
         value={projectname}
         onChange={event => setProjectName(event.target.value)}
       />
     </label>
+    <br />
 
     <label>
       Project Img
-      <input
+      <Form.Control
         type="text"
         name='projectimg'
         value={projectimg}
         onChange={event => setProjectImg(event.target.value)}
       />
     </label>
+      <br />
 
     <label>
       Description
-      <input
+      <Form.Control
         type="text"
         name='description'
         value={description}
         onChange={event => setDescription(event.target.value)}
       />
     </label>
+      <br />
 
     <label>
       Live Link
-      <input
+      <Form.Control
         type="text"
         name='livelink'
         value={livelink}
         onChange={event => setLiveLink(event.target.value)}
       />
     </label>
+      <br />
 
     <label>
       Github Link
-      <input
+      <Form.Control
         type="text"
         name='githublink'
         value={githublink}
         onChange={event => setGithubLink(event.target.value)}
       />
     </label>
+      <br />
 
     <label>
       Used Technology
@@ -85,6 +94,8 @@ const ProjectViewerForm = () => {
     </label>
 
     </form>
+        </Container>
+    </Jumbotron>
     </>
   )
 };
