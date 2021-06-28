@@ -16,6 +16,9 @@ const RESET_ERRORS = "errors/RESET_ERRORS";
 
 
 
+// my personal info
+const GET_PERSONAL_INFO = 'personal/GET_PERSONAL_INFO';
+
 
 
 
@@ -27,6 +30,7 @@ export {
   CLEAR_ERRORS,
   SET_ERRORS,
   RESET_ERRORS,
+  GET_PERSONAL_INFO,
 
 
 

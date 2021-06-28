@@ -3,12 +3,13 @@ import thunk from "redux-thunk";
 
 // reducer imports here
 import { usersReducer } from './reducers/session.js';
-
+import { personalInfoReducer } from './reducers/personal.js';
 
 
 // root reducer here
 const rootReducer = combineReducers({
   usersReducer,
+  personalInfoReducer,
 
 
 });
