@@ -43,15 +43,16 @@ const ProjectViewer = ({ isAdmin = false }) => {
                 <Card.Body>
                       <Card.Title> {eachProject.project_name} </Card.Title>
                   <Card.Text>
-                    A app to help authors create and organize books they are currently writing and to connect authors to other aspiring authors.
+                        {eachProject.description}
                   </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                  <a href="https://book-organizer.herokuapp.com/">
+                  <a href={eachProject.live_link}>
                     <small className="text-muted">Live</small>
                   </a>
                   <br />
-                  <a href="https://github.com/JSchutza/Book_Organizer">
+
+                  <a href={eachProject.github_link}>
                     <small className="text-muted">GitHub</small>
                   </a>
                 </Card.Footer>
