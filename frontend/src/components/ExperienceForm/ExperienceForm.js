@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
 
 
 
@@ -19,41 +21,47 @@ const ExperienceForm = () => {
 
   return (
     <>
+      <Jumbotron fluid>
+        <Container>
+    <h2>Work Experience</h2>
       <form onSubmit={onSubmit}>
 
         <label>
           Title
-          <input
+          <Form.Control
             type="text"
             name="title"
             value={title}
             onChange={event => setTitle(event.target.value)}
           />
         </label>
+        <br />
 
         <label>
           Company Name
-          <input
+          <Form.Control
             type="text"
             name="companyname"
             value={companyname}
             onChange={event => setCompanyName(event.target.value)}
           />
         </label>
+            <br />
 
         <label>
           Start Date
-          <input
+          <Form.Control
             type="text"
             name="startdate"
             value={startdate}
             onChange={event => setStartDate(event.target.value)}
           />
         </label>
+            <br />
 
         <label>
           End Date
-          <input
+          <Form.Control
             type="text"
             name="enddate"
             value={enddate}
@@ -63,6 +71,8 @@ const ExperienceForm = () => {
 
 
       </form>
+        </Container>
+      </Jumbotron>
     </>
   )
 };

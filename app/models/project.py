@@ -12,7 +12,7 @@ class Project(db.Model):
   live_link = db.Column(db.Text)
   github_link = db.Column(db.Text)
   used_tech = db.Column(db.Text)
-  bulletpoint_id = db.Column(db.Integer, db.ForeignKey("bulletpoints.id", ondelete='CASCADE'), nullable=False)
+  bulletpoint_id = db.Column(db.Integer, db.ForeignKey("bulletpoints.id", ondelete='CASCADE'), nullable=True)
 
 
 
