@@ -13,6 +13,8 @@ import UpdateInfo from "./components/UpdateInfo";
 import { thunk_getPersonalInfo } from './store/thunks/personal.js';
 import { thunk_getSkills } from "./store/thunks/skills.js";
 import { thunk_getProjects } from "./store/thunks/projects.js";
+import { thunk_getExperiences } from "./store/thunks/experiences.js";
+
 
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
     dispatch(thunk_getPersonalInfo());
     dispatch(thunk_getSkills());
     dispatch(thunk_getProjects());
+    dispatch(thunk_getExperiences());
     setLoaded(true);
   }, [dispatch]);
 

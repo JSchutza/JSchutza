@@ -14,6 +14,7 @@ const Resume = ({ isAdmin = false }) => {
   const aboutInfo = useSelector(store => store.personalInfoReducer.user);
   const skillInfo = useSelector(store => store.skillsReducer.skills);
   const projectInfo = useSelector(store => store.projectsReducer.projects);
+  const experienceInfo = useSelector(store => store.experiencesReducer.experiences);
 
 
 
@@ -115,75 +116,39 @@ const Resume = ({ isAdmin = false }) => {
       </Container>
 
 
+        {experienceInfo === null ?
+          <Container>
+            <h2>Loading Experiences ... </h2>
+          </Container>
+        :
+            Object.values(experienceInfo).map(eachExperience => (
+              <Container>
 
-      <Container>
-          <h5>Self Taught Software Engineer</h5>
-          <p>Freelance  Sep 2019 - Nov 2020</p>
-
-          <ListGroup>
-            <ListGroup.Item>
-              Created software with PHP, JavaScript, and Python through tutorials, research, and dedicated trial and error.
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              Contributed 1,867 times to more than fifty personal repositories on GitHub.
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              Built custom WordPress templates using PHP and CSS.
-            </ListGroup.Item>
-          </ListGroup>
-
-      </Container>
+                <h5>{eachExperience.title}</h5>
+                <p>{eachExperience.company_name}  {eachExperience.start_date} - {eachExperience.end_date}</p>
 
 
+                {/* map for associated bulletpoint objects  */}
+              {/* <ListGroup>
+                <ListGroup.Item>
+                Created software with PHP, JavaScript, and Python through tutorials, research, and dedicated trial and error.
+                </ListGroup.Item>
 
+                <ListGroup.Item>
+                Contributed 1,867 times to more than fifty personal repositories on GitHub.
+                </ListGroup.Item>
 
-      <Container>
-          <h5>HR Operations Specialist</h5>
-          <p>UBS Financial Services  Sep 2018 - Sep 2019</p>
+                <ListGroup.Item>
+                Built custom WordPress templates using PHP and CSS.
+                </ListGroup.Item>
+              </ListGroup> */}
 
-          <ListGroup>
-            <ListGroup.Item>
-              Maintained employee records for all North American External Staff members while meeting service level agreements.
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              Reported application errors and data inconsistencies with the IT team, improving case completion time and data accuracy.
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              Triaged cases to coworkers through the use of the SNOW case management system.
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              Won HR Hackathon contest with five other coworkers, improving communication and collaboration within UBS.
-            </ListGroup.Item>
-          </ListGroup>
-
-      </Container>
+              </Container>
+            ))
+        }
 
 
 
-      <Container>
-          <h5>Currey Ingram Academy</h5>
-          <p>Summer Treatment Program Counselor	 June 2018 - July 2018</p>
-
-          <ListGroup>
-            <ListGroup.Item>
-              Collected and analyzed data on students’ behavior, resulting in the creation of personalized treatment plans.
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              Evaluated treatment plans for students in order to identify areas of growth, allowing for continuous development of student behavior.
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              Directed students while utilizing a points-based system designed to reinforce attention and proper social behavior.
-            </ListGroup.Item>
-          </ListGroup>
-
-      </Container>
 
 
 

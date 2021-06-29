@@ -1,6 +1,6 @@
 
 
-import { getExperiences } from "../actions/skills.js";
+import { getExperiences } from "../actions/experiences.js";
 
 
 
