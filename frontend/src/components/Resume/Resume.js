@@ -15,6 +15,7 @@ const Resume = ({ isAdmin = false }) => {
   const skillInfo = useSelector(store => store.skillsReducer.skills);
   const projectInfo = useSelector(store => store.projectsReducer.projects);
   const experienceInfo = useSelector(store => store.experiencesReducer.experiences);
+  const educationInfo = useSelector(store => store.educationsReducer.educations);
 
 
 
@@ -157,27 +158,26 @@ const Resume = ({ isAdmin = false }) => {
       </Container>
 
 
-
-      <Container>
-          <h5>Full Stack Development</h5>
-          <p>App Academy   |   2020 - 2021</p>
-      </Container>
-
-
-
-      <Container>
-          <h5>BS Entertainment Industry Studies</h5>
-          <p>Belmont University |  2013 - 2018</p>
-      </Container>
-
+        {educationInfo === null ?
+          <Container>
+            <h2>Loading Education Information ... </h2>
+          </Container>
+        :
+          Object.values(educationInfo).map(eachEducation => (
+            <>
+              <Container>
+                  <h5>{eachEducation.title}</h5>
+                <p>{eachEducation.instution_name}   |   {eachEducation.start_year} - {eachEducation.end_year}</p>
+              </Container>
+            </>
+          ))
+        }
 
 
     <Container>
           <Button variant="primary"> Download </Button>
     </Container>
     </div>
-
-
     </>
   )
 

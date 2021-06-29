@@ -14,6 +14,8 @@ import { thunk_getPersonalInfo } from './store/thunks/personal.js';
 import { thunk_getSkills } from "./store/thunks/skills.js";
 import { thunk_getProjects } from "./store/thunks/projects.js";
 import { thunk_getExperiences } from "./store/thunks/experiences.js";
+import { thunk_getEducations } from "./store/thunks/educations.js";
+
 
 
 
@@ -30,6 +32,7 @@ function App() {
     dispatch(thunk_getSkills());
     dispatch(thunk_getProjects());
     dispatch(thunk_getExperiences());
+    dispatch(thunk_getEducations());
     setLoaded(true);
   }, [dispatch]);
 
