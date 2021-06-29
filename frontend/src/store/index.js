@@ -7,6 +7,7 @@ import { personalInfoReducer } from './reducers/personal.js';
 import { skillsReducer } from './reducers/skills.js';
 import { projectsReducer } from './reducers/projects.js';
 import { experiencesReducer } from './reducers/experiences.js';
+import { educationsReducer }from "./reducers/educations.js";
 
 // root reducer here
 const rootReducer = combineReducers({
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   skillsReducer,
   projectsReducer,
   experiencesReducer,
+  educationsReducer,
 
 
 });
