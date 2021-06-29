@@ -35,6 +35,16 @@ const AboutMe = ({ isAdmin=false }) => {
   }
 
 
+
+  const handleHide = event => {
+    event.preventDefault();
+    setIsHidden(true);
+  }
+
+
+
+
+
   return (
     <>
       {isAdmin ?
@@ -53,6 +63,9 @@ const AboutMe = ({ isAdmin=false }) => {
 
       <Jumbotron fluid>
         <Container>
+            <Container>
+              <a href="/" onClick={event => handleHide(event)}> <h3> Close </h3> </a>
+            </Container>
 
           <Nav className="justify-content-center">
             <Nav.Item>
