@@ -13,7 +13,7 @@ const Resume = ({ isAdmin = false }) => {
   const history = useHistory();
   const aboutInfo = useSelector(store => store.personalInfoReducer.user);
   const skillInfo = useSelector(store => store.skillsReducer.skills);
-
+  const projectInfo = useSelector(store => store.projectsReducer.projects);
 
 
 
@@ -68,125 +68,45 @@ const Resume = ({ isAdmin = false }) => {
 
 
 
-      <Container>
-          <h5>Book Organizer  (React, Flask, AWS)</h5>
-          <p>An application to assist authors in creating and organizing books they are writing.</p>
+        {projectInfo === null ?
 
-          <Nav variant="pills">
-            <Nav.Item>
-              <Nav.Link href="https://book-organizer.herokuapp.com/"> live </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="https://github.com/JSchutza/Book_Organizer"> github </Nav.Link>
-            </Nav.Item>
-          </Nav>
+          <Container>
+            <h2>Loading Project information ... </h2>
+          </Container>
 
-          <ListGroup>
-            <ListGroup.Item>
-              Leveraged AWS for character image uploads, reducing server load and allowing for image storage scalability.
-            </ListGroup.Item>
+          :
 
-            <ListGroup.Item>
-              Incorporated React and Redux to create a splash page animation that is non-resource intensive, resulting in an improved user experience.
-            </ListGroup.Item>
+            Object.values(projectInfo).map(eachProject => (
+              <Container>
+                <h5> {eachProject.project_name}  ({eachProject.used_tech})</h5>
+                <p>{eachProject.description}</p>
 
-            <ListGroup.Item>
-              Designed a RESTful API with Flask-SQLAlchemy and Flask to create dry, readable, and maintainable code.
-            </ListGroup.Item>
-          </ListGroup>
+              <Nav variant="pills">
+                <Nav.Item>
+                    <Nav.Link href={eachProject.live_link}> Live </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link href={eachProject.github_link}> Github </Nav.Link>
+                </Nav.Item>
+              </Nav>
+                {/* this will map over each associated bullet point for a project */}
 
-      </Container>
+                {/* <ListGroup>
+                  <ListGroup.Item>
+                    Leveraged AWS for character image uploads, reducing server load and allowing for image storage scalability.
+                  </ListGroup.Item>
 
+                  <ListGroup.Item>
+                    Incorporated React and Redux to create a splash page animation that is non-resource intensive, resulting in an improved user experience.
+                  </ListGroup.Item>
 
-      <Container>
-          <h5>Remind Me (React, Express, Sequelize)</h5>
-          <p>Application to allow developers to efficiently write notes about code.</p>
-
-          <Nav variant="pills">
-            <Nav.Item>
-              <Nav.Link href="https://remind----me.herokuapp.com/"> live </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="https://github.com/JSchutza/Remind_Me"> github </Nav.Link>
-            </Nav.Item>
-          </Nav>
-
-          <ListGroup>
-            <ListGroup.Item>
-              Leveraged a React markdown parser to allow users to write notes in a markdown language.
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              Incorporated Redux and unidirectional data flow, resulting in a dynamic application that displays and manipulates data created by the user.
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              Used HTML5 and CSS3 to construct an responsive UI, allowing for an improved user experience and ensuring availability to mobile devices.
-            </ListGroup.Item>
-          </ListGroup>
-      </Container>
-
-
-
-      <Container>
-          <h5>Podemic  (Pug, Express, Sequelize)</h5>
-          <p>Application used to discover, review, and save the most recent podcasts.</p>
-
-          <Nav variant="pills">
-            <Nav.Item>
-              <Nav.Link href="https://podemic.herokuapp.com/"> live </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="https://github.com/JSchutza/Good_Pods"> github </Nav.Link>
-            </Nav.Item>
-          </Nav>
-
-          <ListGroup>
-            <ListGroup.Item>
-              Leveraged Git, Github, Heroku, and Agile methodologies to successfully meet all required project MVP’s, as well as successful application hosting.
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              Created an API endpoint and vanilla JavaScript code to serve and display users’ information and saved podcasts.
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              Utilized the Sequelize ORM and Postgres relational database to allow users to create accounts, and save podcasts.
-            </ListGroup.Item>
-          </ListGroup>
-
-      </Container>
-
-
-
-      <Container>
-          <h5>Instagram_Clone  (React, Flask, AWS)</h5>
-          <p>A clone of the Instagram platform, allows users to post photos and connect.</p>
-
-          <Nav variant="pills">
-            <Nav.Item>
-              <Nav.Link href="https://instagram--me.herokuapp.com/"> live </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="https://github.com/JSchutza/Instagram_Clone"> github </Nav.Link>
-            </Nav.Item>
-          </Nav>
-
-          <ListGroup>
-            <ListGroup.Item>
-              Created dynamic seeder data with Flask, Flask-Migrate, and Alembic, giving the application realistic data with which visitors can interact.
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              Incorporated Redux and a normalized store for users’ posts, resulting in a predictable and consistent application state.
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              Utilized Heroku and Docker to create an lightweight Heroku container, containing application dependencies and allowing users to access the site.
-            </ListGroup.Item>
-          </ListGroup>
-
-      </Container>
+                  <ListGroup.Item>
+                    Designed a RESTful API with Flask-SQLAlchemy and Flask to create dry, readable, and maintainable code.
+                  </ListGroup.Item>
+                </ListGroup> */}
+              </Container>
+          ))
+      }
 
 
 
