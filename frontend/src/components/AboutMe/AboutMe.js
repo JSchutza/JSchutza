@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 
 
 
+
 const AboutMe = ({ isAdmin=false }) => {
   const history = useHistory();
   const aboutInfo = useSelector(store => store.personalInfoReducer.user);

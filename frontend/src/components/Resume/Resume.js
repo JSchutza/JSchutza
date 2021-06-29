@@ -4,19 +4,26 @@ import Nav from 'react-bootstrap/Nav';
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
 import { useHistory } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 
 
 
 
 const Resume = ({ isAdmin = false }) => {
   const history = useHistory();
+  const aboutInfo = useSelector(store => store.personalInfoReducer.user);
+  const skillInfo = useSelector(store => store.skillsReducer.skills);
+
+
 
 
   const handleUpdate = event => {
     event.preventDefault();
     history.push('/resume');
   }
+
+
+
 
 
   return (
@@ -28,15 +35,15 @@ const Resume = ({ isAdmin = false }) => {
 
     <div>
         <Container>
-          <h1> Joshua Schutza </h1>
+          <h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
 
           <Nav className="justify-content-center">
             <Nav.Item>
-              <Nav.Link href="https://github.com/JSchutza">Github</Nav.Link>
+              <Nav.Link href={aboutInfo?.github_link}>Github</Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link href="https://www.linkedin.com/in/joshua-schutza-559819ba/">Linkedin</Nav.Link>
+              <Nav.Link href={aboutInfo?.linkedin_link}>Linkedin</Nav.Link>
             </Nav.Item>
           </Nav>
         </Container>
@@ -47,47 +54,16 @@ const Resume = ({ isAdmin = false }) => {
           <h5>SKILLS</h5>
 
           <ListGroup horizontal>
-            <ListGroup.Item> JavaScript </ListGroup.Item>
-            <ListGroup.Item> Python </ListGroup.Item>
-            <ListGroup.Item> PHP </ListGroup.Item>
-            <ListGroup.Item> HTML </ListGroup.Item>
-            <ListGroup.Item> CSS </ListGroup.Item>
+            {skillInfo === null ?
+                <ListGroup.Item> Loading skills </ListGroup.Item>
+              :
+                Object.values(skillInfo).map(eachSkill => (
+                  <>
+                    <ListGroup.Item> {eachSkill.title} </ListGroup.Item>
+                  </>
+                ))
+            }
           </ListGroup>
-
-          <ListGroup horizontal>
-            <ListGroup.Item> SQL </ListGroup.Item>
-            <ListGroup.Item> React </ListGroup.Item>
-            <ListGroup.Item> Redux </ListGroup.Item>
-            <ListGroup.Item> Express </ListGroup.Item>
-            <ListGroup.Item> Flask </ListGroup.Item>
-          </ListGroup>
-
-
-          <ListGroup horizontal>
-            <ListGroup.Item> Django </ListGroup.Item>
-            <ListGroup.Item> Node.js </ListGroup.Item>
-            <ListGroup.Item> WordPress </ListGroup.Item>
-            <ListGroup.Item> Markdown </ListGroup.Item>
-            <ListGroup.Item> JSON </ListGroup.Item>
-          </ListGroup>
-
-
-
-          <ListGroup horizontal>
-            <ListGroup.Item> Go </ListGroup.Item>
-            <ListGroup.Item> C++ </ListGroup.Item>
-            <ListGroup.Item> Bash Script </ListGroup.Item>
-            <ListGroup.Item> Shell Script </ListGroup.Item>
-            <ListGroup.Item> Git </ListGroup.Item>
-          </ListGroup>
-
-
-          <ListGroup horizontal>
-            <ListGroup.Item> Windows </ListGroup.Item>
-            <ListGroup.Item> Linux </ListGroup.Item>
-            <ListGroup.Item> Docker </ListGroup.Item>
-          </ListGroup>
-
         </Container>
 
 
