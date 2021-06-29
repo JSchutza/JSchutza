@@ -9,7 +9,7 @@ class Experience(db.Model):
   __tablename__ = "experiences"
 
   id = db.Column(db.Integer, primary_key=True)
-  bulletpoint_id = db.Column(db.Integer, db.ForeignKey("bulletpoints.id", ondelete='CASCADE'), nullable=False)
+  bulletpoint_id = db.Column(db.Integer, db.ForeignKey("bulletpoints.id", ondelete='CASCADE'), nullable=True)
   title = db.Column(db.Text)
   company_name = db.Column(db.Text)
   start_date = db.Column(db.DateTime, nullable=False, default=datetime.now)
