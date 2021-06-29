@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -12,6 +12,17 @@ import { useSelector } from 'react-redux';
 const SkillsViewer = ({ isAdmin = false }) => {
   const history = useHistory();
   const skillInfo = useSelector(store => store.skillsReducer.skills);
+  const [ isHidden, setIsHidden ] = useState(false);
+
+
+
+  useEffect(() => {
+    if (!isHidden) {
+      setIsHidden(true);
+    }
+  }, []);
+
+
 
 
   const handleUpdate = event => {
@@ -20,43 +31,73 @@ const SkillsViewer = ({ isAdmin = false }) => {
   }
 
 
+
+  const handleShow = event => {
+    event.preventDefault();
+    setIsHidden(false);
+  }
+
+
+
+  const handleHide = event => {
+    event.preventDefault();
+    setIsHidden(true);
+  }
+
+
+
+
+
+
+
   return (
     <>
-      {isAdmin ? <div>
-        <a href="/" onClick={event => handleUpdate(event)}> Update </a>
-      </div> : <></>}
+      {isAdmin ?
+        <Container>
+            <a href="/" onClick={event => handleUpdate(event)}> Update </a>
+        </Container>
+        :
+          <></>
+      }
 
 
-    <div>
-      <Container >
-          <Accordion defaultActiveKey="0">
-            <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="1">
-                <Button variant="primary">
-                  <h1>Skills</h1>
-                </Button>
-              </Accordion.Toggle>
+      {isHidden ?
+        <Container>
+          <a href="/" onClick={event => handleShow(event)}> <h1> Skills </h1> </a>
+        </Container>
+        :
+        <Container >
+          <Container>
+            <a href="/" onClick={event => handleHide(event)}> <h3> Close </h3> </a>
+          </Container>
 
-              <Accordion.Collapse eventKey="1">
-                <Card.Body>
-                  <ListGroup variant="flush">
-                    {skillInfo === null ?
-                        <ListGroup.Item> Loading skills </ListGroup.Item>
-                      :
-                        Object.values(skillInfo).map(eachSkill => (
-                          <>
-                            <ListGroup.Item> {eachSkill.title} </ListGroup.Item>
-                          </>
-                    ))
-                  }
-                </ListGroup>
-                </Card.Body>
-              </Accordion.Collapse>
-            </Card>
-          </Accordion>
-      </Container>
-    </div>
+            <Accordion defaultActiveKey="0">
+              <Card>
+                <Accordion.Toggle as={Card.Header} eventKey="1">
+                  <Button variant="primary">
+                    <h1>Skills</h1>
+                  </Button>
+                </Accordion.Toggle>
 
+                <Accordion.Collapse eventKey="1">
+                  <Card.Body>
+                    <ListGroup variant="flush">
+                      {skillInfo === null ?
+                          <ListGroup.Item> Loading skills </ListGroup.Item>
+                        :
+                          Object.values(skillInfo).map(eachSkill => (
+                            <>
+                              <ListGroup.Item> {eachSkill.title} </ListGroup.Item>
+                            </>
+                      ))
+                    }
+                  </ListGroup>
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            </Accordion>
+        </Container>
+      }
     </>
   )
 };
