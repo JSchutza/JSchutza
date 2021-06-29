@@ -2,9 +2,6 @@ from .db import db
 from datetime import datetime
 
 
-
-
-
 class Experience(db.Model):
   __tablename__ = "experiences"
 
