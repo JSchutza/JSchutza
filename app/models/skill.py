@@ -5,7 +5,7 @@ from .db import db
 
 
 
-class Skill(db.Model):
+class Experience(db.Model):
   __tablename__ = "skills"
 
   id = db.Column(db.Integer, primary_key=True)

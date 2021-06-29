@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.about_routes import about_routes
 from .api.skills_routes import skills_routes
 from .api.projects_routes import project_routes
+from .api.experience_routes import experience_routes
 
 from .seeds import seed_commands
 
@@ -42,6 +43,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(about_routes, url_prefix='/api/about')
 app.register_blueprint(skills_routes, url_prefix='/api/skills')
 app.register_blueprint(project_routes, url_prefix='/api/projects')
+app.register_blueprint(experience_routes, url_prefix='/api/experiences')
 
 
 db.init_app(app)
