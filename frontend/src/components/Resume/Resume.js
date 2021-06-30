@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import ListGroup from 'react-bootstrap/ListGroup'
@@ -17,6 +17,19 @@ const Resume = ({ isAdmin = false }) => {
   const experienceInfo = useSelector(store => store.experiencesReducer.experiences);
   const educationInfo = useSelector(store => store.educationsReducer.educations);
 
+  const [ isHidden, setIsHidden ] = useState(false);
+
+  useEffect(() => {
+    if (!isHidden) {
+      setIsHidden(true);
+    }
+
+    if (!isAdmin) {
+      setIsHidden(false);
+    }
+  }, []);
+
+
 
 
   const handleUpdate = event => {
@@ -27,15 +40,45 @@ const Resume = ({ isAdmin = false }) => {
 
 
 
+  const handleShow = event => {
+    event.preventDefault();
+    setIsHidden(false);
+  }
+
+
+
+  const handleHide = event => {
+    event.preventDefault();
+    setIsHidden(true);
+  }
+
+
+
+
+
 
   return (
     <>
-      {isAdmin ? <div>
-        <a href="/" onClick={event => handleUpdate(event)}> Update </a>
-      </div> : <></>}
+      {isAdmin ?
+        <Container>
+          <a href="/" onClick={event => handleUpdate(event)}> Update </a>
+        </Container>
+      :
+        <></>
+      }
 
 
-    <div>
+      {isHidden ?
+          <Container>
+            <a href="/" onClick={event => handleShow(event)}> <h1> Resume </h1> </a>
+          </Container>
+        :
+
+        <>
+          <Container>
+            <a href="/" onClick={event => handleHide(event)}> <h3> Close </h3> </a>
+          </Container>
+
         <Container>
           <h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
 
@@ -177,7 +220,10 @@ const Resume = ({ isAdmin = false }) => {
     <Container>
           <Button variant="primary"> Download </Button>
     </Container>
-    </div>
+
+    </>
+    }
+
     </>
   )
 
