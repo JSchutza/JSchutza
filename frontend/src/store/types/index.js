@@ -26,6 +26,14 @@ const GET_SKILLS = 'skills/GET_SKILLS';
 const GET_PROJECTS = 'projects/GET_PROJECTS';
 
 
+// experience info
+const GET_EXPERIENCES = 'experiences/GET_EXPERIENCES';
+
+
+// education info
+const GET_EDUCATIONS = 'educations/GET_EDUCATIONS';
+
+
 export {
   SET_USER,
   REMOVE_USER,
@@ -36,6 +44,8 @@ export {
   GET_PERSONAL_INFO,
   GET_SKILLS,
   GET_PROJECTS,
+  GET_EXPERIENCES,
+  GET_EDUCATIONS,
 
 
 

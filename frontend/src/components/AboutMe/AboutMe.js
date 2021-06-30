@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
@@ -10,9 +10,18 @@ import { useSelector } from "react-redux";
 
 
 
+
 const AboutMe = ({ isAdmin=false }) => {
   const history = useHistory();
   const aboutInfo = useSelector(store => store.personalInfoReducer.user);
+  const [ isHidden, setIsHidden ] = useState(false);
+
+  useEffect(() => {
+    if(!isHidden) {
+      setIsHidden(true);
+    }
+  },[]);
+
 
   const handleUpdate = event => {
     event.preventDefault();
@@ -20,17 +29,43 @@ const AboutMe = ({ isAdmin=false }) => {
   }
 
 
+  const handleShow = event => {
+    event.preventDefault();
+    setIsHidden(false);
+  }
+
+
+
+  const handleHide = event => {
+    event.preventDefault();
+    setIsHidden(true);
+  }
+
+
+
 
 
   return (
     <>
-      {isAdmin ? <div>
-        <a href="/" onClick={event => handleUpdate(event)}> Update </a>
-      </div> : <></>}
+      {isAdmin ?
+        <Container>
+          <a href="/" onClick={event => handleUpdate(event)}> Update </a>
+        </Container>
+      :
+        <></>
+      }
 
+      {isHidden ?
+        <Container>
+          <a href="/" onClick={event => handleShow(event)}> <h1> About </h1> </a>
+        </Container>
+      :
 
       <Jumbotron fluid>
         <Container>
+            <Container>
+              <a href="/" onClick={event => handleHide(event)}> <h3> Close </h3> </a>
+            </Container>
 
           <Nav className="justify-content-center">
             <Nav.Item>
@@ -73,8 +108,7 @@ const AboutMe = ({ isAdmin=false }) => {
 
         </Container>
       </Jumbotron>
-
-
+    }
     </>
   )
 };
