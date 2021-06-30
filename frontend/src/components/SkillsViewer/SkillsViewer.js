@@ -69,7 +69,7 @@ const SkillsViewer = ({ isAdmin = false }) => {
 
       {isHidden ?
         <Container>
-          <a href="/" onClick={event => handleShow(event)}> <h1> Skills </h1> </a>
+          <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> Skills </h1> </Button>
         </Container>
         :
         <Container >

@@ -63,7 +63,7 @@ const AboutMe = ({ isAdmin=false }) => {
 
       {isHidden ?
         <Container>
-          <a href="/" onClick={event => handleShow(event)}> <h1> About </h1> </a>
+          <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> About </h1> </Button>
         </Container>
       :
 
