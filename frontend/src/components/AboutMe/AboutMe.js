@@ -20,6 +20,10 @@ const AboutMe = ({ isAdmin=false }) => {
     if(!isHidden) {
       setIsHidden(true);
     }
+
+    if (!isAdmin) {
+      setIsHidden(false);
+    }
   },[]);
 
 

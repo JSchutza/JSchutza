@@ -19,6 +19,10 @@ const ProjectViewer = ({ isAdmin = false }) => {
     if (!isHidden) {
       setIsHidden(true);
     }
+
+    if (!isAdmin) {
+      setIsHidden(false);
+    }
   }, []);
 
 
@@ -64,6 +68,11 @@ const ProjectViewer = ({ isAdmin = false }) => {
           </Container>
         :
           <Container>
+
+          <Container>
+            <a href="/" onClick={event => handleHide(event)}> <h3> Close </h3> </a>
+          </Container>
+
 
               <Container>
                 <h1> Projects </h1>
