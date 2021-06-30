@@ -55,7 +55,7 @@ const AboutMe = ({ isAdmin=false }) => {
     <>
       {isAdmin ?
         <Container>
-          <a href="/" onClick={event => handleUpdate(event)}> Update </a>
+          <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
         </Container>
       :
         <></>
