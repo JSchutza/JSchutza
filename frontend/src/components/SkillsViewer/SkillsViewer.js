@@ -4,6 +4,8 @@ import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
+
+
 import { useHistory } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
@@ -72,7 +74,7 @@ const SkillsViewer = ({ isAdmin = false }) => {
         :
         <Container >
           <Container>
-            <a href="/" onClick={event => handleHide(event)}> <h3> Close </h3> </a>
+            <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
           </Container>
 
             <Accordion defaultActiveKey="0">

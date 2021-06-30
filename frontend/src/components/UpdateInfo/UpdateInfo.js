@@ -35,7 +35,7 @@ const UpdateInfo = ({ the_type }) => {
 
     <div>
         {the_type === 'skillsviewer' ? <div>
-          <h1>Update skillsviewer</h1>
+          <h1>Update skills</h1>
               <SkillsViewerForm />
         </div> : <></>}
     </div>
@@ -43,7 +43,7 @@ const UpdateInfo = ({ the_type }) => {
 
     <div>
         {the_type === 'projectviewer' ? <div>
-          <h1>Update projectviewer</h1>
+          <h1>Update projects</h1>
               <ProjectViewerForm />
         </div> : <></>}
     </div>

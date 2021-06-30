@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button'
+
 import defaultImg from "../../icons/default_img.JPG";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -70,7 +72,7 @@ const ProjectViewer = ({ isAdmin = false }) => {
           <Container>
 
           <Container>
-            <a href="/" onClick={event => handleHide(event)}> <h3> Close </h3> </a>
+            <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
           </Container>
 
 
