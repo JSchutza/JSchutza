@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
+
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -70,14 +71,18 @@ const Resume = ({ isAdmin = false }) => {
 
       {isHidden ?
           <Container>
-            <a href="/" onClick={event => handleShow(event)}> <h1> Resume </h1> </a>
+          <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> Resume </h1> </Button>
           </Container>
         :
 
         <>
-          <Container>
-            <a href="/" onClick={event => handleHide(event)}> <h3> Close </h3> </a>
-          </Container>
+          {isAdmin ?
+            <Container>
+              <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
+            </Container>
+            :
+            <></>
+          }
 
         <Container>
           <h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>

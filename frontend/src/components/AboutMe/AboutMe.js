@@ -69,9 +69,14 @@ const AboutMe = ({ isAdmin=false }) => {
 
       <Jumbotron fluid>
         <Container>
-            <Container>
-              <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
-            </Container>
+
+            {isAdmin ?
+              <Container>
+                <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
+              </Container>
+              :
+              <></>
+            }
 
             <Nav fill variant="tabs" className="justify-content-center">
             <Nav.Item>

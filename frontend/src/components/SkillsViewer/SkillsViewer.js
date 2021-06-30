@@ -72,10 +72,15 @@ const SkillsViewer = ({ isAdmin = false }) => {
           <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> Skills </h1> </Button>
         </Container>
         :
-        <Container >
+        <Container>
+
+          {isAdmin ?
           <Container>
             <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
           </Container>
+            :
+            <></>
+          }
 
             <Accordion defaultActiveKey="0">
               <Card>

@@ -71,10 +71,13 @@ const ProjectViewer = ({ isAdmin = false }) => {
         :
           <Container>
 
-          <Container>
-            <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
-          </Container>
-
+          {isAdmin ?
+            <Container>
+              <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
+            </Container>
+            :
+            <></>
+          }
 
               <Container>
                 <h1> Projects </h1>
