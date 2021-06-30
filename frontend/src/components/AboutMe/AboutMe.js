@@ -3,6 +3,8 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button'
+
 import personalImg from "../../icons/Profile_Pic.jpg";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -19,6 +21,10 @@ const AboutMe = ({ isAdmin=false }) => {
   useEffect(() => {
     if(!isHidden) {
       setIsHidden(true);
+    }
+
+    if (!isAdmin) {
+      setIsHidden(false);
     }
   },[]);
 
@@ -49,7 +55,7 @@ const AboutMe = ({ isAdmin=false }) => {
     <>
       {isAdmin ?
         <Container>
-          <a href="/" onClick={event => handleUpdate(event)}> Update </a>
+          <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
         </Container>
       :
         <></>
@@ -57,17 +63,22 @@ const AboutMe = ({ isAdmin=false }) => {
 
       {isHidden ?
         <Container>
-          <a href="/" onClick={event => handleShow(event)}> <h1> About </h1> </a>
+          <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> About </h1> </Button>
         </Container>
       :
 
       <Jumbotron fluid>
         <Container>
-            <Container>
-              <a href="/" onClick={event => handleHide(event)}> <h3> Close </h3> </a>
-            </Container>
 
-          <Nav className="justify-content-center">
+            {isAdmin ?
+              <Container>
+                <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
+              </Container>
+              :
+              <></>
+            }
+
+            <Nav fill variant="tabs" className="justify-content-center">
             <Nav.Item>
               <Nav.Link href={aboutInfo?.github_link}>Github</Nav.Link>
             </Nav.Item>

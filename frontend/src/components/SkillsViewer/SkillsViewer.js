@@ -4,6 +4,8 @@ import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
+
+
 import { useHistory } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
@@ -19,6 +21,10 @@ const SkillsViewer = ({ isAdmin = false }) => {
   useEffect(() => {
     if (!isHidden) {
       setIsHidden(true);
+    }
+
+    if (!isAdmin) {
+      setIsHidden(false);
     }
   }, []);
 
@@ -54,7 +60,7 @@ const SkillsViewer = ({ isAdmin = false }) => {
     <>
       {isAdmin ?
         <Container>
-            <a href="/" onClick={event => handleUpdate(event)}> Update </a>
+          <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
         </Container>
         :
           <></>
@@ -63,13 +69,18 @@ const SkillsViewer = ({ isAdmin = false }) => {
 
       {isHidden ?
         <Container>
-          <a href="/" onClick={event => handleShow(event)}> <h1> Skills </h1> </a>
+          <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> Skills </h1> </Button>
         </Container>
         :
-        <Container >
+        <Container>
+
+          {isAdmin ?
           <Container>
-            <a href="/" onClick={event => handleHide(event)}> <h3> Close </h3> </a>
+            <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
           </Container>
+            :
+            <></>
+          }
 
             <Accordion defaultActiveKey="0">
               <Card>

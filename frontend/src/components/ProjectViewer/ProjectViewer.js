@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button'
+
 import defaultImg from "../../icons/default_img.JPG";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -18,6 +20,10 @@ const ProjectViewer = ({ isAdmin = false }) => {
   useEffect(() => {
     if (!isHidden) {
       setIsHidden(true);
+    }
+
+    if (!isAdmin) {
+      setIsHidden(false);
     }
   }, []);
 
@@ -51,7 +57,7 @@ const ProjectViewer = ({ isAdmin = false }) => {
     <>
       {isAdmin ?
         <Container>
-          <a href="/" onClick={event => handleUpdate(event)}> Update </a>
+          <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
         </Container>
       :
         <></>
@@ -60,10 +66,18 @@ const ProjectViewer = ({ isAdmin = false }) => {
 
       {isHidden ?
           <Container>
-            <a href="/" onClick={event => handleShow(event)}> <h1> Projects </h1> </a>
+          <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> Projects </h1> </Button>
           </Container>
         :
           <Container>
+
+          {isAdmin ?
+            <Container>
+              <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
+            </Container>
+            :
+            <></>
+          }
 
               <Container>
                 <h1> Projects </h1>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
 
 import AboutMe from "./components/AboutMe";
 import SkillsViewer from "./components/SkillsViewer";
@@ -8,8 +9,10 @@ import ProjectViewer from "./components/ProjectViewer";
 import Resume from "./components/Resume";
 import LoginForm from "./components/LoginForm";
 import NavBar from "./components/NavBar";
-import { useUser } from "./context/UserContext.js";
 import UpdateInfo from "./components/UpdateInfo";
+
+import { useUser } from "./context/UserContext.js";
+
 import { thunk_getPersonalInfo } from './store/thunks/personal.js';
 import { thunk_getSkills } from "./store/thunks/skills.js";
 import { thunk_getProjects } from "./store/thunks/projects.js";
@@ -84,7 +87,10 @@ function App() {
 
           <Switch>
             <Route path='/' exact>
-              <h1>Admin Dashboard</h1>
+              <Container>
+                <h1>Admin Dashboard</h1>
+              </Container>
+
                 <AboutMe isAdmin={true} />
                 <SkillsViewer isAdmin={true} />
                 <ProjectViewer isAdmin={true} />
@@ -92,23 +98,40 @@ function App() {
             </Route>
 
             <Route path='/aboutme' exact>
-              <h1>'Admin' About Me</h1>
+              <Container>
+                <h1>'Admin' About </h1>
+              </Container>
+
+              <Container>
                 <UpdateInfo the_type={'aboutme'} />
+              </Container>
             </Route>
 
             <Route path='/skillsviewer' exact>
-              <h1>'Admin' Skills Viewer</h1>
+              <Container>
+                <h1>'Admin' Skills</h1>
+              </Container>
+              <Container>
                 <UpdateInfo the_type={'skillsviewer'} />
+              </Container>
             </Route>
 
             <Route path='/projectviewer' exact>
-              <h1>'Admin' Project Viewer</h1>
+              <Container>
+                <h1>'Admin' Project</h1>
+              </Container>
+              <Container>
                 <UpdateInfo the_type={'projectviewer'} />
+              </Container>
             </Route>
 
             <Route path='/resume' exact>
-              <h1>'Admin' Resume</h1>
+              <Container>
+                <h1>'Admin' Resume</h1>
+              </Container>
+              <Container>
                 <UpdateInfo the_type={'resume'} />
+              </Container>
             </Route>
 
           </Switch>

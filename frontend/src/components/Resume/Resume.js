@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
+
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -17,6 +18,19 @@ const Resume = ({ isAdmin = false }) => {
   const experienceInfo = useSelector(store => store.experiencesReducer.experiences);
   const educationInfo = useSelector(store => store.educationsReducer.educations);
 
+  const [ isHidden, setIsHidden ] = useState(false);
+
+  useEffect(() => {
+    if (!isHidden) {
+      setIsHidden(true);
+    }
+
+    if (!isAdmin) {
+      setIsHidden(false);
+    }
+  }, []);
+
+
 
 
   const handleUpdate = event => {
@@ -27,15 +41,49 @@ const Resume = ({ isAdmin = false }) => {
 
 
 
+  const handleShow = event => {
+    event.preventDefault();
+    setIsHidden(false);
+  }
+
+
+
+  const handleHide = event => {
+    event.preventDefault();
+    setIsHidden(true);
+  }
+
+
+
+
+
 
   return (
     <>
-      {isAdmin ? <div>
-        <a href="/" onClick={event => handleUpdate(event)}> Update </a>
-      </div> : <></>}
+      {isAdmin ?
+        <Container>
+          <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
+        </Container>
+      :
+        <></>
+      }
 
 
-    <div>
+      {isHidden ?
+          <Container>
+          <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> Resume </h1> </Button>
+          </Container>
+        :
+
+        <>
+          {isAdmin ?
+            <Container>
+              <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
+            </Container>
+            :
+            <></>
+          }
+
         <Container>
           <h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
 
@@ -177,7 +225,10 @@ const Resume = ({ isAdmin = false }) => {
     <Container>
           <Button variant="primary"> Download </Button>
     </Container>
-    </div>
+
+    </>
+    }
+
     </>
   )
 

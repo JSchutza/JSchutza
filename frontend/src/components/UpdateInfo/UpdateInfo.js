@@ -1,5 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container';
+
+
 import AboutMeForm from "../AboutMeForm";
 import SkillsViewerForm from "../SkillsViewerForm";
 import ProjectViewerForm from "../ProjectViewerForm";
@@ -20,41 +25,38 @@ const UpdateInfo = ({ the_type }) => {
 
   return (
     <>
-    <div>
-        <a href='/' onClick={event => goBack(event)}> Back </a>
-    </div>
+      <Button variant="primary" onClick={event => goBack(event)}> Back </Button>
 
-
-    <div>
-        {the_type === 'aboutme' ? <div>
-          <h1>Update about me</h1>
+        {the_type === 'aboutme' ?
+          <Container>
+            <h1>Update about me</h1>
               <AboutMeForm />
-        </div> : <></>}
-    </div>
+          </Container>
+        : <></> }
 
 
-    <div>
-        {the_type === 'skillsviewer' ? <div>
-          <h1>Update skillsviewer</h1>
+        {the_type === 'skillsviewer' ?
+          <Container>
+            <h1>Update skills</h1>
               <SkillsViewerForm />
-        </div> : <></>}
-    </div>
+          </Container>
+        : <></>}
 
 
-    <div>
-        {the_type === 'projectviewer' ? <div>
-          <h1>Update projectviewer</h1>
+        {the_type === 'projectviewer' ?
+          <Container>
+            <h1>Update projects</h1>
               <ProjectViewerForm />
-        </div> : <></>}
-    </div>
+          </Container>
+        : <></>}
 
 
-    <div>
-        {the_type === 'resume' ? <div>
-          <h1>Update resume</h1>
+        {the_type === 'resume' ?
+          <Container>
+            <h1>Update resume</h1>
               <ResumeForm />
-        </div> : <></>}
-    </div>
+          </Container>
+      : <></>}
 
     </>
   )
