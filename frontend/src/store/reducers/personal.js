@@ -10,7 +10,7 @@ const personalInfoReducer = (state = { user: null, errors: null }, action) => {
     case GET_PERSONAL_INFO:
       return { user: action.personalInfo };
     case UPDATE_PERSONAL_INFO:
-      return { ...state, user: action.personalInfo };
+      return { ...state, ...action.personalInfo };
 
     // case REMOVE_USER:
     //   return { user: null, errors: null };

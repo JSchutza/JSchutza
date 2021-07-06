@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import User
+from app.models import db, User
 from flask_login import login_required, current_user
 from app.forms import UpdateUserForm
 
@@ -22,7 +22,7 @@ def get_homepage():
 
 
 # PUT   /api/about
-@about_routes.route('/', methods=['PUT'])
+@about_routes.route('', methods=['PUT'])
 @login_required
 def update_aboutme_info():
   form = UpdateUserForm()
@@ -38,5 +38,9 @@ def update_aboutme_info():
         form.data['github_link'],
         form.data['linkedin_link']
     )
+    db.session.add(current_user)
+    db.session.commit()
+
+    return { "user": current_user.to_dict() }
 
   return { "errors": ["errors", "Please try again."] }
