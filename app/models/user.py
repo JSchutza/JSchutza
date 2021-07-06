@@ -47,31 +47,12 @@ class User(db.Model, UserMixin):
 
     def update_aboutme(self, new_firstname, new_lastname, new_jobtitle, new_abouttext, new_github_link, new_linkedin_link):
         # self.avatar = new_avatar
-        if new_firstname == None:
-            self.firstname = 'Joshua'
-
-        elif new_lastname == None:
-            self.lastname = 'Schutza'
-
-        elif new_jobtitle == None:
-            self.jobtitle = 'Software Engineer'
-
-        elif new_abouttext == None:
-            self.about_text = 'Leader, Visionary, Advocate'
-
-        elif new_github_link == None:
-            self.github_link = 'https://github.com/JSchutza'
-
-        elif new_linkedin_link == None:
-            self.linkedin_link = 'https://www.linkedin.com/in/joshua-schutza-559819ba/'
-
-        else:
-            self.firstname = new_firstname
-            self.lastname = new_lastname
-            self.jobtitle = new_jobtitle
-            self.about_text = new_abouttext
-            self.github_link = new_github_link
-            self.linkedin_link = new_linkedin_link
+        self.firstname = new_firstname
+        self.lastname = new_lastname
+        self.jobtitle = new_jobtitle
+        self.about_text = new_abouttext
+        self.github_link = new_github_link
+        self.linkedin_link = new_linkedin_link
 
 
 
