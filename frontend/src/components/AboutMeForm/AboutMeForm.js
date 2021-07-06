@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
+
+import { thunk_updatePersonalInfo } from "../../store/thunks/personal.js";
 
 
 
@@ -13,12 +16,14 @@ const AboutMeForm = () => {
   const [ abouttext, setAboutText ] = useState('');
   const [ githublink, setGitHubLink ] = useState('');
   const [ linkedinlink, setLinkedinLink ] = useState('');
+  const dispatch = useDispatch();
 
 
 
 
   const onSubmit = event => {
     event.preventDefault();
+    dispatch(thunk_updatePersonalInfo({ firstname, lastname, jobtitle, abouttext, githublink, linkedinlink }));
   }
 
 

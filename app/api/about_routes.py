@@ -25,7 +25,6 @@ def get_homepage():
 @about_routes.route('/', methods=['PUT'])
 @login_required
 def update_aboutme_info():
-  # current_user.update_aboutme(new_firstname, new_lastname, new_jobtitle, new_abouttext, new_github_link, new_linkedin_link)
   form = UpdateUserForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 
