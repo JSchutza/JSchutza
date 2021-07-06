@@ -43,6 +43,23 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
 
 
+
+
+    def update_aboutme(new_firstname, new_lastname, new_jobtitle, new_abouttext, new_github_link, new_linkedin_link):
+        # self.avatar = new_avatar
+        self.firstname = new_firstname
+        self.lastname = new_lastname
+        self.jobtitle = new_jobtitle
+        self.about_text = new_abouttext
+        self.github_link = new_github_link
+        self.linkedin_link = new_linkedin_link
+
+    
+
+
+
+
+
     def to_dict(self):
         return {
             "id": self.id,
