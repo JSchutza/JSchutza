@@ -38,7 +38,7 @@ def create_new_skill():
     percentage = '100'
 
     if form.validate_on_submit():
-      new_skill = Skill(title, float(percentage))
+      new_skill = Skill(title=title, percentage=float(percentage))
       db.session.add(new_skill)
       db.session.commit()
 
@@ -46,7 +46,7 @@ def create_new_skill():
 
 
   if form.validate_on_submit() and no_errors:
-    new_skill = Skill(form.data['title'], float(form.data['percentage']))
+    new_skill = Skill(title=form.data['title'], percentage=float(form.data['percentage']))
     db.session.add(new_skill)
     db.session.commit()
 
