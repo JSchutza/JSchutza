@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -12,17 +12,25 @@ import DeleteSkillButton from "../DeleteSkillButton";
 import UpdateSkillButton from "../UpdateSkillButton";
 
 
+import { thunk_createSkills } from "../../store/thunks/skills.js";
+
 
 
 const SkillsViewerForm = () => {
   const [ title, setTitle ] = useState('');
   const [ percentage, setPercent ] = useState(0);
   const currentSkills = useSelector(store => store.skillsReducer.skills)
+  const dispatch = useDispatch();
+
+
 
 
   const onSubmit = event => {
     event.preventDefault();
+    const payload = { title, percentage }
+    dispatch(thunk_createSkills(payload));
   }
+
 
 
 

@@ -24,6 +24,9 @@ const UPDATE_PERSONAL_INFO = 'personal/UPDATE_PERSONAL_INFO';
 
 // skills info
 const GET_SKILLS = 'skills/GET_SKILLS';
+const CREATE_SKILL = 'skills/CREATE_SKILL';
+
+
 
 
 // project info
@@ -54,6 +57,7 @@ export {
   GET_PROJECTS,
   GET_EXPERIENCES,
   GET_EDUCATIONS,
+  CREATE_SKILL,
 
 
 
