@@ -8,6 +8,11 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 
 
+import DeleteSkillButton from "../DeleteSkillButton";
+import UpdateSkillButton from "../UpdateSkillButton";
+
+
+
 
 const SkillsViewerForm = () => {
   const [ title, setTitle ] = useState('');
@@ -32,7 +37,8 @@ const SkillsViewerForm = () => {
               <Container>
                 <ListGroup.Item>
                     {eachSkill.title}
-
+                  <DeleteSkillButton skillId={eachSkill.id} />
+                  <UpdateSkillButton />
                 </ListGroup.Item>
               </Container>
             </>
@@ -66,7 +72,7 @@ const SkillsViewerForm = () => {
       </label>
 
             <br />
-            <Button variant="primary" onClick={event => onSubmit(event)}> Update </Button>
+            <Button variant="primary" onClick={event => onSubmit(event)}> Create </Button>
     </form>
         </Container>
       </Jumbotron>
