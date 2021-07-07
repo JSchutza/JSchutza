@@ -46,7 +46,7 @@ const SkillsViewerForm = () => {
                 <ListGroup.Item>
                     {eachSkill.title}
                   <DeleteSkillButton skillId={eachSkill.id} />
-                  <UpdateSkillButton />
+                  <UpdateSkillButton skillId={eachSkill.id} />
                 </ListGroup.Item>
               </Container>
             </>
