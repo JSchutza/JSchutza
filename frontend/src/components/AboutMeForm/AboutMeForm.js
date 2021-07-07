@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button'
+
+import { thunk_updatePersonalInfo } from "../../store/thunks/personal.js";
 
 
 
@@ -9,15 +13,18 @@ const AboutMeForm = () => {
   const [ firstname, setFirstName ] = useState('');
   const [ lastname, setLastName ] = useState('');
   const [ jobtitle, setJobTitle ] = useState('');
-  const [ abouttext, setAboutText ] = useState('');
-  const [ githublink, setGitHubLink ] = useState('');
-  const [ linkedinlink, setLinkedinLink ] = useState('');
+  const [ about_text, setAboutText ] = useState('');
+  const [ github_link, setGitHubLink ] = useState('');
+  const [ linkedin_link, setLinkedinLink ] = useState('');
+  const dispatch = useDispatch();
 
 
 
 
   const onSubmit = event => {
     event.preventDefault();
+    const payload = { firstname, lastname, jobtitle, about_text, github_link, linkedin_link };
+    dispatch(thunk_updatePersonalInfo(payload));
   }
 
 
@@ -65,7 +72,7 @@ const AboutMeForm = () => {
           About Text
           <textarea
             name="abouttext"
-            value={abouttext}
+            value={about_text}
             onChange={event => setAboutText(event.target.value)}
           />
         </label>
@@ -76,7 +83,7 @@ const AboutMeForm = () => {
           <Form.Control
             type="text"
             name="githublink"
-            value={githublink}
+            value={github_link}
             onChange={event => setGitHubLink(event.target.value)}
           />
         </label>
@@ -87,12 +94,13 @@ const AboutMeForm = () => {
           <Form.Control
             type="text"
             name="linkedinlink"
-            value={linkedinlink}
+            value={linkedin_link}
             onChange={event => setLinkedinLink(event.target.value)}
           />
         </label>
 
-
+        <br />
+          <Button variant="primary" onClick={event => onSubmit(event)}> Update </Button>
       </form>
       </Container>
       </Jumbotron>

@@ -18,20 +18,27 @@ const RESET_ERRORS = "errors/RESET_ERRORS";
 
 // my personal info
 const GET_PERSONAL_INFO = 'personal/GET_PERSONAL_INFO';
+const UPDATE_PERSONAL_INFO = 'personal/UPDATE_PERSONAL_INFO';
+
+
 
 // skills info
 const GET_SKILLS = 'skills/GET_SKILLS';
 
+
 // project info
 const GET_PROJECTS = 'projects/GET_PROJECTS';
+
 
 
 // experience info
 const GET_EXPERIENCES = 'experiences/GET_EXPERIENCES';
 
 
+
 // education info
 const GET_EDUCATIONS = 'educations/GET_EDUCATIONS';
+
 
 
 export {
@@ -42,6 +49,7 @@ export {
   SET_ERRORS,
   RESET_ERRORS,
   GET_PERSONAL_INFO,
+  UPDATE_PERSONAL_INFO,
   GET_SKILLS,
   GET_PROJECTS,
   GET_EXPERIENCES,

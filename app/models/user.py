@@ -1,3 +1,4 @@
+from sqlalchemy.orm import defaultload
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -41,6 +42,23 @@ class User(db.Model, UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
+
+    def update_aboutme(self, new_firstname, new_lastname, new_jobtitle, new_abouttext, new_github_link, new_linkedin_link):
+        # self.avatar = new_avatar
+        #  https://github.com/JSchutza
+        #  https://www.linkedin.com/in/joshua-schutza-559819ba/
+
+        self.firstname = new_firstname
+        self.lastname = new_lastname
+        self.jobtitle = new_jobtitle
+        self.about_text = new_abouttext
+        self.github_link = new_github_link
+        self.linkedin_link = new_linkedin_link
+
+
+
+
+
 
 
     def to_dict(self):

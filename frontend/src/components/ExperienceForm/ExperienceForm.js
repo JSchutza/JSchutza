@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button'
 
 
 
@@ -69,7 +70,8 @@ const ExperienceForm = () => {
           />
         </label>
 
-
+            <br />
+            <Button variant="primary" onClick={event => onSubmit(event)}> Update </Button>
       </form>
         </Container>
       </Jumbotron>
