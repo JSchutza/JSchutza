@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import { useDispatch, useSelector } from 'react-redux';
+
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
@@ -7,9 +9,12 @@ import Form from 'react-bootstrap/Form';
 
 
 const UpdateSkillButton = ({ skillId }) => {
+  const dispatch = useDispatch();
+  const prevInfo = useSelector(store => store.skillsReducer.skills[skillId]);
+
   const [ showform, setShowform ] = useState(false);
-  const [ title, setTitle ] = useState('');
-  const [ percentage, setPercent ] = useState('');
+  const [ title, setTitle ] = useState(prevInfo.title);
+  const [ percentage, setPercent ] = useState(prevInfo.percentage);
 
 
 
@@ -17,6 +22,8 @@ const UpdateSkillButton = ({ skillId }) => {
 
   const onSubmit = event => {
     event.preventDefault();
+    const payload = { title, percentage };
+
   }
 
 
