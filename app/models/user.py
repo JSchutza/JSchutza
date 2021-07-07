@@ -45,9 +45,6 @@ class User(db.Model, UserMixin):
 
     def update_aboutme(self, new_firstname, new_lastname, new_jobtitle, new_abouttext, new_github_link, new_linkedin_link):
         # self.avatar = new_avatar
-        #  https://github.com/JSchutza
-        #  https://www.linkedin.com/in/joshua-schutza-559819ba/
-
         self.firstname = new_firstname
         self.lastname = new_lastname
         self.jobtitle = new_jobtitle

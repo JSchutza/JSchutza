@@ -28,6 +28,8 @@ def update_aboutme_info():
   form = UpdateUserForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 
+  no_errors = True
+
   first = form.data['firstname']
   last = form.data['lastname']
   title = form.data['jobtitle']
@@ -36,8 +38,26 @@ def update_aboutme_info():
   link_link = form.data['linkedin_link']
 
 
-  if form.validate_on_submit():
+  if first == '' or last == '' or title == '' or about == '' or git_link == '' or link_link == '':
+    no_errors = False
+    first = 'Joshua'
+    last = 'Schutza'
+    title = 'Software Engineer'
+    about = 'Leader, Visionary, Advocate.'
+    git_link = 'https://github.com/JSchutza'
+    link_link = 'https://www.linkedin.com/in/joshua-schutza-559819ba/'
 
+    if form.validate_on_submit():
+      current_user.update_aboutme(first, last, title, about, git_link, link_link)
+      db.session.add(current_user)
+      db.session.commit()
+
+      return {"user": current_user.to_dict()}
+
+
+
+
+  if form.validate_on_submit() and no_errors:
     current_user.update_aboutme(
         form.data['firstname'],
         form.data['lastname'],
