@@ -10,7 +10,7 @@ const skillsReducer = (state = { skills: null, errors: null }, action) => {
     case GET_SKILLS:
       return { ...action.skills };
     case CREATE_SKILL:
-      return { ...state, ...action.skills };
+      return { skills: { ...state.skills, ...action.skills } };
 
     // case REMOVE_USER:
     //   return { user: null, errors: null };
