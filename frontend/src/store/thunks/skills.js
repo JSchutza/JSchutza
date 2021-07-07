@@ -1,6 +1,6 @@
 
 
-import { getSkills, createSkills } from "../actions/skills.js";
+import { getSkills, createSkills, deleteSkill } from "../actions/skills.js";
 
 
 
@@ -45,11 +45,29 @@ const thunk_createSkills = ({ title, percentage }) => async (dispatch) => {
 
 
 
+const thunk_deleteSkill = (skillId) => async (dispatch) => {
+  const response = await fetch(`/api/skills/${skillId}`, {
+    method: "DELETE",
+    credentials: "include",
+  });
+
+  const data = await response.json();
+  if (data.errors) {
+    return;
+  }
+
+  dispatch(deleteSkill(skillId));
+
+}
+
+
+
 
 
 
 export {
   thunk_getSkills,
   thunk_createSkills,
+  thunk_deleteSkill,
 
 }

@@ -25,7 +25,7 @@ const UPDATE_PERSONAL_INFO = 'personal/UPDATE_PERSONAL_INFO';
 // skills info
 const GET_SKILLS = 'skills/GET_SKILLS';
 const CREATE_SKILL = 'skills/CREATE_SKILL';
-
+const DELETE_SKILL = 'skills/DELETE_SKILL';
 
 
 
@@ -58,6 +58,7 @@ export {
   GET_EXPERIENCES,
   GET_EDUCATIONS,
   CREATE_SKILL,
+  DELETE_SKILL,
 
 
 

@@ -1,4 +1,4 @@
-import { GET_SKILLS, CREATE_SKILL } from '../types'
+import { GET_SKILLS, CREATE_SKILL, DELETE_SKILL } from '../types'
 
 
 
@@ -13,13 +13,21 @@ const getSkills = (skills) => ({
 const createSkills = (skills) => ({
   type: CREATE_SKILL,
   skills
-})
+});
+
+
+
+const deleteSkill = (skillId) => ({
+  type: DELETE_SKILL,
+  skillId
+});
 
 
 
 export {
   getSkills,
   createSkills,
+  deleteSkill,
 
 
 }
