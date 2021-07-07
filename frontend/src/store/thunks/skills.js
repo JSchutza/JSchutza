@@ -57,6 +57,7 @@ const thunk_deleteSkill = (skillId) => async (dispatch) => {
   }
 
   dispatch(deleteSkill(skillId));
+  dispatch(thunk_getSkills());
 
 }
 
