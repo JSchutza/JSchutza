@@ -28,8 +28,16 @@ def update_aboutme_info():
   form = UpdateUserForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 
+  first = form.data['firstname']
+  last = form.data['lastname']
+  title = form.data['jobtitle']
+  about = form.data['about_text']
+  git_link = form.data['github_link']
+  link_link = form.data['linkedin_link']
+
 
   if form.validate_on_submit():
+
     current_user.update_aboutme(
         form.data['firstname'],
         form.data['lastname'],
