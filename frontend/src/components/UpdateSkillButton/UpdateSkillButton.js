@@ -7,6 +7,9 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
 
 
+import { thunk_updateSkill } from "../../store/thunks/skills.js";
+
+
 
 const UpdateSkillButton = ({ skillId }) => {
   const dispatch = useDispatch();
@@ -23,7 +26,7 @@ const UpdateSkillButton = ({ skillId }) => {
   const onSubmit = event => {
     event.preventDefault();
     const payload = { title, percentage };
-
+    dispatch(thunk_updateSkill(skillId, payload));
   }
 
 
