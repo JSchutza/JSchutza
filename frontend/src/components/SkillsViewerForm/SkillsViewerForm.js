@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
+import ListGroup from 'react-bootstrap/ListGroup';
 
 
 
@@ -10,7 +12,7 @@ import Button from 'react-bootstrap/Button'
 const SkillsViewerForm = () => {
   const [ title, setTitle ] = useState('');
   const [ percentage, setPercent ] = useState(0);
-
+  const currentSkills = useSelector(store => store.skillsReducer.skills)
 
 
   const onSubmit = event => {
@@ -22,6 +24,21 @@ const SkillsViewerForm = () => {
   return (
     <>
       {/* display list of the current skills in db with delete / remove button next to each */}
+      {currentSkills === null ?
+          <></>
+      :
+          Object.values(currentSkills).map(eachSkill => (
+            <>
+              <Container>
+                <ListGroup.Item>
+                    {eachSkill.title}
+
+                </ListGroup.Item>
+              </Container>
+            </>
+          ))
+      }
+
 
 
       <Jumbotron fluid>
