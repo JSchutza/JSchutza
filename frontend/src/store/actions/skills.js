@@ -10,9 +10,9 @@ const getSkills = (skills) => ({
 
 
 
-const createSkills = (skill) => ({
+const createSkills = (skills) => ({
   type: CREATE_SKILL,
-  skill
+  skills
 })
 
 

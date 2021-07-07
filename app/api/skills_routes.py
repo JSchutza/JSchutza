@@ -42,7 +42,7 @@ def create_new_skill():
       db.session.add(new_skill)
       db.session.commit()
 
-      return { "skill": new_skill.to_dict() }
+      return { new_skill.id : new_skill.to_dict() }
 
 
   if form.validate_on_submit() and no_errors:
@@ -50,7 +50,7 @@ def create_new_skill():
     db.session.add(new_skill)
     db.session.commit()
 
-    return { "skill": new_skill.to_dict() }
+    return { new_skill.id : new_skill.to_dict() }
 
 
   return { "errors": ["errors", "Please try again."] }
