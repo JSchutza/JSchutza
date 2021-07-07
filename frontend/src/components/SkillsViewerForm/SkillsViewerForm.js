@@ -27,7 +27,7 @@ const SkillsViewerForm = () => {
 
   const onSubmit = event => {
     event.preventDefault();
-    const payload = { title, percentage }
+    const payload = { title, percentage };
     dispatch(thunk_createSkills(payload));
   }
 
