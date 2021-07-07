@@ -4,7 +4,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField
 
 
-
 class UpdateUserForm(FlaskForm):
   firstname = StringField("text")
   lastname = StringField("text")

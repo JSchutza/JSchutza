@@ -1,5 +1,5 @@
 
-import { GET_SKILLS } from '../types'
+import { GET_SKILLS, CREATE_SKILL } from '../types'
 
 
 
@@ -9,6 +9,9 @@ const skillsReducer = (state = { skills: null, errors: null }, action) => {
   switch (action.type) {
     case GET_SKILLS:
       return { ...action.skills };
+    case CREATE_SKILL:
+      return { skills: { ...state.skills, ...action.skills } };
+
     // case REMOVE_USER:
     //   return { user: null, errors: null };
     // case VALIDATION_ERRORS:

@@ -6,9 +6,9 @@ import Button from 'react-bootstrap/Button'
 
 
 
-const DeleteSkillButton = ({ skillId }) => {
+const UpdateSkillButton = ({ skillId }) => {
 
-  const onDelete = event => {
+  const onUpdate = event => {
     event.preventDefault();
   }
 
@@ -17,10 +17,10 @@ const DeleteSkillButton = ({ skillId }) => {
   return (
     <>
       <Container>
-        <Button variant="outline-danger" onClick={event => onDelete(event)}> Delete </Button>
+        <Button variant="primary" onClick={event => onUpdate(event)}> Update </Button>
       </Container>
     </>
   )
 };
 
-export default DeleteSkillButton;
+export default UpdateSkillButton;
