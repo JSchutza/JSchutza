@@ -54,3 +54,19 @@ def create_new_skill():
 
 
   return { "errors": ["errors", "Please try again."] }
+
+
+
+
+# DELETE /api/skills/:skill_id
+@skills_routes.route('/<int:skill_id>', methods=['DELETE'])
+@login_required
+def delete_skill(skill_id):
+  the_skill = Skill.query.get(skill_id)
+
+  if the_skill is not None:
+    db.session.delete(the_skill)
+    db.session.commit()
+    return { "message": "skill successfully deleted" }
+
+  return { "errors": ["Error, cannot remove requested skill.", "Please try again."] }
