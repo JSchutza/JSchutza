@@ -70,3 +70,21 @@ def delete_skill(skill_id):
     return { "message": "skill successfully deleted" }
 
   return { "errors": ["Error, cannot remove requested skill.", "Please try again."] }
+
+
+
+
+
+
+# PUT /api/skills/:skill_id
+@skills_routes.route('/<int:skill_id>', methods=['PUT'])
+@login_required
+def update_skill():
+  form = UpdateSkillForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
+  no_errors = True
+
+  title = form.data['title']
+  percentage = form.data['percentage']
+  
