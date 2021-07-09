@@ -1,4 +1,4 @@
-import { GET_PROJECTS, CREATE_PROJECT, DELETE_PROJECT } from '../types';
+import { GET_PROJECTS, CREATE_PROJECT, DELETE_PROJECT, UPDATE_PROJECT } from '../types';
 
 
 
@@ -23,11 +23,18 @@ const deleteProject = (projectId) => ({
 
 
 
+const updateProject = (project) => ({
+  type: UPDATE_PROJECT,
+  project
+});
+
+
 
 export {
   getProjects,
   createProject,
   deleteProject,
+  updateProject,
 
 
 

@@ -16,6 +16,17 @@ class Project(db.Model):
 
 
 
+
+  def update_project(self, new_name, new_img, new_description, new_live_link, new_github_link, new_used_tech):
+    self.project_name = new_name
+    self.project_img = new_img
+    self.description = new_description
+    self.live_link = new_live_link
+    self.github_link = new_github_link
+    self.used_tech = new_used_tech
+
+
+
   def to_dict(self):
     return {
         "id": self.id,
