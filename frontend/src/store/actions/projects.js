@@ -1,4 +1,4 @@
-import { GET_PROJECTS } from '../types';
+import { GET_PROJECTS, CREATE_PROJECT } from '../types';
 
 
 
@@ -9,9 +9,17 @@ const getProjects = (projects) => ({
 
 
 
+const createProject = (project) => ({
+  type: CREATE_PROJECT,
+  project
+});
+
+
 
 export {
   getProjects,
+  createProject,
+
 
 
 }

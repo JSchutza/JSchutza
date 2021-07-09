@@ -7,6 +7,8 @@ import Button from 'react-bootstrap/Button'
 
 import { useDispatch, useSelector } from "react-redux";
 
+import { thunk_createProject } from "../../store/thunks/projects.js";
+
 
 
 const ProjectViewerForm = () => {
@@ -23,7 +25,8 @@ const ProjectViewerForm = () => {
 
   const onSubmit = event => {
     event.preventDefault();
-    dispatch();
+    const payload = { projectname, projectimg, description, livelink, githublink, usedtechnology };
+    dispatch(thunk_createProject(payload));
   }
 
 

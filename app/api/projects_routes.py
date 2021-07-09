@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from app.models import db, Project
 from flask_login import login_required
 from app.forms import UpdateProjectForm
