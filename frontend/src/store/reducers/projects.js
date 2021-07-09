@@ -10,7 +10,7 @@ const projectsReducer = (state = { projects: null, errors: null }, action) => {
     case GET_PROJECTS:
       return { ...action.projects };
     case CREATE_PROJECT:
-      return { projects: { ...state.projects, ...action.projects } };
+      return { projects: { ...state.projects, ...action.project } };
     case DELETE_PROJECT:
       const id = action.projectId;
       delete state.projects[id];
