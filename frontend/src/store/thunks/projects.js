@@ -1,6 +1,6 @@
 
 
-import { getProjects, createProject } from "../actions/projects.js";
+import { getProjects, createProject, deleteProject } from "../actions/projects.js";
 
 
 
@@ -49,10 +49,28 @@ const thunk_createProject = ({ projectname, projectimg, description, livelink, g
 
 
 
+const thunk_deleteProject = (projectId) => async (dispatch) => {
+  const response = await fetch(`/api/projects/${projectId}`, {
+    method: "DELETE",
+    credentials: "include",
+  });
+
+  const data = await response.json();
+  if (data.errors) {
+    return;
+  }
+
+  dispatch(deleteProject(projectId));
+  dispatch(thunk_getProjects());
+
+}
+
+
 
 
 export {
   thunk_getProjects,
   thunk_createProject,
+  thunk_deleteProject,
 
 }

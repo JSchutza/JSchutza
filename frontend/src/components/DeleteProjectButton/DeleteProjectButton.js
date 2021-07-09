@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button'
 
 
 // import { thunk_deleteSkill } from "../../store/thunks/skills.js";
-
+// thunk_deleteProject
 
 
 

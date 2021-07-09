@@ -1,5 +1,5 @@
 
-import { GET_PROJECTS, CREATE_PROJECT } from '../types'
+import { GET_PROJECTS, CREATE_PROJECT, DELETE_PROJECT } from '../types'
 
 
 
@@ -11,6 +11,10 @@ const projectsReducer = (state = { projects: null, errors: null }, action) => {
       return { ...action.projects };
     case CREATE_PROJECT:
       return { projects: { ...state.projects, ...action.projects } };
+    case DELETE_PROJECT:
+      const id = action.projectId;
+      delete state.projects[id];
+      return { ...state };
     // case REMOVE_USER:
     //   return { user: null, errors: null };
     // case VALIDATION_ERRORS:
