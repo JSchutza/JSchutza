@@ -5,6 +5,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 
 
+import { useDispatch, useSelector } from "react-redux";
+
 
 
 const ProjectViewerForm = () => {
@@ -15,11 +17,13 @@ const ProjectViewerForm = () => {
   const [ githublink, setGithubLink ] = useState('');
   const [ usedtechnology, setUsedTechnology ] = useState('');
 
+  const dispatch = useDispatch();
 
 
 
   const onSubmit = event => {
     event.preventDefault();
+    dispatch();
   }
 
 
