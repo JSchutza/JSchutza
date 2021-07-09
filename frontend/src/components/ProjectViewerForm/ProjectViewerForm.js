@@ -5,6 +5,10 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 
 
+import { useDispatch, useSelector } from "react-redux";
+
+import { thunk_createProject } from "../../store/thunks/projects.js";
+
 
 
 const ProjectViewerForm = () => {
@@ -15,11 +19,14 @@ const ProjectViewerForm = () => {
   const [ githublink, setGithubLink ] = useState('');
   const [ usedtechnology, setUsedTechnology ] = useState('');
 
+  const dispatch = useDispatch();
 
 
 
   const onSubmit = event => {
     event.preventDefault();
+    const payload = { projectname, projectimg, description, livelink, githublink, usedtechnology };
+    dispatch(thunk_createProject(payload));
   }
 
 

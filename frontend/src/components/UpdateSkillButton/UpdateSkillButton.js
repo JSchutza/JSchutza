@@ -40,7 +40,7 @@ const UpdateSkillButton = ({ skillId }) => {
 
   const hideForm = event => {
     event.preventDefault();
-    setShowform(false)
+    setShowform(false);
   }
 
 

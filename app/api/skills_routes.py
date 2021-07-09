@@ -70,3 +70,44 @@ def delete_skill(skill_id):
     return { "message": "skill successfully deleted" }
 
   return { "errors": ["Error, cannot remove requested skill.", "Please try again."] }
+
+
+
+
+
+
+# PUT /api/skills/:skill_id
+@skills_routes.route('/<int:skill_id>', methods=['PUT'])
+@login_required
+def update_skill(skill_id):
+  form = UpdateSkillForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
+  no_errors = True
+
+  title = form.data['title']
+  percentage = form.data['percentage']
+
+  if title == '' or percentage == '':
+    no_errors = False
+    title = 'JavaScript'
+    percentage = '100'
+
+    if form.validate_on_submit():
+      the_skill = Skill.query.get(skill_id)
+      the_skill.update_skill(title, float(percentage))
+      db.session.add(the_skill)
+      db.session.commit()
+
+      return { the_skill.id: the_skill.to_dict() }
+
+
+  if form.validate_on_submit() and no_errors:
+    the_skill = Skill.query.get(skill_id)
+    the_skill.update_skill(form.data['title'], float(form.data['percentage']))
+    db.session.add(the_skill)
+    db.session.commit()
+    return { the_skill.id: the_skill.to_dict() }
+
+
+  return { "errors": ["errors", "Please try again."] }
