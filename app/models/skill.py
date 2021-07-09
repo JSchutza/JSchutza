@@ -14,6 +14,9 @@ class Skill(db.Model):
 
 
 
+  def update_skill(self, new_title, new_percentage):
+    self.title = new_title
+    self.percentage = new_percentage
 
 
 
