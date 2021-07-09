@@ -1,5 +1,5 @@
 
-import { GET_SKILLS, CREATE_SKILL, DELETE_SKILL } from '../types'
+import { GET_SKILLS, CREATE_SKILL, DELETE_SKILL, UPDATE_SKILL } from '../types'
 
 
 
@@ -15,6 +15,9 @@ const skillsReducer = (state = { skills: null, errors: null }, action) => {
       const id = action.skillId;
       delete state.skills[id];
       return { ...state };
+    case UPDATE_SKILL:
+      return { skills: { ...state.skills, ...action.skills } };
+
 
     // case REMOVE_USER:
     //   return { user: null, errors: null };
