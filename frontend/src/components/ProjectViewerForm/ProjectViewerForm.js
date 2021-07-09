@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 
+import UpdateProjectButton from "../UpdateProjectButton";
 import DeleteProjectButton from "../DeleteProjectButton";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -48,7 +49,7 @@ const ProjectViewerForm = () => {
             </Container>
 
             <Container>
-              {/* update project button component */}
+              <UpdateProjectButton projectId={eachProject.id} />
             </Container>
 
             <Container>
