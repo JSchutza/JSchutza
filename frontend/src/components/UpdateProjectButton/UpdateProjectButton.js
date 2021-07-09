@@ -15,81 +15,130 @@ import Form from 'react-bootstrap/Form';
 
 const UpdateProjectButton = ({ projectId }) => {
   const dispatch = useDispatch();
-  // const prevInfo = useSelector(store => store.skillsReducer.skills[projectId]);
+  const prevInfo = useSelector(store => store.projectsReducer.projects[projectId]);
 
-  // const [showform, setShowform] = useState(false);
-  // const [title, setTitle] = useState(prevInfo.title);
-  // const [percentage, setPercent] = useState(prevInfo.percentage);
-
-
-
-
-
-  // const onSubmit = event => {
-  //   event.preventDefault();
-  //   const payload = { title, percentage };
-  //   dispatch(thunk_updateSkill(projectId, payload));
-  // }
+  const [ showform, setShowform ] = useState(false);
+  const [ description, setDescription ] = useState(prevInfo.description);
+  const [ projectname, setProjectname ] = useState(prevInfo.project_name);
+  const [ usedtechnology, setUsedTechnology ] = useState(prevInfo.used_tech);
+  const [ img, setImg] = useState(prevInfo.project_img);
+  const [ livelink, setLiveLink ] = useState(prevInfo.live_link);
+  const [ githublink, setGithubLink ] = useState(prevInfo.github_link);
 
 
 
 
-  // const onUpdate = event => {
-  //   event.preventDefault();
-  //   setShowform(true);
-  // }
 
 
-  // const hideForm = event => {
-  //   event.preventDefault();
-  //   setShowform(false);
-  // }
+  const onSubmit = event => {
+    event.preventDefault();
+    // const payload = { title, percentage };
+    // dispatch(thunk_updateSkill(projectId, payload));
+  }
 
 
-  // if (showform) {
-  //   return (
-  //     <>
-  //       <Container>
-  //         <Button variant="primary" onClick={event => hideForm(event)}> Close </Button>
-  //       </Container>
 
-  //       <Container>
-  //         <form onSubmit={onSubmit}>
-  //           <label>
-  //             Title
-  //             <Form.Control
-  //               type="text"
-  //               name="title"
-  //               value={title}
-  //               onChange={event => setTitle(event.target.value)}
-  //             />
-  //           </label>
-  //           <br />
 
-  //           <label>
-  //             Percentage
-  //             <Form.Control
-  //               type="number"
-  //               name="percentage"
-  //               value={percentage}
-  //               onChange={event => setPercent(event.target.value)}
-  //             />
-  //           </label>
+  const onUpdate = event => {
+    event.preventDefault();
+    setShowform(true);
+  }
 
-  //           <br />
-  //           <Button variant="primary" onClick={event => onSubmit(event)}> Update </Button>
-  //         </form>
-  //       </Container>
-  //     </>
-  //   )
-  // }
+
+  const hideForm = event => {
+    event.preventDefault();
+    setShowform(false);
+  }
+
+
+  if (showform) {
+    return (
+      <>
+        <Container>
+          <Button variant="primary" onClick={event => hideForm(event)}> Close </Button>
+        </Container>
+
+        <Container>
+          <form onSubmit={onSubmit}>
+
+            <label>
+              Project Name
+              <Form.Control
+                type="text"
+                name="projectname"
+                value={projectname}
+                onChange={event => setProjectname(event.target.value)}
+              />
+            </label>
+            <br />
+
+            <label>
+              Project img
+              <Form.Control
+                type="text"
+                name="img"
+                value={img}
+                onChange={event => setImg(event.target.value)}
+              />
+            </label>
+            <br />
+
+            <label>
+              Project live link
+              <Form.Control
+                type="text"
+                name="livelink"
+                value={livelink}
+                onChange={event => setLiveLink(event.target.value)}
+              />
+            </label>
+            <br />
+
+            <label>
+              Project github link
+              <Form.Control
+                type="text"
+                name="githublink"
+                value={githublink}
+                onChange={event => setGithubLink(event.target.value)}
+              />
+            </label>
+            <br />
+
+            <label>
+              Description
+              <Form.Control
+                as="textarea"
+                name="description"
+                value={description}
+                onChange={event => setDescription(event.target.value)}
+              />
+            </label>
+            <br />
+
+            <label>
+              Used Tech
+              <Form.Control
+                as="textarea"
+                name="usedtechnology"
+                value={usedtechnology}
+                onChange={event => setUsedTechnology(event.target.value)}
+              />
+            </label>
+            <br />
+
+            <Button variant="primary" onClick={event => onSubmit(event)}> Update </Button>
+          </form>
+        </Container>
+      </>
+    )
+  }
 
 
   return (
     <>
       <Container>
-        {/* <Button variant="primary" onClick={event => onUpdate(event)}> Update </Button> */}
-        <Button variant="primary" onClick={event => event.preventDefault()}> Update </Button>
+        <Button variant="primary" onClick={event => onUpdate(event)}> Update </Button>
       </Container>
     </>
   )
