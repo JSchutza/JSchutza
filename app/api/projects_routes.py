@@ -84,7 +84,7 @@ def create_project():
 
 
 # DELETE /api/projects/:project_id
-@skills_routes.route('/<int:project_id>', methods=['DELETE'])
+@project_routes.route('/<int:project_id>', methods=['DELETE'])
 @login_required
 def delete_project(project_id):
   the_project = Project.query.get(project_id)
