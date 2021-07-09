@@ -4,10 +4,14 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 
+import UpdateProjectButton from "../UpdateProjectButton";
+import DeleteProjectButton from "../DeleteProjectButton";
 
 import { useDispatch, useSelector } from "react-redux";
 
 import { thunk_createProject } from "../../store/thunks/projects.js";
+
+
 
 
 
@@ -18,6 +22,8 @@ const ProjectViewerForm = () => {
   const [ livelink, setLiveLink ] = useState('');
   const [ githublink, setGithubLink ] = useState('');
   const [ usedtechnology, setUsedTechnology ] = useState('');
+
+  const currentProjects = useSelector(store => store.projectsReducer.projects);
 
   const dispatch = useDispatch();
 
@@ -33,6 +39,33 @@ const ProjectViewerForm = () => {
 
   return (
     <>
+    {/* shows current projects that can be deleted and updated */}
+
+      {currentProjects !== null ?
+        Object.values(currentProjects).map(eachProject => (
+          <>
+            <Container>
+              <h3>{eachProject.project_name}</h3>
+            </Container>
+
+            <Container>
+              <UpdateProjectButton projectId={eachProject.id} />
+            </Container>
+
+            <Container>
+              <DeleteProjectButton projectId={eachProject.id} />
+            </Container>
+          </>
+        ))
+      :
+      <></>
+      }
+
+
+
+
+
+
       <Jumbotron fluid>
         <Container>
     <form onSubmit={onSubmit}>
@@ -102,7 +135,7 @@ const ProjectViewerForm = () => {
     </label>
 
             <br />
-            <Button variant="primary" onClick={event => onSubmit(event)}> Update </Button>
+            <Button variant="primary" onClick={event => onSubmit(event)}> Create </Button>
     </form>
         </Container>
     </Jumbotron>
