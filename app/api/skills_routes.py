@@ -79,7 +79,7 @@ def delete_skill(skill_id):
 # PUT /api/skills/:skill_id
 @skills_routes.route('/<int:skill_id>', methods=['PUT'])
 @login_required
-def update_skill(skill_id):
+def update_single_skill(skill_id):
   form = UpdateSkillForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 

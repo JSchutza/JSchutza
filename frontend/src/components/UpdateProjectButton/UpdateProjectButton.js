@@ -66,7 +66,7 @@ const UpdateProjectButton = ({ projectId }) => {
               Project Name
               <Form.Control
                 type="text"
-                name="projectname"
+                name="project_name"
                 value={project_name}
                 onChange={event => setProjectname(event.target.value)}
               />
@@ -77,7 +77,7 @@ const UpdateProjectButton = ({ projectId }) => {
               Project img
               <Form.Control
                 type="text"
-                name="img"
+                name="project_img"
                 value={project_img}
                 onChange={event => setImg(event.target.value)}
               />
@@ -88,7 +88,7 @@ const UpdateProjectButton = ({ projectId }) => {
               Project live link
               <Form.Control
                 type="text"
-                name="livelink"
+                name="live_link"
                 value={live_link}
                 onChange={event => setLiveLink(event.target.value)}
               />
@@ -99,7 +99,7 @@ const UpdateProjectButton = ({ projectId }) => {
               Project github link
               <Form.Control
                 type="text"
-                name="githublink"
+                name="github_link"
                 value={github_link}
                 onChange={event => setGithubLink(event.target.value)}
               />
@@ -121,7 +121,7 @@ const UpdateProjectButton = ({ projectId }) => {
               Used Tech
               <Form.Control
                 as="textarea"
-                name="usedtechnology"
+                name="used_tech"
                 value={used_tech}
                 onChange={event => setUsedTechnology(event.target.value)}
               />

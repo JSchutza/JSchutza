@@ -105,23 +105,23 @@ def delete_project(project_id):
 # PUT /api/projects/:project_id
 @project_routes.route('/<int:project_id>', methods=['PUT'])
 @login_required
-def update_project(project_id):
+def update_single_project(project_id):
   form = UpdateProjectForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 
   no_errors = True
 
   project_name = form.data['project_name']
-  img = form.data['img']
+  project_img = form.data['project_img']
   description = form.data['description']
   live_link = form.data['live_link']
   github_link = form.data['github_link']
   used_tech = form.data['used_tech']
 
-  if project_name == '' or img == '' or description == '' or live_link == '' or github_link == '' or used_tech == '':
+  if project_name == '' or project_img == '' or description == '' or live_link == '' or github_link == '' or used_tech == '':
     no_errors = False
     project_name = 'default project name'
-    img = 'default project img'
+    project_img = 'default project img'
     description = 'default project description'
     live_link = 'default project live_link'
     github_link = 'default project github_link'
@@ -131,7 +131,7 @@ def update_project(project_id):
       the_project = Project.query.get(project_id)
       the_project.update_project(
           project_name,
-          img,
+          project_img,
           description,
           live_link,
           github_link,
@@ -148,7 +148,7 @@ def update_project(project_id):
     the_project = Project.query.get(project_id)
     the_project.update_project(
       form.data['project_name'],
-      form.data['img'],
+      form.data['project_img'],
       form.data['description'],
       form.data['live_link'],
       form.data['github_link'],
