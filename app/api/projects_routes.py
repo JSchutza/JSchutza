@@ -77,3 +77,21 @@ def create_project():
     return { new_project.id: new_project.to_dict() }
 
   return { "errors": ["errors", "Please try again."] }
+
+
+
+
+
+
+# DELETE /api/projects/:project_id
+@skills_routes.route('/<int:project_id>', methods=['DELETE'])
+@login_required
+def delete_project(project_id):
+  the_project = Project.query.get(project_id)
+
+  if the_project is not None:
+    db.session.delete(the_project)
+    db.session.commit()
+    return { "message": "project successfully deleted" }
+
+  return { "errors": ["Error, cannot remove requested skill.", "Please try again."] }
