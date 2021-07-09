@@ -128,35 +128,36 @@ def update_project(project_id):
     used_tech = 'default project used_tech'
 
     if form.validate_on_submit():
-      new_project = Project(
-        project_name=project_name,
-        project_img=img,
-        description=description,
-        live_link=live_link,
-        github_link=github_link,
-        used_tech=used_tech
+      the_project = Project.query.get(project_id)
+      the_project.update_project(
+          project_name,
+          img,
+          description,
+          live_link,
+          github_link,
+          used_tech
       )
-
-      db.session.add(new_project)
+      db.session.add(the_project)
       db.session.commit()
 
-      return { new_project.id: new_project.to_dict() }
+      return { the_project.id: the_project.to_dict() }
 
 
 
   if form.validate_on_submit() and no_errors:
-    new_project = Project(
-      project_name=form.data['project_name'],
-      project_img=form.data['img'],
-      description=form.data['description'],
-      live_link=form.data['live_link'],
-      github_link=form.data['github_link'],
-      used_tech=form.data['used_tech']
+    the_project = Project.query.get(project_id)
+    the_project.update_project(
+      form.data['project_name'],
+      form.data['img'],
+      form.data['description'],
+      form.data['live_link'],
+      form.data['github_link'],
+      form.data['used_tech']
     )
 
-    db.session.add(new_project)
+    db.session.add(the_project)
     db.session.commit()
 
-    return { new_project.id: new_project.to_dict() }
+    return { the_project.id: the_project.to_dict() }
 
   return { "errors": ["errors", "Please try again."] }

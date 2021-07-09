@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
 
 
-// import { thunk_updateSkill } from "../../store/thunks/skills.js";
+import { thunk_updateProject } from "../../store/thunks/projects.js";
 
 
 
@@ -18,12 +18,13 @@ const UpdateProjectButton = ({ projectId }) => {
   const prevInfo = useSelector(store => store.projectsReducer.projects[projectId]);
 
   const [ showform, setShowform ] = useState(false);
+
+  const [ project_name, setProjectname ] = useState(prevInfo?.project_name);
+  const [ project_img, setImg] = useState(prevInfo?.project_img);
   const [ description, setDescription ] = useState(prevInfo?.description);
-  const [ projectname, setProjectname ] = useState(prevInfo?.project_name);
-  const [ usedtechnology, setUsedTechnology ] = useState(prevInfo?.used_tech);
-  const [ img, setImg] = useState(prevInfo?.project_img);
-  const [ livelink, setLiveLink ] = useState(prevInfo?.live_link);
-  const [ githublink, setGithubLink ] = useState(prevInfo?.github_link);
+  const [ live_link, setLiveLink ] = useState(prevInfo?.live_link);
+  const [ github_link, setGithubLink ] = useState(prevInfo?.github_link);
+  const [ used_tech, setUsedTechnology ] = useState(prevInfo?.used_tech);
 
 
 
@@ -32,8 +33,8 @@ const UpdateProjectButton = ({ projectId }) => {
 
   const onSubmit = event => {
     event.preventDefault();
-    // const payload = { title, percentage };
-    // dispatch(thunk_updateSkill(projectId, payload));
+    const payload = { project_name, project_img, description, live_link, github_link, used_tech };
+    dispatch(thunk_updateProject(projectId, payload));
   }
 
 
@@ -66,7 +67,7 @@ const UpdateProjectButton = ({ projectId }) => {
               <Form.Control
                 type="text"
                 name="projectname"
-                value={projectname}
+                value={project_name}
                 onChange={event => setProjectname(event.target.value)}
               />
             </label>
@@ -77,7 +78,7 @@ const UpdateProjectButton = ({ projectId }) => {
               <Form.Control
                 type="text"
                 name="img"
-                value={img}
+                value={project_img}
                 onChange={event => setImg(event.target.value)}
               />
             </label>
@@ -88,7 +89,7 @@ const UpdateProjectButton = ({ projectId }) => {
               <Form.Control
                 type="text"
                 name="livelink"
-                value={livelink}
+                value={live_link}
                 onChange={event => setLiveLink(event.target.value)}
               />
             </label>
@@ -99,7 +100,7 @@ const UpdateProjectButton = ({ projectId }) => {
               <Form.Control
                 type="text"
                 name="githublink"
-                value={githublink}
+                value={github_link}
                 onChange={event => setGithubLink(event.target.value)}
               />
             </label>
@@ -121,7 +122,7 @@ const UpdateProjectButton = ({ projectId }) => {
               <Form.Control
                 as="textarea"
                 name="usedtechnology"
-                value={usedtechnology}
+                value={used_tech}
                 onChange={event => setUsedTechnology(event.target.value)}
               />
             </label>

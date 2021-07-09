@@ -1,6 +1,6 @@
 
 
-import { getProjects, createProject, deleteProject } from "../actions/projects.js";
+import { getProjects, createProject, deleteProject, updateProject } from "../actions/projects.js";
 
 
 
@@ -68,9 +68,39 @@ const thunk_deleteProject = (projectId) => async (dispatch) => {
 
 
 
+const thunk_updateProject = (projectId, { project_name, project_img, description, live_link, github_link, used_tech }) => async (dispatch) => {
+  const formData = new FormData();
+  formData.append("project_name", project_name);
+  formData.append("project_img", project_img);
+  formData.append("description", description);
+  formData.append("live_link", live_link);
+  formData.append("github_link", github_link);
+  formData.append("used_tech", used_tech);
+
+
+  const response = await fetch(`/api/projects/${projectId}`, {
+    method: 'PUT',
+    body: formData,
+  });
+
+  const data = await response.json();
+  if (data.errors) {
+    return;
+  }
+
+  dispatch(updateProject(data));
+}
+
+
+
+
+
+
 export {
   thunk_getProjects,
   thunk_createProject,
   thunk_deleteProject,
+  thunk_updateProject,
+
 
 }

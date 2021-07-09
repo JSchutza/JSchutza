@@ -36,6 +36,7 @@ const UPDATE_SKILL = 'skills/UPDATE_SKILL';
 const GET_PROJECTS = 'projects/GET_PROJECTS';
 const CREATE_PROJECT = 'projects/CREATE_PROJECT';
 const DELETE_PROJECT = 'projects/DELETE_PROJECT';
+const UPDATE_PROJECT = 'projects/UPDATE_PROJECT';
 
 
 
@@ -67,6 +68,7 @@ export {
   UPDATE_SKILL,
   CREATE_PROJECT,
   DELETE_PROJECT,
+  UPDATE_PROJECT,
 
 
 
