@@ -16,8 +16,8 @@ const UpdateSkillButton = ({ skillId }) => {
   const prevInfo = useSelector(store => store.skillsReducer.skills[skillId]);
 
   const [ showform, setShowform ] = useState(false);
-  const [ title, setTitle ] = useState(prevInfo.title);
-  const [ percentage, setPercent ] = useState(prevInfo.percentage);
+  const [ title, setTitle ] = useState(prevInfo?.title);
+  const [ percentage, setPercent ] = useState(prevInfo?.percentage);
 
 
 
