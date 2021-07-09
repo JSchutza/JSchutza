@@ -18,12 +18,12 @@ const UpdateProjectButton = ({ projectId }) => {
   const prevInfo = useSelector(store => store.projectsReducer.projects[projectId]);
 
   const [ showform, setShowform ] = useState(false);
-  const [ description, setDescription ] = useState(prevInfo.description);
-  const [ projectname, setProjectname ] = useState(prevInfo.project_name);
-  const [ usedtechnology, setUsedTechnology ] = useState(prevInfo.used_tech);
-  const [ img, setImg] = useState(prevInfo.project_img);
-  const [ livelink, setLiveLink ] = useState(prevInfo.live_link);
-  const [ githublink, setGithubLink ] = useState(prevInfo.github_link);
+  const [ description, setDescription ] = useState(prevInfo?.description);
+  const [ projectname, setProjectname ] = useState(prevInfo?.project_name);
+  const [ usedtechnology, setUsedTechnology ] = useState(prevInfo?.used_tech);
+  const [ img, setImg] = useState(prevInfo?.project_img);
+  const [ livelink, setLiveLink ] = useState(prevInfo?.live_link);
+  const [ githublink, setGithubLink ] = useState(prevInfo?.github_link);
 
 
 
