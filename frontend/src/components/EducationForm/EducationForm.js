@@ -71,7 +71,7 @@ const EducationForm = () => {
         </label>
 
             <br />
-            <Button variant="primary" onClick={event => onSubmit(event)}> Update </Button>
+            <Button variant="primary" onClick={event => onSubmit(event)}> Create </Button>
       </form>
         </Container>
       </Jumbotron>
