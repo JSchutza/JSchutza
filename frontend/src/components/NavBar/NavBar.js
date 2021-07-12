@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
-// import LogoutButton from "../LogoutButton"
+import { logout } from "../../store/thunks/session.js";
+
 import styles from "./navbar.module.css";
 import { useDispatch } from "react-redux";
 import { FiLogIn } from 'react-icons/fi';
@@ -43,7 +44,8 @@ const NavBar = ({ userStatus }) => {
 
   const initLogout = event => {
     event.preventDefault();
-    // dispatch to logout thunk here
+    dispatch(logout());
+    history.push("/");
   }
 
 
