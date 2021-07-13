@@ -1,5 +1,5 @@
 
-import { GET_EDUCATIONS } from '../types'
+import { GET_EDUCATIONS, CREATE_EDUCATIONS } from '../types'
 
 
 

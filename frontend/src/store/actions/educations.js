@@ -1,4 +1,4 @@
-import { GET_EDUCATIONS } from '../types'
+import { GET_EDUCATIONS, CREATE_EDUCATIONS } from '../types'
 
 
 
@@ -9,8 +9,17 @@ const getEducations = (educations) => ({
 
 
 
+const createEducation = (educations) => ({
+  type: CREATE_EDUCATIONS,
+  educations
+});
+
+
+
+
 export {
   getEducations,
+  createEducation,
 
 
 }

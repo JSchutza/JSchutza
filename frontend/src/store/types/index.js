@@ -47,6 +47,8 @@ const GET_EXPERIENCES = 'experiences/GET_EXPERIENCES';
 
 // education info
 const GET_EDUCATIONS = 'educations/GET_EDUCATIONS';
+const CREATE_EDUCATIONS = 'educations/CREATE_EDUCATIONS';
+
 
 
 
@@ -69,6 +71,7 @@ export {
   CREATE_PROJECT,
   DELETE_PROJECT,
   UPDATE_PROJECT,
+  CREATE_EDUCATIONS,
 
 
 
