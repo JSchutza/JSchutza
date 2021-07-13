@@ -71,9 +71,12 @@ const thunk_deleteEducation = (educationId) => async (dispatch) => {
 
 
 
-const thunk_updateEducation = (educationId, { title }) => async (dispatch) => {
+const thunk_updateEducation = (educationId, { title, instution_name, start_year, end_year }) => async (dispatch) => {
   const formData = new FormData();
   formData.append("title", title);
+  formData.append("instution_name", instution_name);
+  formData.append("start_year", start_year);
+  formData.append("end_year", end_year);
 
 
 
