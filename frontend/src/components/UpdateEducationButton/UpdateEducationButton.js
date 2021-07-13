@@ -13,9 +13,9 @@ import Form from 'react-bootstrap/Form';
 
 
 
-const UpdateEducationButton = ({ projectId }) => {
+const UpdateEducationButton = ({ educationId }) => {
   const dispatch = useDispatch();
-  // const prevInfo = useSelector(store => store.projectsReducer.projects[projectId]);
+  // const prevInfo = useSelector(store => store.projectsReducer.projects[educationId]);
 
   const [showform, setShowform] = useState(false);
 
@@ -34,7 +34,7 @@ const UpdateEducationButton = ({ projectId }) => {
   const onSubmit = event => {
     event.preventDefault();
     // const payload = { project_name, project_img, description, live_link, github_link, used_tech };
-    // dispatch(thunk_updateProject(projectId, payload));
+    // dispatch(thunk_updateProject(educationId, payload));
   }
 
 
