@@ -21,8 +21,9 @@ const UpdateEducationButton = ({ educationId }) => {
 
   const [ title, setEducationTitle ] = useState(prevInfo?.title);
   const [ instution_name, setSchoolName ] = useState(prevInfo?.instution_name);
-  const [ start_year, setStartYear ] = useState(prevInfo?.start_year);
-  const [ end_year, setEndYear ] = useState(prevInfo?.end_year);
+  const [start_year, setStartYear] = useState(prevInfo?.start_year.split(' ')[3]);
+  const [end_year, setEndYear] = useState(prevInfo?.end_year.split(' ')[3]);
+
 
 
 
@@ -101,7 +102,7 @@ const UpdateEducationButton = ({ educationId }) => {
                 onChange={event => setEndYear(event.target.value)}
               />
             </label>
-
+            <br />
 
             <Button variant="primary" onClick={event => onSubmit(event)}> Update </Button>
           </form>
