@@ -72,17 +72,17 @@ def create_new_experience():
 
 
 # DELETE /api/experiences/:experience_id
-# @experience_routes.route('/<int:experience_id>', methods=['DELETE'])
-# @login_required
-# def delete_education(experience_id):
-#   the_education = Education.query.get(education_id)
+@experience_routes.route('/<int:experience_id>', methods=['DELETE'])
+@login_required
+def delete_experience(experience_id):
+  the_experience = Experience.query.get(experience_id)
 
-#   if the_education is not None:
-#     db.session.delete(the_education)
-#     db.session.commit()
-#     return {"message": "education successfully deleted"}
+  if the_experience is not None:
+    db.session.delete(the_experience)
+    db.session.commit()
+    return { "message": "experience successfully deleted" }
 
-#   return {"errors": ["Error, cannot remove requested education.", "Please try again."]}
+  return { "errors": ["Error, cannot remove requested experience.", "Please try again."] }
 
 
 
