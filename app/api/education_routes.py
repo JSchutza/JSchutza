@@ -89,3 +89,50 @@ def delete_education(education_id):
     return { "message": "education successfully deleted" }
 
   return { "errors": ["Error, cannot remove requested education.", "Please try again."] }
+
+
+
+
+
+
+# PUT /api/educations/:education_id
+@educations_routes.route('/<int:education_id>', methods=['PUT'])
+@login_required
+def update_single_education(education_id):
+  form = UpdateEducationForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
+  no_errors = True
+
+  title = form.data['title']
+  instution_name = form.data['instution_name']
+  start_year = form.data['start_year']
+  end_year = form.data['end_year']
+
+  if title == '' or instution_name == '' or start_year == '' or end_year == '':
+    no_errors = False
+    title = 'default education title'
+    instution_name = 'default instution_name'
+    start_year = datetime.now()
+    end_year = datetime.now()
+
+    if form.validate_on_submit():
+      the_education = Education.query.get(education_id)
+      the_education.update_education(
+        title,
+        float(percentage)
+      )
+      db.session.add(the_education)
+      db.session.commit()
+
+      return { the_education.id: the_education.to_dict() }
+
+
+  if form.validate_on_submit() and no_errors:
+    the_education = Education.query.get(education_id)
+    the_education.update_education(form.data['title'], float(form.data['percentage']))
+    db.session.add(the_education)
+    db.session.commit()
+    return {the_education.id: the_education.to_dict()}
+
+  return {"errors": ["errors", "Please try again."]}
