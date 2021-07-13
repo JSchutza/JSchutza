@@ -28,44 +28,42 @@ def create_new_experience():
   no_errors = True
 
   title = form.data['title']
-  instution_name = form.data['instution_name']
-  start_year = form.data['start_year']
-  end_year = form.data['end_year']
+  company_name = form.data['company_name']
+  start_date = form.data['start_date']
+  end_date = form.data['end_date']
 
-  if title == '' or instution_name == '' or start_year == '' or end_year == '':
+  if title == '' or company_name == '' or start_date == '' or end_date == '':
     no_errors = False
-    title = 'default education title'
-    instution_name = 'default instution_name'
-    start_year = datetime.now()
-    end_year = datetime.now()
+    title = 'default experience title'
+    company_name = 'default company_name'
+    start_date = datetime.now()
+    end_date = datetime.now()
 
     if form.validate_on_submit():
-      new_education = Education(
+      new_experience = Experience(
           title=title,
-          instution_name=instution_name,
-          start_year=start_year,
-          end_year=end_year
+          company_name=company_name,
+          start_date=start_date,
+          end_date=end_date
       )
-      db.session.add(new_education)
+      db.session.add(new_experience)
       db.session.commit()
 
-      return {new_education.id: new_education.to_dict()}
+      return { new_experience.id: new_experience.to_dict() }
 
   if form.validate_on_submit() and no_errors:
-    new_education = Education(
-        title=form.data['title'],
-        instution_name=form.data['instution_name'],
-        # 08/25/start_year 00:00:00
-        start_year=datetime(int(form.data['start_year']), 8, 25, 0, 0, 0, 0),
-        # 04/28/end_year 00:00:00
-        end_year=datetime(int(form.data['end_year']), 4, 28, 0, 0, 0, 0)
+    new_experience = Experience(
+      title=form.data['title'],
+      company_name=form.data['company_name'],
+      start_date=datetime(int(form.data['start_date']), 8, 25, 0, 0, 0, 0),
+      end_date=datetime(int(form.data['end_date']), 4, 28, 0, 0, 0, 0)
     )
-    db.session.add(new_education)
+    db.session.add(new_experience)
     db.session.commit()
 
-    return {new_education.id: new_education.to_dict()}
+    return { new_experience.id: new_experience.to_dict() }
 
-  return {"errors": ["errors", "Please try again."]}
+  return { "errors": ["errors", "Please try again."] }
 
 
 
