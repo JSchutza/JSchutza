@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 
 
 
-// import { thunk_deleteProject } from "../../store/thunks/projects.js";
+import { thunk_deleteEducation } from "../../store/thunks/educations.js";
 
 
 
@@ -22,7 +22,7 @@ const DeleteEducationButton = ({ educationId }) => {
 
   const onDelete = event => {
     event.preventDefault();
-    // dispatch(thunk_deleteProject(educationId));
+    dispatch(thunk_deleteEducation(educationId));
   }
 
 
