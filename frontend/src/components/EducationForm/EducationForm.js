@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from 'react-redux';
+
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -6,16 +8,25 @@ import Button from 'react-bootstrap/Button'
 
 
 
+import { thunk_createEducation } from "../../store/thunks/educations.js";
+
+
+
+
 
 const EducationForm = () => {
-  const [ educationtitle, setEducationTitle ] = useState('');
-  const [ schoolname, setSchoolName ] = useState('');
-  const [ startyear, setStartYear ] = useState('');
-  const [ endyear, setEndYear ] = useState('');
+  const [ title, setEducationTitle ] = useState('');
+  const [ instution_name, setSchoolName ] = useState('');
+  const [ start_year, setStartYear ] = useState('');
+  const [ end_year, setEndYear ] = useState('');
+
+  const dispatch = useDispatch();
 
 
   const onSubmit = event => {
     event.preventDefault();
+    const payload = { title, instution_name, start_year, end_year }
+    dispatch(thunk_createEducation(payload));
   }
 
 
@@ -32,7 +43,7 @@ const EducationForm = () => {
           <Form.Control
             type="text"
             name="educationtitle"
-            value={educationtitle}
+            value={title}
             onChange={event => setEducationTitle(event.target.value)}
           />
         </label>
@@ -43,7 +54,7 @@ const EducationForm = () => {
           <Form.Control
             type="text"
             name="schoolname"
-            value={schoolname}
+            value={instution_name}
             onChange={event => setSchoolName(event.target.value)}
           />
         </label>
@@ -54,7 +65,7 @@ const EducationForm = () => {
           <Form.Control
             type="text"
             name="startyear"
-            value={startyear}
+            value={start_year}
             onChange={event => setStartYear(event.target.value)}
           />
         </label>
@@ -65,7 +76,7 @@ const EducationForm = () => {
           <Form.Control
             type="text"
             name="endyear"
-            value={endyear}
+            value={end_year}
             onChange={event => setEndYear(event.target.value)}
           />
         </label>
