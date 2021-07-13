@@ -29,13 +29,16 @@ const thunk_getExperiences = () => async (dispatch) => {
 
 
 
-const thunk_createExperiences = ({ title, percentage }) => async (dispatch) => {
+const thunk_createExperiences = ({ title, company_name, start_date, end_date }) => async (dispatch) => {
   const formData = new FormData();
   formData.append("title", title);
-  formData.append("percentage", percentage);
+  formData.append("company_name", company_name);
+  formData.append("start_date", start_date);
+  formData.append("end_date", end_date);
 
 
-  const response = await fetch("/api/skills", {
+
+  const response = await fetch("/api/experiences", {
     method: 'POST',
     body: formData,
   });
