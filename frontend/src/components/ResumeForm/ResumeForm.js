@@ -62,6 +62,8 @@ const ResumeForm = () => {
               <p>{each.start_date}</p>
               <p>{each.end_date}</p>
           </Container>
+          {/* update button */}
+          {/* delete button */}
           </>
         ))
         :
