@@ -1,6 +1,6 @@
 
 
-import { getEducations, createEducation } from "../actions/educations.js";
+import { getEducations, createEducation, deleteEducation } from "../actions/educations.js";
 
 
 
@@ -51,9 +51,27 @@ const thunk_createEducation = ({ title, instution_name, start_year, end_year }) 
 
 
 
+const thunk_deleteEducation = (educationId) => async (dispatch) => {
+  const response = await fetch(`/api/educations/${educationId}`, {
+    method: "DELETE",
+    credentials: "include",
+  });
+
+  const data = await response.json();
+  if (data.errors) {
+    return;
+  }
+
+  dispatch(deleteEducation(educationId));
+  dispatch(thunk_getEducations());
+
+}
+
+
 
 export {
   thunk_getEducations,
   thunk_createEducation,
+  thunk_deleteEducation,
 
 }
