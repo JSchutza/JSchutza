@@ -14,7 +14,7 @@ import Button from 'react-bootstrap/Button'
 
 
 
-const DeleteExperienceButton = ({ projectId }) => {
+const DeleteExperienceButton = ({ experienceId }) => {
   const dispatch = useDispatch();
 
 
@@ -22,7 +22,7 @@ const DeleteExperienceButton = ({ projectId }) => {
 
   const onDelete = event => {
     event.preventDefault();
-    // dispatch(thunk_deleteProject(projectId));
+    // dispatch(thunk_deleteProject(experienceId));
   }
 
 

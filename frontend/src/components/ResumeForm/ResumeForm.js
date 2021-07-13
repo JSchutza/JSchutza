@@ -6,6 +6,7 @@ import ExperienceForm from "../ExperienceForm";
 import UpdateEducationButton from "../UpdateEducationButton";
 import DeleteEducationButton from "../DeleteEducationButton";
 import UpdateExperienceButton from "../UpdateExperienceButton";
+import DeleteExperienceButton from "../DeleteExperienceButton";
 
 
 
@@ -64,8 +65,8 @@ const ResumeForm = () => {
               <p>{each.start_date}</p>
               <p>{each.end_date}</p>
           </Container>
-            <UpdateExperienceButton />
-          {/* delete button */}
+            <UpdateExperienceButton experienceId={each.id} />
+            <DeleteExperienceButton experienceId={each.id} />
           </>
         ))
         :
