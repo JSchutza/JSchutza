@@ -11,6 +11,10 @@ const educationsReducer = (state = { educations: null, errors: null }, action) =
       return { ...action.educations };
     case CREATE_EDUCATIONS:
       return { educations: { ...state.educations, ...action.educations } };
+    case DELETE_EDUCATIONS:
+      const id = action.educationId;
+      delete state.educations[id];
+      return { ...state };
     // case REMOVE_USER:
     //   return { user: null, errors: null };
     // case VALIDATION_ERRORS:
