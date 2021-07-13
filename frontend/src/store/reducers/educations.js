@@ -9,6 +9,8 @@ const educationsReducer = (state = { educations: null, errors: null }, action) =
   switch (action.type) {
     case GET_EDUCATIONS:
       return { ...action.educations };
+    case CREATE_EDUCATIONS:
+      return { educations: { ...state.educations, ...action.educations } };
     // case REMOVE_USER:
     //   return { user: null, errors: null };
     // case VALIDATION_ERRORS:

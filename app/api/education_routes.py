@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from app.models import db, Education
 from flask_login import login_required
 from datetime import datetime
@@ -35,6 +35,7 @@ def create_new_education():
   start_year = form.data['start_year']
   end_year = form.data['end_year']
 
+
   if title == '' or instution_name == '' or start_year == '' or end_year == '':
     no_errors = False
     title = 'default education title'
@@ -59,8 +60,8 @@ def create_new_education():
     new_education = Education(
       title=form.data['title'],
       instution_name=form.data['instution_name'],
-      start_year=form.data['start_year'],
-      end_year=form.data['end_year']
+      start_year=datetime(int(form.data['start_year']), 8, 25,0,0,0,0),    # 08/25/start_year 00:00:00
+      end_year=datetime(int(form.data['end_year']), 4,28,0,0,0,0)          # 04/28/end_year 00:00:00
     )
     db.session.add(new_education)
     db.session.commit()
