@@ -1,5 +1,5 @@
 
-import { GET_EXPERIENCES, CREATE_EXPERIENCES } from '../types'
+import { GET_EXPERIENCES, CREATE_EXPERIENCES, DELETE_EXPERIENCES } from '../types'
 
 
 

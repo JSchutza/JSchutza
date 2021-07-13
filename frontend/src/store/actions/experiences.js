@@ -1,4 +1,4 @@
-import { GET_EXPERIENCES, CREATE_EXPERIENCES } from '../types'
+import { GET_EXPERIENCES, CREATE_EXPERIENCES, DELETE_EXPERIENCES } from '../types'
 
 
 
@@ -16,12 +16,17 @@ const createExperiences = (experiences) => ({
 
 
 
+const deleteExperiences = (experienceId) => ({
+  type: DELETE_EXPERIENCES,
+  experienceId
+});
 
 
 
 export {
   getExperiences,
   createExperiences,
+  deleteExperiences,
 
 
 }

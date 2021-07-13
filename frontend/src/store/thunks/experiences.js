@@ -1,6 +1,6 @@
 
 
-import { getExperiences, createExperiences } from "../actions/experiences.js";
+import { getExperiences, createExperiences, deleteExperiences } from "../actions/experiences.js";
 
 
 
@@ -53,21 +53,25 @@ const thunk_createExperiences = ({ title, company_name, start_date, end_date }) 
 
 
 
-// const thunk_deleteSkill = (skillId) => async (dispatch) => {
-//   const response = await fetch(`/api/skills/${skillId}`, {
-//     method: "DELETE",
-//     credentials: "include",
-//   });
 
-//   const data = await response.json();
-//   if (data.errors) {
-//     return;
-//   }
 
-//   dispatch(deleteSkill(skillId));
-//   dispatch(thunk_getSkills());
 
-// }
+
+const thunk_deleteExperiences = (experienceId) => async (dispatch) => {
+  const response = await fetch(`/api/experiences/${experienceId}`, {
+    method: "DELETE",
+    credentials: "include",
+  });
+
+  const data = await response.json();
+  if (data.errors) {
+    return;
+  }
+
+  dispatch(deleteExperiences(experienceId));
+  dispatch(thunk_getExperiences());
+
+}
 
 
 
@@ -96,5 +100,6 @@ const thunk_createExperiences = ({ title, company_name, start_date, end_date }) 
 export {
   thunk_getExperiences,
   thunk_createExperiences,
+  thunk_deleteExperiences,
 
 }
