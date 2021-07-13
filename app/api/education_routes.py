@@ -70,3 +70,22 @@ def create_new_education():
 
 
   return {"errors": ["errors", "Please try again."]}
+
+
+
+
+
+
+
+# DELETE /api/educations/:education_id
+@educations_routes.route('/<int:education_id>', methods=['DELETE'])
+@login_required
+def delete_education(education_id):
+  the_education = Education.query.get(education_id)
+
+  if the_education is not None:
+    db.session.delete(the_education)
+    db.session.commit()
+    return { "message": "education successfully deleted" }
+
+  return { "errors": ["Error, cannot remove requested education.", "Please try again."] }
