@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 
 
 
-// import { thunk_deleteProject } from "../../store/thunks/projects.js";
+import { thunk_deleteExperiences } from "../../store/thunks/experiences.js";
 
 
 
@@ -22,7 +22,7 @@ const DeleteExperienceButton = ({ experienceId }) => {
 
   const onDelete = event => {
     event.preventDefault();
-    // dispatch(thunk_deleteProject(experienceId));
+    dispatch(thunk_deleteExperiences(experienceId));
   }
 
 

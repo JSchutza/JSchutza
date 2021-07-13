@@ -1,21 +1,31 @@
 import React, { useEffect, useState } from "react";
+
+import { useDispatch } from "react-redux";
+
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 
 
+import { thunk_createExperiences } from "../../store/thunks/experiences.js";
+
 
 
 const ExperienceForm = () => {
   const [ title, setTitle ] = useState('');
-  const [ companyname, setCompanyName ] = useState('');
-  const [ startdate, setStartDate ] = useState('');
-  const [ enddate, setEndDate ] = useState('');
+  const [ company_name, setCompanyName ] = useState('');
+  const [ start_date, setStartDate ] = useState('');
+  const [ end_date, setEndDate ] = useState('');
+
+  const dispatch = useDispatch();
+
 
 
   const onSubmit = event => {
     event.preventDefault();
+    const payload = { title, company_name, start_date, end_date };
+    dispatch(thunk_createExperiences(payload));
   }
 
 
@@ -43,7 +53,7 @@ const ExperienceForm = () => {
           <Form.Control
             type="text"
             name="companyname"
-            value={companyname}
+            value={company_name}
             onChange={event => setCompanyName(event.target.value)}
           />
         </label>
@@ -54,7 +64,7 @@ const ExperienceForm = () => {
           <Form.Control
             type="text"
             name="startdate"
-            value={startdate}
+            value={start_date}
             onChange={event => setStartDate(event.target.value)}
           />
         </label>
@@ -65,7 +75,7 @@ const ExperienceForm = () => {
           <Form.Control
             type="text"
             name="enddate"
-            value={enddate}
+            value={end_date}
             onChange={event => setEndDate(event.target.value)}
           />
         </label>

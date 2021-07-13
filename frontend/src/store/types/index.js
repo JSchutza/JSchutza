@@ -40,16 +40,24 @@ const UPDATE_PROJECT = 'projects/UPDATE_PROJECT';
 
 
 
-// experience info
-const GET_EXPERIENCES = 'experiences/GET_EXPERIENCES';
-
-
 
 // education info
 const GET_EDUCATIONS = 'educations/GET_EDUCATIONS';
 const CREATE_EDUCATIONS = 'educations/CREATE_EDUCATIONS';
 const DELETE_EDUCATIONS = 'educations/DELETE_EDUCATIONS';
 const UPDATE_EDUCATIONS = 'educations/UPDATE_EDUCATIONS';
+
+
+
+
+
+// experience info
+const GET_EXPERIENCES = 'experiences/GET_EXPERIENCES';
+const CREATE_EXPERIENCES = 'experiences/CREATE_EXPERIENCES';
+const DELETE_EXPERIENCES = 'experiences/DELETE_EXPERIENCES';
+
+
+
 
 
 
@@ -76,6 +84,8 @@ export {
   CREATE_EDUCATIONS,
   DELETE_EDUCATIONS,
   UPDATE_EDUCATIONS,
+  CREATE_EXPERIENCES,
+  DELETE_EXPERIENCES,
 
 
 
