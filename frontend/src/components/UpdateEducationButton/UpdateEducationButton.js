@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
 
 
-// import { thunk_updateProject } from "../../store/thunks/projects.js";
+import { thunk_updateEducation } from "../../store/thunks/educations.js";
 
 
 
@@ -34,7 +34,7 @@ const UpdateEducationButton = ({ educationId }) => {
   const onSubmit = event => {
     event.preventDefault();
     // const payload = { project_name, project_img, description, live_link, github_link, used_tech };
-    // dispatch(thunk_updateProject(educationId, payload));
+    // dispatch(thunk_updateEducation(educationId, payload));
   }
 
 

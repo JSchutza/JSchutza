@@ -1,6 +1,6 @@
 
 
-import { getEducations, createEducation, deleteEducation } from "../actions/educations.js";
+import { getEducations, createEducation, deleteEducation, updateEducation } from "../actions/educations.js";
 
 
 
@@ -69,9 +69,33 @@ const thunk_deleteEducation = (educationId) => async (dispatch) => {
 
 
 
+
+
+const thunk_updateEducation = (educationId, { title }) => async (dispatch) => {
+  const formData = new FormData();
+  formData.append("title", title);
+
+
+
+  const response = await fetch(`/api/educations/${educationId}`, {
+    method: 'PUT',
+    body: formData,
+  });
+
+  const data = await response.json();
+  if (data.errors) {
+    return;
+  }
+
+  dispatch(updateEducation(data));
+}
+
+
+
 export {
   thunk_getEducations,
   thunk_createEducation,
   thunk_deleteEducation,
+  thunk_updateEducation,
 
 }

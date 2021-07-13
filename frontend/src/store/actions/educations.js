@@ -1,4 +1,4 @@
-import { GET_EDUCATIONS, CREATE_EDUCATIONS, DELETE_EDUCATIONS } from '../types'
+import { GET_EDUCATIONS, CREATE_EDUCATIONS, DELETE_EDUCATIONS, UPDATE_EDUCATIONS } from '../types'
 
 
 
@@ -23,11 +23,18 @@ const deleteEducation = (educationId) => ({
 
 
 
+const updateEducation = (educations) => ({
+  type: UPDATE_EDUCATIONS,
+  educations
+});
+
+
 
 export {
   getEducations,
   createEducation,
   deleteEducation,
+  updateEducation,
 
 
 
