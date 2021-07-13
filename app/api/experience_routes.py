@@ -88,52 +88,48 @@ def delete_experience(experience_id):
 
 
 
-# # PUT /api/experiences/:experience_id
-# @experience_routes.route('/<int:experience_id>', methods=['PUT'])
-# @login_required
-# def update_single_education(experience_id):
-#   form = UpdateEducationForm()
-#   form['csrf_token'].data = request.cookies['csrf_token']
+# PUT /api/experiences/:experience_id
+@experience_routes.route('/<int:experience_id>', methods=['PUT'])
+@login_required
+def update_single_experience(experience_id):
+  form = UpdateExperienceForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
 
-#   no_errors = True
+  no_errors = True
 
-#   title = form.data['title']
-#   instution_name = form.data['instution_name']
-#   start_year = form.data['start_year']
-#   end_year = form.data['end_year']
 
-#   if title == '' or instution_name == '' or start_year == '' or end_year == '':
-#     no_errors = False
-#     title = 'default education title'
-#     instution_name = 'default instution_name'
-#     start_year = datetime.now()
-#     end_year = datetime.now()
+  title = form.data['title']
+  company_name = form.data['company_name']
+  start_date = form.data['start_date']
+  end_date = form.data['end_date']
 
-#     if form.validate_on_submit():
-#       the_education = Education.query.get(education_id)
-#       the_education.update_education(
-#           title,
-#           instution_name,
-#           start_year,
-#           end_year
-#       )
-#       db.session.add(the_education)
-#       db.session.commit()
+  if title == '' or company_name == '' or start_date == '' or end_date == '':
+    no_errors = False
+    title = 'default experience title'
+    company_name = 'default company_name'
+    start_date = datetime.now()
+    end_date = datetime.now()
 
-#       return {the_education.id: the_education.to_dict()}
 
-#   if form.validate_on_submit() and no_errors:
-#     the_education = Education.query.get(education_id)
-#     the_education.update_education(
-#         form.data['title'],
-#         form.data['instution_name'],
-#         # 08/25/start_year 00:00:00
-#         datetime(int(form.data['start_year']), 8, 25, 0, 0, 0, 0),
-#         # 04/28/end_year 00:00:00
-#         datetime(int(form.data['end_year']), 4, 28, 0, 0, 0, 0)
-#     )
-#     db.session.add(the_education)
-#     db.session.commit()
-#     return {the_education.id: the_education.to_dict()}
+    if form.validate_on_submit():
+      the_experience = Experience.query.get(experience_id)
+      the_experience.update_experience(title, company_name, start_date, end_date)
+      db.session.add(the_experience)
+      db.session.commit()
 
-#   return {"errors": ["errors", "Please try again."]}
+      return { the_experience.id: the_experience.to_dict() }
+
+
+  if form.validate_on_submit() and no_errors:
+    the_experience = Experience.query.get(experience_id)
+    the_experience.update_experience(
+        form.data['title'],
+        form.data['company_name'],
+        datetime(int(form.data['start_date']), 8, 25, 0, 0, 0, 0),
+        datetime(int(form.data['end_date']), 4, 28, 0, 0, 0, 0)
+    )
+    db.session.add(the_experience)
+    db.session.commit()
+    return { the_experience.id: the_experience.to_dict() }
+
+  return { "errors": ["errors", "Please try again."] }
