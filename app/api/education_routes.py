@@ -120,7 +120,9 @@ def update_single_education(education_id):
       the_education = Education.query.get(education_id)
       the_education.update_education(
         title,
-        float(percentage)
+        instution_name,
+        start_year,
+        end_year
       )
       db.session.add(the_education)
       db.session.commit()
@@ -130,9 +132,14 @@ def update_single_education(education_id):
 
   if form.validate_on_submit() and no_errors:
     the_education = Education.query.get(education_id)
-    the_education.update_education(form.data['title'], float(form.data['percentage']))
+    the_education.update_education(
+        form.data['title'],
+        form.data['instution_name'],
+        datetime(int(form.data['start_year']), 8, 25, 0, 0, 0, 0),              # 08/25/start_year 00:00:00
+        datetime(int(form.data['end_year']), 4, 28, 0, 0, 0, 0)                 # 04/28/end_year 00:00:00
+    )
     db.session.add(the_education)
     db.session.commit()
-    return {the_education.id: the_education.to_dict()}
+    return { the_education.id: the_education.to_dict() }
 
-  return {"errors": ["errors", "Please try again."]}
+  return { "errors": ["errors", "Please try again."] }
