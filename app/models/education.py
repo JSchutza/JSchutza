@@ -19,6 +19,18 @@ class Education(db.Model):
 
 
 
+
+  def update_education(self, new_title, new_instution_name, new_start_year, new_end_year):
+    self.title = new_title
+    self.instution_name = new_instution_name
+    self.start_year = new_start_year
+    self.end_year = new_end_year
+
+
+
+
+
+
   def to_dict(self):
     return {
         "id": self.id,

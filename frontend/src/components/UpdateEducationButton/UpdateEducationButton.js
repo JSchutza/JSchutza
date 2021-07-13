@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
 
 
-// import { thunk_updateProject } from "../../store/thunks/projects.js";
+import { thunk_updateEducation } from "../../store/thunks/educations.js";
 
 
 
@@ -15,16 +15,14 @@ import Form from 'react-bootstrap/Form';
 
 const UpdateEducationButton = ({ educationId }) => {
   const dispatch = useDispatch();
-  // const prevInfo = useSelector(store => store.projectsReducer.projects[educationId]);
+  const prevInfo = useSelector(store => store.educationsReducer.educations[educationId]);
 
   const [showform, setShowform] = useState(false);
 
-  // const [project_name, setProjectname] = useState(prevInfo?.project_name);
-  // const [project_img, setImg] = useState(prevInfo?.project_img);
-  // const [description, setDescription] = useState(prevInfo?.description);
-  // const [live_link, setLiveLink] = useState(prevInfo?.live_link);
-  // const [github_link, setGithubLink] = useState(prevInfo?.github_link);
-  // const [used_tech, setUsedTechnology] = useState(prevInfo?.used_tech);
+  const [ title, setEducationTitle ] = useState(prevInfo?.title);
+  const [ instution_name, setSchoolName ] = useState(prevInfo?.instution_name);
+  const [start_year, setStartYear] = useState(prevInfo?.start_year.split(' ')[3]);
+  const [end_year, setEndYear] = useState(prevInfo?.end_year.split(' ')[3]);
 
 
 
@@ -33,8 +31,8 @@ const UpdateEducationButton = ({ educationId }) => {
 
   const onSubmit = event => {
     event.preventDefault();
-    // const payload = { project_name, project_img, description, live_link, github_link, used_tech };
-    // dispatch(thunk_updateProject(educationId, payload));
+    const payload = { title, instution_name, start_year, end_year }
+    dispatch(thunk_updateEducation(educationId, payload));
   }
 
 
@@ -63,67 +61,45 @@ const UpdateEducationButton = ({ educationId }) => {
           <form onSubmit={onSubmit}>
 
             <label>
-              Project Name
+              Education Title
               <Form.Control
                 type="text"
-                name="project_name"
-                // value={project_name}
-                // onChange={event => setProjectname(event.target.value)}
+                name="educationtitle"
+                value={title}
+                onChange={event => setEducationTitle(event.target.value)}
               />
             </label>
             <br />
 
             <label>
-              Project img
+              School Name
               <Form.Control
                 type="text"
-                name="project_img"
-                // value={project_img}
-                // onChange={event => setImg(event.target.value)}
+                name="schoolname"
+                value={instution_name}
+                onChange={event => setSchoolName(event.target.value)}
               />
             </label>
             <br />
 
             <label>
-              Project live link
+              Start Year
               <Form.Control
                 type="text"
-                name="live_link"
-                // value={live_link}
-                // onChange={event => setLiveLink(event.target.value)}
+                name="startyear"
+                value={start_year}
+                onChange={event => setStartYear(event.target.value)}
               />
             </label>
             <br />
 
             <label>
-              Project github link
+              End Year
               <Form.Control
                 type="text"
-                name="github_link"
-                // value={github_link}
-                // onChange={event => setGithubLink(event.target.value)}
-              />
-            </label>
-            <br />
-
-            <label>
-              Description
-              <Form.Control
-                as="textarea"
-                name="description"
-                // value={description}
-                // onChange={event => setDescription(event.target.value)}
-              />
-            </label>
-            <br />
-
-            <label>
-              Used Tech
-              <Form.Control
-                as="textarea"
-                name="used_tech"
-                // value={used_tech}
-                // onChange={event => setUsedTechnology(event.target.value)}
+                name="endyear"
+                value={end_year}
+                onChange={event => setEndYear(event.target.value)}
               />
             </label>
             <br />
