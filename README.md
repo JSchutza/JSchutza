@@ -1,4 +1,11 @@
 # JSchutza
+<br/>
+
+<a href="https://github.com/JSchutza">
+<img align="center" src="https://github-readme-stats.vercel.app/api?username=JSchutza&show_icons=true&theme=gotham&include_all_commits=true&count_private=true" alt="Joshua Schutza" />
+</a>
+
+<br/>
 
 # Programing Languages
 * JavaScript
