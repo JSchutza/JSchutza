@@ -34,6 +34,7 @@
 * Git
 * WordPress
 * Windows
+* Mac
 * Linux
 * Docker
 
