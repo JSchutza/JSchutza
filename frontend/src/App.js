@@ -13,7 +13,7 @@ import UpdateInfo from "./components/UpdateInfo";
 
 import { useUser } from "./context/UserContext.js";
 
-import { thunk_getPersonalInfo } from './store/thunks/personal.js';
+
 import { thunk_getSkills } from "./store/thunks/skills.js";
 import { thunk_getProjects } from "./store/thunks/projects.js";
 import { thunk_getExperiences } from "./store/thunks/experiences.js";
@@ -31,7 +31,7 @@ function App() {
 
 
   useEffect(() => {
-    dispatch(thunk_getPersonalInfo());
+    // take these out and move to the correct components ****
     dispatch(thunk_getSkills());
     dispatch(thunk_getProjects());
     dispatch(thunk_getExperiences());

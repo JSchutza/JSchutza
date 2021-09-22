@@ -57,8 +57,14 @@ const AboutMe = ({ isAdmin=false }) => {
     setIsHidden(true);
   }
 
-  console.log(aboutInfo, "<-----------");
 
+  if (!aboutInfo) {
+    return (
+      <div>
+        <h1>Loading information ...</h1>
+      </div>
+    );
+  }
 
 
 
@@ -94,44 +100,29 @@ const AboutMe = ({ isAdmin=false }) => {
               <></>
             }
 
+
+
             <Nav fill variant="tabs" className="justify-content-center">
             <Nav.Item>
-              <Nav.Link href={aboutInfo?.github_link}>Github</Nav.Link>
+              <Nav.Link href={aboutInfo.github_link}>Github</Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link href={aboutInfo?.linkedin_link}>Linkedin</Nav.Link>
+              <Nav.Link href={aboutInfo.linkedin_link}>Linkedin</Nav.Link>
             </Nav.Item>
           </Nav>
 
 
-
-
-          <h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
-          {aboutInfo?.avatar === null ?
+          <h1>{aboutInfo.firstname} {aboutInfo.lastname}</h1>
+          {aboutInfo.avatar === null ?
             <Image src={personalImg} fluid />
             :
-            <Image src={aboutInfo?.avatar} fluid />
+            <Image src={aboutInfo.avatar} fluid />
           }
 
-          {aboutInfo?.jobtitle === null ?
-            <h2>Software Engineer - Leader - Advocate</h2>
-            :
-            <h2>{aboutInfo?.jobtitle}</h2>
-          }
-
+          <h2>{aboutInfo.jobtitle}</h2>
           <h2>About Me</h2>
-          {aboutInfo?.about_text === null ?
-            <p>
-              I am a determined individual who is working towards a career as a leader, visionary, and advocate.
-              One of my many objectives is to impact the workforce through developing individuals and drawing out their strengths.
-              I am seeking a working and learning opportunity that will utilize my research skills and natural ability to see
-                growth and potential within people and businesses.
-            </p>
-          :
-            <p>{aboutInfo?.about_text}</p>
-          }
-
+          <p>{aboutInfo.about_text}</p>
 
         </Container>
       </Jumbotron>
