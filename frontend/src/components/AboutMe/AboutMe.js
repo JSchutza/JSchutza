@@ -9,7 +9,7 @@ import personalImg from "../../icons/Profile_Pic.jpg";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-
+import styles from "./aboutme.module.css";
 
 
 
@@ -54,17 +54,21 @@ const AboutMe = ({ isAdmin=false }) => {
   return (
     <>
       {isAdmin ?
+      <div className={styles.update_button_wrap} >
         <Container>
           <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
         </Container>
+      </div>
       :
         <></>
       }
 
       {isHidden ?
+      <div className={styles.about_button_wrap} >
         <Container>
           <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> About </h1> </Button>
         </Container>
+      </div>
       :
 
       <Jumbotron fluid>
