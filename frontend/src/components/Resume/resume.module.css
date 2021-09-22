@@ -22,3 +22,48 @@
 .resume_button_wrap {
   padding: 30px;
 }
+
+
+
+
+
+
+
+
+
+.outward_name_wrap {
+  padding: 20px;
+}
+
+
+
+
+
+.outward_skills_wrap {
+  padding: 10px;
+}
+
+
+
+.outward_skills_wrap h2 {
+  padding: 10px;
+}
+
+
+
+
+.outward_skills_eachskill {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.outward_skills_eachskill li {
+  padding: 10px;
+  border: solid black 0.5px;
+}

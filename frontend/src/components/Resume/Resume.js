@@ -89,6 +89,8 @@ const Resume = ({ isAdmin = false }) => {
             <></>
           }
 
+
+        <div className={styles.outward_name_wrap} >
         <Container>
           <h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
 
@@ -102,25 +104,25 @@ const Resume = ({ isAdmin = false }) => {
             </Nav.Item>
           </Nav>
         </Container>
+        </div>
 
 
-
+        <div className={styles.outward_skills_wrap} >
         <Container>
-          <h5>SKILLS</h5>
+          <h2>SKILLS</h2>
 
-          <ListGroup horizontal>
             {skillInfo === null ?
-                <ListGroup.Item> Loading skills </ListGroup.Item>
+                <div> Loading skills </div>
               :
-                Object.values(skillInfo).map(eachSkill => (
-                  <>
-                    <ListGroup.Item> {eachSkill.title} </ListGroup.Item>
-                  </>
-                ))
-            }
-          </ListGroup>
-        </Container>
 
+              <div className={styles.outward_skills_eachskill}>
+                {Object.values(skillInfo).map(eachSkill => (
+                  <li> {eachSkill.title} </li>
+                ))}
+              </div>
+            }
+        </Container>
+        </div>
 
 
         {projectInfo === null ?
@@ -130,8 +132,11 @@ const Resume = ({ isAdmin = false }) => {
           </Container>
 
           :
-
-            Object.values(projectInfo).map(eachProject => (
+          <div>
+            <Container>
+            <h2>Projects</h2>
+            {Object.values(projectInfo).map(eachProject => (
+              <div>
               <Container>
                 <h5> {eachProject.project_name}  ({eachProject.used_tech})</h5>
                 <p>{eachProject.description}</p>
@@ -144,23 +149,11 @@ const Resume = ({ isAdmin = false }) => {
                     <Nav.Link href={eachProject.github_link}> Github </Nav.Link>
                 </Nav.Item>
               </Nav>
-                {/* this will map over each associated bullet point for a project */}
-
-                {/* <ListGroup>
-                  <ListGroup.Item>
-                    Leveraged AWS for character image uploads, reducing server load and allowing for image storage scalability.
-                  </ListGroup.Item>
-
-                  <ListGroup.Item>
-                    Incorporated React and Redux to create a splash page animation that is non-resource intensive, resulting in an improved user experience.
-                  </ListGroup.Item>
-
-                  <ListGroup.Item>
-                    Designed a RESTful API with Flask-SQLAlchemy and Flask to create dry, readable, and maintainable code.
-                  </ListGroup.Item>
-                </ListGroup> */}
               </Container>
-          ))
+              </div>
+          ))}
+          </Container>
+        </div>
       }
 
 
