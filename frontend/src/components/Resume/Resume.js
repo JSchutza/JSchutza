@@ -158,10 +158,9 @@ const Resume = ({ isAdmin = false }) => {
       }
 
 
-
+      <div className={styles.outward_experience_wrap} >
       <Container>
-          <h5>EXPERIENCE</h5>
-      </Container>
+          <h2>EXPERIENCE</h2>
 
 
         {experienceInfo === null ?
@@ -169,38 +168,42 @@ const Resume = ({ isAdmin = false }) => {
             <h2>Loading Experiences ... </h2>
           </Container>
         :
-            Object.values(experienceInfo).map(eachExperience => (
-              <Container>
-                <h5>{eachExperience.title}</h5>
-                <p>{eachExperience.company_name}  {eachExperience.start_date} - {eachExperience.end_date}</p>
-              </Container>
-            ))
+          <div className={styles.outward_eachexperience} >
+          {Object.values(experienceInfo).map(eachExperience => (
+            <Container>
+              <h5>{eachExperience.title}</h5>
+              <p>{eachExperience.company_name}  {eachExperience.start_date} - {eachExperience.end_date}</p>
+            </Container>
+          ))}
+          </div>
         }
-
-
-
-
-
-
-      <Container>
-          <h5>EDUCATION</h5>
       </Container>
+      </div>
 
+
+
+
+      <div className={styles.outward_education_wrap} >
+      <Container>
+          <h2>EDUCATION</h2>
 
         {educationInfo === null ?
           <Container>
             <h2>Loading Education Information ... </h2>
           </Container>
         :
-          Object.values(educationInfo).map(eachEducation => (
-            <>
+          <div className={styles.outward_eacheducation} >
+            {Object.values(educationInfo).map(eachEducation => (
               <Container>
                   <h5>{eachEducation.title}</h5>
-                <p>{eachEducation.instution_name}   |   {eachEducation.start_year} - {eachEducation.end_year}</p>
+                  <p>{eachEducation.instution_name}   |   {eachEducation.start_year} - {eachEducation.end_year}</p>
               </Container>
-            </>
-          ))
+              ))}
+          </div>
         }
+      </Container>
+      </div>
+
 
 
     <Container>
