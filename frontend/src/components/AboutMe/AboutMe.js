@@ -53,6 +53,7 @@ const AboutMe = ({ isAdmin=false }) => {
 
   return (
     <>
+    <div className={styles.main_wrap} >
       {isAdmin ?
       <div className={styles.update_button_wrap} >
         <Container>
@@ -124,6 +125,7 @@ const AboutMe = ({ isAdmin=false }) => {
         </Container>
       </Jumbotron>
     }
+      </div>
     </>
   )
 };
