@@ -115,7 +115,7 @@ const Resume = ({ isAdmin = false }) => {
                 <div> Loading skills </div>
               :
 
-              <div className={styles.outward_skills_eachskill}>
+              <div className={styles.outward_skills_eachskill} >
                 {Object.values(skillInfo).map(eachSkill => (
                   <li> {eachSkill.title} </li>
                 ))}
@@ -132,11 +132,12 @@ const Resume = ({ isAdmin = false }) => {
           </Container>
 
           :
-          <div>
+            <div className={styles.outward_projects_wrap} >
             <Container>
             <h2>Projects</h2>
+
             {Object.values(projectInfo).map(eachProject => (
-              <div>
+              <div className={styles.outward_eachproject} >
               <Container>
                 <h5> {eachProject.project_name}  ({eachProject.used_tech})</h5>
                 <p>{eachProject.description}</p>
@@ -170,26 +171,8 @@ const Resume = ({ isAdmin = false }) => {
         :
             Object.values(experienceInfo).map(eachExperience => (
               <Container>
-
                 <h5>{eachExperience.title}</h5>
                 <p>{eachExperience.company_name}  {eachExperience.start_date} - {eachExperience.end_date}</p>
-
-
-                {/* map for associated bulletpoint objects  */}
-              {/* <ListGroup>
-                <ListGroup.Item>
-                Created software with PHP, JavaScript, and Python through tutorials, research, and dedicated trial and error.
-                </ListGroup.Item>
-
-                <ListGroup.Item>
-                Contributed 1,867 times to more than fifty personal repositories on GitHub.
-                </ListGroup.Item>
-
-                <ListGroup.Item>
-                Built custom WordPress templates using PHP and CSS.
-                </ListGroup.Item>
-              </ListGroup> */}
-
               </Container>
             ))
         }
