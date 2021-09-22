@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-
+import styles from "./resume.module.css";
 
 
 const Resume = ({ isAdmin = false }) => {
@@ -61,18 +61,22 @@ const Resume = ({ isAdmin = false }) => {
   return (
     <>
       {isAdmin ?
+        <div className={styles.update_button_wrap}>
         <Container>
           <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
         </Container>
+      </div>
       :
         <></>
       }
 
 
       {isHidden ?
+        <div className={styles.resume_button_wrap}>
           <Container>
-          <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> Resume </h1> </Button>
+            <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> Resume </h1> </Button>
           </Container>
+      </div>
         :
 
         <>
