@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Container from 'react-bootstrap/Container';
+import { processFile } from "../../services/protectedFileUpload.js";
+
 
 import EducationForm from "../EducationForm";
 import ExperienceForm from "../ExperienceForm";
@@ -14,13 +16,28 @@ import { useSelector } from "react-redux";
 
 
 const ResumeForm = () => {
+  const [ file, setFile ] = useState(null);
 
   const currentEducationInFo = useSelector(store => store.educationsReducer.educations);
   const currentExperienceInFo = useSelector(store => store.experiencesReducer.experiences);
 
 
+  const updateFile = event => {
+    const result = processFile(event.target.files);
+    if (result) {
+      setFile(result);
+    } else {
+      setFile(null);
+    }
+  }
+
+
+
+
   const onSubmit = event => {
     event.preventDefault();
+    // dispatch to upload resume thunk here
+    console.log(file, "here <---------");
   }
 
 
@@ -74,6 +91,18 @@ const ResumeForm = () => {
       }
 
       <ExperienceForm />
+
+
+      <h1>Upload a Resume Here</h1>
+      <form onSubmit={onSubmit}>
+
+      <label>
+        Select a file
+          <input id='file' className="" type="file" accept="image/*" onChange={updateFile} />
+      </label>
+
+      <button> Submit Resume </button>
+      </form>
     </>
   )
 };
