@@ -134,8 +134,8 @@ const ProjectViewerForm = () => {
       />
     </label>
 
-            <br />
-            <Button variant="primary" onClick={event => onSubmit(event)}> Create </Button>
+      <br />
+      <Button variant="primary" onClick={event => onSubmit(event)}> Create </Button>
     </form>
         </Container>
     </Jumbotron>
