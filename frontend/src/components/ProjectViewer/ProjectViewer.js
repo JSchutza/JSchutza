@@ -8,6 +8,8 @@ import defaultImg from "../../icons/default_img.JPG";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+import styles from "./projectviewer.module.css";
+
 
 const ProjectViewer = ({ isAdmin = false }) => {
   const history = useHistory();
@@ -55,19 +57,24 @@ const ProjectViewer = ({ isAdmin = false }) => {
 
   return (
     <>
+      <div className={styles.main_wrap}>
       {isAdmin ?
+        <div className={styles.update_button_wrap}>
         <Container>
           <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
         </Container>
+      </div>
       :
         <></>
       }
 
 
       {isHidden ?
+        <div className={styles.projects_button_wrap} >
           <Container>
-          <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> Projects </h1> </Button>
+            <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> Projects </h1> </Button>
           </Container>
+      </div>
         :
           <Container>
 
@@ -116,6 +123,7 @@ const ProjectViewer = ({ isAdmin = false }) => {
         </CardColumns>
       </Container>
     }
+      </div>
     </>
   )
 };

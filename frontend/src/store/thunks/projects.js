@@ -26,12 +26,12 @@ const thunk_getProjects = () => async (dispatch) => {
 
 const thunk_createProject = ({ projectname, projectimg, description, livelink, githublink, usedtechnology }) => async (dispatch) => {
   const formData = new FormData();
-  formData.append("projectname", projectname);
-  formData.append("projectimg", projectimg);
+  formData.append("project_name", projectname);
+  formData.append("project_img", projectimg);
   formData.append("description", description);
-  formData.append("livelink", livelink);
-  formData.append("githublink", githublink);
-  formData.append("usedtechnology", usedtechnology);
+  formData.append("live_link", livelink);
+  formData.append("github_link", githublink);
+  formData.append("used_tech", usedtechnology);
 
 
   const response = await fetch("/api/projects", {

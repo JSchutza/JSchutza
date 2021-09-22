@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-
+import styles from "./resume.module.css";
 
 
 const Resume = ({ isAdmin = false }) => {
@@ -60,19 +60,24 @@ const Resume = ({ isAdmin = false }) => {
 
   return (
     <>
+    <div className={styles.main_wrap}>
       {isAdmin ?
+        <div className={styles.update_button_wrap}>
         <Container>
           <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
         </Container>
+      </div>
       :
         <></>
       }
 
 
       {isHidden ?
+        <div className={styles.resume_button_wrap}>
           <Container>
-          <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> Resume </h1> </Button>
+            <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> Resume </h1> </Button>
           </Container>
+      </div>
         :
 
         <>
@@ -84,6 +89,8 @@ const Resume = ({ isAdmin = false }) => {
             <></>
           }
 
+
+        <div className={styles.outward_name_wrap} >
         <Container>
           <h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
 
@@ -97,25 +104,25 @@ const Resume = ({ isAdmin = false }) => {
             </Nav.Item>
           </Nav>
         </Container>
+        </div>
 
 
-
+        <div className={styles.outward_skills_wrap} >
         <Container>
-          <h5>SKILLS</h5>
+          <h2>SKILLS</h2>
 
-          <ListGroup horizontal>
             {skillInfo === null ?
-                <ListGroup.Item> Loading skills </ListGroup.Item>
+                <div> Loading skills </div>
               :
-                Object.values(skillInfo).map(eachSkill => (
-                  <>
-                    <ListGroup.Item> {eachSkill.title} </ListGroup.Item>
-                  </>
-                ))
-            }
-          </ListGroup>
-        </Container>
 
+              <div className={styles.outward_skills_eachskill} >
+                {Object.values(skillInfo).map(eachSkill => (
+                  <li> {eachSkill.title} </li>
+                ))}
+              </div>
+            }
+        </Container>
+        </div>
 
 
         {projectInfo === null ?
@@ -125,8 +132,12 @@ const Resume = ({ isAdmin = false }) => {
           </Container>
 
           :
+            <div className={styles.outward_projects_wrap} >
+            <Container>
+            <h2>Projects</h2>
 
-            Object.values(projectInfo).map(eachProject => (
+            {Object.values(projectInfo).map(eachProject => (
+              <div className={styles.outward_eachproject} >
               <Container>
                 <h5> {eachProject.project_name}  ({eachProject.used_tech})</h5>
                 <p>{eachProject.description}</p>
@@ -139,30 +150,17 @@ const Resume = ({ isAdmin = false }) => {
                     <Nav.Link href={eachProject.github_link}> Github </Nav.Link>
                 </Nav.Item>
               </Nav>
-                {/* this will map over each associated bullet point for a project */}
-
-                {/* <ListGroup>
-                  <ListGroup.Item>
-                    Leveraged AWS for character image uploads, reducing server load and allowing for image storage scalability.
-                  </ListGroup.Item>
-
-                  <ListGroup.Item>
-                    Incorporated React and Redux to create a splash page animation that is non-resource intensive, resulting in an improved user experience.
-                  </ListGroup.Item>
-
-                  <ListGroup.Item>
-                    Designed a RESTful API with Flask-SQLAlchemy and Flask to create dry, readable, and maintainable code.
-                  </ListGroup.Item>
-                </ListGroup> */}
               </Container>
-          ))
+              </div>
+          ))}
+          </Container>
+        </div>
       }
 
 
-
+      <div className={styles.outward_experience_wrap} >
       <Container>
-          <h5>EXPERIENCE</h5>
-      </Container>
+          <h2>EXPERIENCE</h2>
 
 
         {experienceInfo === null ?
@@ -170,56 +168,42 @@ const Resume = ({ isAdmin = false }) => {
             <h2>Loading Experiences ... </h2>
           </Container>
         :
-            Object.values(experienceInfo).map(eachExperience => (
-              <Container>
-
-                <h5>{eachExperience.title}</h5>
-                <p>{eachExperience.company_name}  {eachExperience.start_date} - {eachExperience.end_date}</p>
-
-
-                {/* map for associated bulletpoint objects  */}
-              {/* <ListGroup>
-                <ListGroup.Item>
-                Created software with PHP, JavaScript, and Python through tutorials, research, and dedicated trial and error.
-                </ListGroup.Item>
-
-                <ListGroup.Item>
-                Contributed 1,867 times to more than fifty personal repositories on GitHub.
-                </ListGroup.Item>
-
-                <ListGroup.Item>
-                Built custom WordPress templates using PHP and CSS.
-                </ListGroup.Item>
-              </ListGroup> */}
-
-              </Container>
-            ))
+          <div className={styles.outward_eachexperience} >
+          {Object.values(experienceInfo).map(eachExperience => (
+            <Container>
+              <h5>{eachExperience.title}</h5>
+              <p>{eachExperience.company_name}  {eachExperience.start_date} - {eachExperience.end_date}</p>
+            </Container>
+          ))}
+          </div>
         }
-
-
-
-
-
-
-      <Container>
-          <h5>EDUCATION</h5>
       </Container>
+      </div>
 
+
+
+
+      <div className={styles.outward_education_wrap} >
+      <Container>
+          <h2>EDUCATION</h2>
 
         {educationInfo === null ?
           <Container>
             <h2>Loading Education Information ... </h2>
           </Container>
         :
-          Object.values(educationInfo).map(eachEducation => (
-            <>
+          <div className={styles.outward_eacheducation} >
+            {Object.values(educationInfo).map(eachEducation => (
               <Container>
                   <h5>{eachEducation.title}</h5>
-                <p>{eachEducation.instution_name}   |   {eachEducation.start_year} - {eachEducation.end_year}</p>
+                  <p>{eachEducation.instution_name}   |   {eachEducation.start_year} - {eachEducation.end_year}</p>
               </Container>
-            </>
-          ))
+              ))}
+          </div>
         }
+      </Container>
+      </div>
+
 
 
     <Container>
@@ -228,7 +212,7 @@ const Resume = ({ isAdmin = false }) => {
 
     </>
     }
-
+      </div>
     </>
   )
 

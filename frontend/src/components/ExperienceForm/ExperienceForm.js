@@ -24,6 +24,7 @@ const ExperienceForm = () => {
 
   const onSubmit = event => {
     event.preventDefault();
+    // ***    I will need to format the start_date and end_date
     const payload = { title, company_name, start_date, end_date };
     dispatch(thunk_createExperiences(payload));
   }
@@ -66,6 +67,7 @@ const ExperienceForm = () => {
             name="startdate"
             value={start_date}
             onChange={event => setStartDate(event.target.value)}
+            placeholder="2021"
           />
         </label>
             <br />
@@ -77,6 +79,7 @@ const ExperienceForm = () => {
             name="enddate"
             value={end_date}
             onChange={event => setEndDate(event.target.value)}
+            placeholder="2021"
           />
         </label>
 

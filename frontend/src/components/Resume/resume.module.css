@@ -1,0 +1,129 @@
+
+
+
+
+.main_wrap {
+  background-color:white;
+}
+
+
+
+
+
+.update_button_wrap {
+  margin-left: 50vw;
+  padding: 20px;
+}
+
+
+
+
+
+.resume_button_wrap {
+  padding: 30px;
+}
+
+
+
+
+
+
+
+
+
+.outward_name_wrap {
+  padding: 20px;
+}
+
+
+
+
+
+.outward_skills_wrap {
+  padding: 10px;
+}
+
+
+
+.outward_skills_wrap h2 {
+  padding: 10px;
+}
+
+
+
+
+.outward_skills_eachskill {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.outward_skills_eachskill li {
+  padding: 10px;
+  border: solid black 0.5px;
+}
+
+
+
+
+
+.outward_projects_wrap {
+  padding: 10px;
+}
+
+
+
+.outward_projects_wrap h2{
+  padding: 10px;
+}
+
+
+
+.outward_eachproject {
+  padding: 15px;
+  border: solid black 0.5px;
+}
+
+
+
+
+
+.outward_experience_wrap {
+  padding: 10px;
+}
+
+
+
+.outward_experience_wrap h2 {
+  padding: 10px;
+}
+
+
+
+
+.outward_eachexperience {
+  padding: 10px;
+}
+
+
+
+
+.outward_education_wrap {
+  padding: 10px;
+}
+
+
+
+.outward_education_wrap h2 {
+  padding: 10px;
+}
+
+
+.outward_eacheducation {
+  padding: 10px;
+}

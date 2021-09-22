@@ -29,16 +29,16 @@ def create_project():
   no_errors = True
 
   project_name = form.data['project_name']
-  img = form.data['img']
+  project_img = form.data['project_img']
   description = form.data['description']
   live_link = form.data['live_link']
   github_link = form.data['github_link']
   used_tech = form.data['used_tech']
 
-  if project_name == '' or img == '' or description == '' or live_link == '' or github_link == '' or used_tech == '':
+  if project_name == '' or project_img == '' or description == '' or live_link == '' or github_link == '' or used_tech == '':
     no_errors = False
     project_name = 'default project name'
-    img = 'default project img'
+    project_img = 'default project img'
     description = 'default project description'
     live_link = 'default project live_link'
     github_link = 'default project github_link'
@@ -48,7 +48,7 @@ def create_project():
     if form.validate_on_submit():
       new_project = Project(
         project_name=project_name,
-        project_img=img,
+        project_img=project_img,
         description=description,
         live_link=live_link,
         github_link=github_link,
@@ -64,7 +64,7 @@ def create_project():
   if form.validate_on_submit() and no_errors:
     new_project = Project(
         project_name=form.data['project_name'],
-        project_img=form.data['img'],
+        project_img=form.data['project_img'],
         description=form.data['description'],
         live_link=form.data['live_link'],
         github_link=form.data['github_link'],
