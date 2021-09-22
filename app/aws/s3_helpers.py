@@ -4,9 +4,9 @@ import os
 
 
 s3 = boto3.client("s3", aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"), aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY") )
-BUCKET = "bookorganizer"
+BUCKET = os.environ.get("BUCKET_NAME")
 S3_LOCATION = f"https://{BUCKET}.s3.amazonaws.com/"
-ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif"}
+ALLOWED_EXTENSIONS = { "png", "jpg", "jpeg", "gif", "pdf", "txt", "md", "mov" }
 
 
 def get_s3_location():
