@@ -1,22 +1,32 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button'
 
+import { thunk_getPersonalInfo } from '../../store/thunks/personal.js';
+
 import personalImg from "../../icons/Profile_Pic.jpg";
-import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+
 
 import styles from "./aboutme.module.css";
-
 
 
 const AboutMe = ({ isAdmin=false }) => {
   const history = useHistory();
   const aboutInfo = useSelector(store => store.personalInfoReducer.user);
   const [ isHidden, setIsHidden ] = useState(false);
+  const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    dispatch(thunk_getPersonalInfo());
+  },[dispatch]);
+
+
 
   useEffect(() => {
     if(!isHidden) {
@@ -47,6 +57,7 @@ const AboutMe = ({ isAdmin=false }) => {
     setIsHidden(true);
   }
 
+  console.log(aboutInfo, "<-----------");
 
 
 
