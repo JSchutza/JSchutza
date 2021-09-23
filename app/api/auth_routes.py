@@ -3,7 +3,7 @@ from app.models import User
 from app.forms import LoginForm
 
 from flask_login import current_user, login_user, logout_user, login_required
-# from random import randint
+
 
 
 auth_routes = Blueprint('auth', __name__)
