@@ -11,6 +11,9 @@ import defaultImg from "../../icons/default_img.JPG";
 import { thunk_getProjects } from "../../store/thunks/projects.js";
 
 
+import { defaultProjectData } from "./data.js";
+
+
 import styles from "./projectviewer.module.css";
 
 
@@ -102,7 +105,29 @@ const ProjectViewer = ({ isAdmin=false }) => {
 
             <CardColumns>
               {projectInfo === null ?
-                  <p></p>
+                defaultProjectData.map(defaultProject => (
+                  <>
+                    <Card>
+                      <Card.Img variant="top" src={defaultImg} />
+                      <Card.Body>
+                        <Card.Title> {defaultProject.project_name} </Card.Title>
+                        <Card.Text>
+                          {defaultProject.description}
+                        </Card.Text>
+                      </Card.Body>
+                      <Card.Footer>
+                        <a href={defaultProject.live_link}>
+                          <small className="text-muted">Live</small>
+                        </a>
+                        <br />
+
+                        <a href={defaultProject.github_link}>
+                          <small className="text-muted">GitHub</small>
+                        </a>
+                      </Card.Footer>
+                    </Card>
+                  </>
+                ))
                 :
                   Object.values(projectInfo).map(eachProject => (
                     <>
