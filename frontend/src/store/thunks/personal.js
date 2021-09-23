@@ -9,7 +9,7 @@ const thunk_getPersonalInfo = () => async (dispatch) => {
     headers: {
       "Content-Type": "application/json",
     },
-    credentials: "include",
+    // credentials: "include",
   });
 
   const data = await response.json();
