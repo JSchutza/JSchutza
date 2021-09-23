@@ -9,6 +9,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 
 import { thunk_getSkills } from "../../store/thunks/skills.js";
+import { defaultSkillData } from "./data.js";
 
 
 import styles from "./skillsviewer.module.css";
@@ -19,7 +20,6 @@ const SkillsViewer = ({ isAdmin=false }) => {
   const dispatch = useDispatch();
   const skillInfo = useSelector(store => store.skillsReducer.skills);
   const [ isHidden, setIsHidden ] = useState(false);
-
 
 
   useEffect(() => {
@@ -110,7 +110,7 @@ const SkillsViewer = ({ isAdmin=false }) => {
                   <Card.Body>
                     <ListGroup variant="flush">
                       {skillInfo === null ?
-                          <ListGroup.Item> Loading skills </ListGroup.Item>
+                        defaultSkillData.map(defaultSkill => ( <ListGroup.Item> {defaultSkill} </ListGroup.Item> ))
                         :
                           Object.values(skillInfo).map(eachSkill => (
                             <>
