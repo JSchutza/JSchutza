@@ -32,8 +32,6 @@ function App() {
 
   useEffect(() => {
     // take these out and move to the correct components ****
-
-
     dispatch(thunk_getExperiences());
     dispatch(thunk_getEducations());
     setLoaded(true);
