@@ -7,6 +7,8 @@ import Image from 'react-bootstrap/Image';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button'
 
+import AboutBackup from "../AboutBackup";
+
 import { thunk_getPersonalInfo } from '../../store/thunks/personal.js';
 
 import personalImg from "../../icons/Profile_Pic.jpg";
@@ -61,7 +63,7 @@ const AboutMe = ({ isAdmin=false }) => {
   if (!aboutInfo) {
     return (
       <div>
-        <h1>Loading information ...</h1>
+        <AboutBackup isAdmin={isAdmin}  />
       </div>
     );
   }
