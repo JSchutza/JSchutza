@@ -6,7 +6,7 @@ import { getEducations, createEducation, deleteEducation, updateEducation } from
 
 
 const thunk_getEducations = () => async (dispatch) => {
-  const response = await fetch("/api/educations", {
+  const response = await fetch("/api/educations/", {
     headers: {
       "Content-Type": "application/json",
     },

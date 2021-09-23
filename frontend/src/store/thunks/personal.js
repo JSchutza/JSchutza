@@ -5,7 +5,7 @@ import { getPersonalInfo, updatePersonalInfo } from '../actions/personal.js';
 
 
 const thunk_getPersonalInfo = () => async (dispatch) => {
-  const response = await fetch("/api/about", {
+  const response = await fetch("/api/about/", {
     headers: {
       "Content-Type": "application/json",
     },

@@ -6,7 +6,7 @@ import { getProjects, createProject, deleteProject, updateProject } from "../act
 
 
 const thunk_getProjects = () => async (dispatch) => {
-  const response = await fetch("/api/projects", {
+  const response = await fetch("/api/projects/", {
     headers: {
       "Content-Type": "application/json",
     },

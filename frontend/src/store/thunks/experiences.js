@@ -6,7 +6,7 @@ import { getExperiences, createExperiences, deleteExperiences } from "../actions
 
 
 const thunk_getExperiences = () => async (dispatch) => {
-  const response = await fetch("/api/experiences", {
+  const response = await fetch("/api/experiences/", {
     headers: {
       "Content-Type": "application/json",
     },
