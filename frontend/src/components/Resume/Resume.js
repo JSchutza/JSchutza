@@ -229,11 +229,15 @@ const Resume = ({ isAdmin=false }) => {
       <Container>
           <h2>EXPERIENCE</h2>
 
-
         {experienceInfo === null ?
-          <Container>
-            <h2>Loading Experiences ... </h2>
-          </Container>
+          <div className={styles.outward_eachexperience} >
+            {defaultResumeData.defaultExperienceData.map(defaultExperience => (
+            <Container>
+              <h5>{defaultExperience.title}</h5>
+              <p>{defaultExperience.company_name}  {defaultExperience.start_date} - {defaultExperience.end_date}</p>
+            </Container>
+          ))}
+          </div>
         :
           <div className={styles.outward_eachexperience} >
           {Object.values(experienceInfo).map(eachExperience => (
@@ -257,9 +261,14 @@ const Resume = ({ isAdmin=false }) => {
           <h2>EDUCATION</h2>
 
         {educationInfo === null ?
-          <Container>
-            <h2>Loading Education Information ... </h2>
-          </Container>
+          <div className={styles.outward_eacheducation} >
+            {defaultResumeData.defaultEducationData.map(defaultEducation => (
+              <Container>
+                  <h5>{defaultEducation.title}</h5>
+                  <p>{defaultEducation.instution_name}   |   {defaultEducation.start_year} - {defaultEducation.end_year}</p>
+              </Container>
+              ))}
+          </div>
         :
           <div className={styles.outward_eacheducation} >
             {Object.values(educationInfo).map(eachEducation => (
