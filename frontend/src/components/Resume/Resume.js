@@ -11,6 +11,8 @@ import { thunk_getProjects } from "../../store/thunks/projects.js";
 import { thunk_getExperiences } from "../../store/thunks/experiences.js";
 import { thunk_getEducations } from "../../store/thunks/educations.js";
 
+import { defaultResumeData } from "./data.js";
+
 
 import styles from "./resume.module.css";
 
@@ -111,20 +113,38 @@ const Resume = ({ isAdmin=false }) => {
 
 
         <div className={styles.outward_name_wrap} >
-        <Container>
-          <h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
+          {aboutInfo === null ?
+            <Container>
+              <h1>{defaultResumeData.aboutInfo.firstname} {defaultResumeData.aboutInfo.lastname}</h1>
 
-          <Nav className="justify-content-center">
-            <Nav.Item>
-              <Nav.Link href={aboutInfo?.github_link}>Github</Nav.Link>
-            </Nav.Item>
+              <Nav className="justify-content-center">
+                <Nav.Item>
+                  <Nav.Link href={defaultResumeData.aboutInfo.github_link}>Github</Nav.Link>
+                </Nav.Item>
 
-            <Nav.Item>
-              <Nav.Link href={aboutInfo?.linkedin_link}>Linkedin</Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Container>
+                <Nav.Item>
+                  <Nav.Link href={defaultResumeData.aboutInfo.linkedin_link}>Linkedin</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Container>
+          :
+            <Container>
+              <h1>{aboutInfo.firstname} {aboutInfo.lastname}</h1>
+
+              <Nav className="justify-content-center">
+                <Nav.Item>
+                  <Nav.Link href={aboutInfo.github_link}>Github</Nav.Link>
+                </Nav.Item>
+
+                <Nav.Item>
+                  <Nav.Link href={aboutInfo.linkedin_link}>Linkedin</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Container>
+          }
         </div>
+
+
 
 
         <div className={styles.outward_skills_wrap} >
@@ -132,7 +152,11 @@ const Resume = ({ isAdmin=false }) => {
           <h2>SKILLS</h2>
 
             {skillInfo === null ?
-                <div> Loading skills </div>
+                <div className={styles.outward_skills_eachskill} >
+                    {defaultResumeData.defaultSkillData.map(defaultSkill => (
+                      <li>{defaultSkill}</li>
+                    ))}
+                </div>
               :
 
               <div className={styles.outward_skills_eachskill} >
@@ -145,12 +169,33 @@ const Resume = ({ isAdmin=false }) => {
         </div>
 
 
+
+
         {projectInfo === null ?
 
-          <Container>
-            <h2>Loading Project information ... </h2>
-          </Container>
+          <div className={styles.outward_projects_wrap} >
+            <Container>
+            <h2>Projects</h2>
 
+            {defaultResumeData.defaultProjectData.map(defaultProject => (
+              <div className={styles.outward_eachproject} >
+                <Container>
+                  <h5> {defaultProject.project_name}  ({defaultProject.used_tech})</h5>
+                  <p>{defaultProject.description}</p>
+
+                <Nav variant="pills">
+                  <Nav.Item>
+                      <Nav.Link href={defaultProject.live_link}> Live </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                      <Nav.Link href={defaultProject.github_link}> Github </Nav.Link>
+                  </Nav.Item>
+                </Nav>
+                </Container>
+              </div>
+              ))}
+              </Container>
+            </div>
           :
             <div className={styles.outward_projects_wrap} >
             <Container>
@@ -178,6 +223,8 @@ const Resume = ({ isAdmin=false }) => {
       }
 
 
+
+
       <div className={styles.outward_experience_wrap} >
       <Container>
           <h2>EXPERIENCE</h2>
@@ -199,6 +246,8 @@ const Resume = ({ isAdmin=false }) => {
         }
       </Container>
       </div>
+
+
 
 
 
@@ -227,7 +276,7 @@ const Resume = ({ isAdmin=false }) => {
 
 
     <Container>
-          <Button variant="primary"> Download </Button>
+      <Button variant="primary"> Download </Button>
     </Container>
 
     </>
