@@ -13,6 +13,10 @@ educations_routes = Blueprint('educations', __name__)
 @educations_routes.route('/')
 def get_homepage():
   educations = Education.query.order_by(Education.start_year).all()
+
+  if len(educations) == 0:
+    return { 'educations': None }
+
   normalized_data = { each_education.id: each_education.to_dict()  for each_education in educations }
   return { 'educations': normalized_data }
 
