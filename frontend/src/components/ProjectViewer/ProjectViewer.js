@@ -1,21 +1,30 @@
 import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 
+
 import defaultImg from "../../icons/default_img.JPG";
-import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { thunk_getProjects } from "../../store/thunks/projects.js";
+
 
 import styles from "./projectviewer.module.css";
 
 
-const ProjectViewer = ({ isAdmin = false }) => {
+
+const ProjectViewer = ({ isAdmin=false }) => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const projectInfo = useSelector(store => store.projectsReducer.projects);
   const [isHidden, setIsHidden] = useState(false);
 
+
+  useEffect(() => {
+    dispatch(thunk_getProjects());
+  },[dispatch]);
 
 
 
