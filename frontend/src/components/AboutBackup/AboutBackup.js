@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom";
+
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button'
+
 
 import personalImg from "../../icons/Profile_Pic.jpg";
 
@@ -12,76 +11,15 @@ import styles from "./aboutbackup.module.css";
 
 
 
-const AboutBackup = ({ isAdmin=false }) => {
-  const history = useHistory();
-  const [isHidden, setIsHidden] = useState(false);
-
-
-  useEffect(() => {
-    if (!isHidden) {
-      setIsHidden(true);
-    }
-
-    if (!isAdmin) {
-      setIsHidden(false);
-    }
-
-  }, []);
-
-
-  const handleUpdate = event => {
-    event.preventDefault();
-    history.push('/aboutme');
-  }
-
-
-  const handleShow = event => {
-    event.preventDefault();
-    setIsHidden(false);
-  }
-
-
-
-  const handleHide = event => {
-    event.preventDefault();
-    setIsHidden(true);
-  }
+const AboutBackup = () => {
 
 
   return (
     <>
       <div className={styles.main_wrap} >
-        {isAdmin ?
-          <div className={styles.update_button_wrap} >
-            <Container>
-              <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
-            </Container>
-          </div>
-          :
-          <></>
-        }
-
-        {isHidden ?
-          <div className={styles.about_button_wrap} >
-            <Container>
-              <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> About </h1> </Button>
-            </Container>
-          </div>
-          :
 
           <Jumbotron fluid>
             <Container>
-
-              {isAdmin ?
-                <Container>
-                  <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
-                </Container>
-                :
-                <></>
-              }
-
-
-
               <Nav fill variant="tabs" className="justify-content-center">
                 <Nav.Item>
                   <Nav.Link href='https://github.com/JSchutza' >Github</Nav.Link>
@@ -108,7 +46,6 @@ const AboutBackup = ({ isAdmin=false }) => {
 
             </Container>
           </Jumbotron>
-        }
       </div>
     </>
   )

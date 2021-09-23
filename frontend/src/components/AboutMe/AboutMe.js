@@ -63,7 +63,7 @@ const AboutMe = ({ isAdmin=false }) => {
   if (!aboutInfo) {
     return (
       <div>
-        <AboutBackup isAdmin={isAdmin}  />
+        <AboutBackup />
       </div>
     );
   }

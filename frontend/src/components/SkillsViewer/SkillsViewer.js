@@ -14,7 +14,7 @@ import { thunk_getSkills } from "../../store/thunks/skills.js";
 import styles from "./skillsviewer.module.css";
 
 
-const SkillsViewer = ({ isAdmin = false }) => {
+const SkillsViewer = ({ isAdmin=false }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const skillInfo = useSelector(store => store.skillsReducer.skills);
@@ -66,9 +66,9 @@ const SkillsViewer = ({ isAdmin = false }) => {
 
 
 
-
   return (
     <>
+
     <div className={styles.main_wrap}>
       {isAdmin ?
       <div className={styles.update_button_wrap} >
