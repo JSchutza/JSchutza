@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Jumbotron from 'react-bootstrap/Jumbotron';
@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button'
+
+import AboutBackup from "../AboutBackup";
 
 import { thunk_getPersonalInfo } from '../../store/thunks/personal.js';
 
@@ -58,13 +60,8 @@ const AboutMe = ({ isAdmin=false }) => {
   }
 
 
-  if (!aboutInfo) {
-    return (
-      <div>
-        <h1>Loading information ...</h1>
-      </div>
-    );
-  }
+  if (!aboutInfo) return ( <AboutBackup /> );
+
 
 
 

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useHistory } from "react-router-dom";
 import { logout } from "../../store/thunks/session.js";
 

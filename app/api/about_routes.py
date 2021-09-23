@@ -14,7 +14,11 @@ about_routes = Blueprint('about', __name__)
 @about_routes.route('/')
 def get_homepage():
   personal_instance = User.query.get(1)
-  return personal_instance.to_dict()
+
+  if personal_instance == None:
+    return { 'user': personal_instance }
+
+  return { 'user': personal_instance.to_dict() }
 
 
 
@@ -52,9 +56,7 @@ def update_aboutme_info():
       db.session.add(current_user)
       db.session.commit()
 
-      return {"user": current_user.to_dict()}
-
-
+      return { "user": current_user.to_dict() }
 
 
   if form.validate_on_submit() and no_errors:

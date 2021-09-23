@@ -11,6 +11,10 @@ experience_routes = Blueprint('experiences', __name__)
 @experience_routes.route('/')
 def get_homepage():
   experiences = Experience.query.order_by(Experience.start_date).all()
+
+  if len(experiences) == 0:
+    return { 'experiences': None }
+
   normalized_data = {  each_experience.id: each_experience.to_dict()     for each_experience in experiences  }
   return { 'experiences': normalized_data }
 

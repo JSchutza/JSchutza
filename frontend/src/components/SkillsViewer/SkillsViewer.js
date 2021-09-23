@@ -1,21 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom";
+
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 
+import { thunk_getSkills } from "../../store/thunks/skills.js";
+import { defaultSkillData } from "./data.js";
 
-import { useHistory } from "react-router-dom";
-import { useSelector } from 'react-redux';
 
 import styles from "./skillsviewer.module.css";
 
 
-const SkillsViewer = ({ isAdmin = false }) => {
+const SkillsViewer = ({ isAdmin=false }) => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const skillInfo = useSelector(store => store.skillsReducer.skills);
   const [ isHidden, setIsHidden ] = useState(false);
+
+
+  useEffect(() => {
+    dispatch(thunk_getSkills());
+  },[dispatch]);
+
 
 
 
@@ -56,9 +66,9 @@ const SkillsViewer = ({ isAdmin = false }) => {
 
 
 
-
   return (
     <>
+
     <div className={styles.main_wrap}>
       {isAdmin ?
       <div className={styles.update_button_wrap} >
@@ -100,7 +110,7 @@ const SkillsViewer = ({ isAdmin = false }) => {
                   <Card.Body>
                     <ListGroup variant="flush">
                       {skillInfo === null ?
-                          <ListGroup.Item> Loading skills </ListGroup.Item>
+                        defaultSkillData.map(defaultSkill => ( <ListGroup.Item> {defaultSkill} </ListGroup.Item> ))
                         :
                           Object.values(skillInfo).map(eachSkill => (
                             <>
