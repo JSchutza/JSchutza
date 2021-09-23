@@ -1,17 +1,26 @@
 import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
 
-import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { thunk_getPersonalInfo } from '../../store/thunks/personal.js';
+import { thunk_getSkills } from "../../store/thunks/skills.js";
+import { thunk_getProjects } from "../../store/thunks/projects.js";
+import { thunk_getExperiences } from "../../store/thunks/experiences.js";
+import { thunk_getEducations } from "../../store/thunks/educations.js";
+
 
 import styles from "./resume.module.css";
 
 
-const Resume = ({ isAdmin = false }) => {
+
+
+const Resume = ({ isAdmin=false }) => {
   const history = useHistory();
+  const dispatch = useDispatch();
+
   const aboutInfo = useSelector(store => store.personalInfoReducer.user);
   const skillInfo = useSelector(store => store.skillsReducer.skills);
   const projectInfo = useSelector(store => store.projectsReducer.projects);
@@ -19,6 +28,17 @@ const Resume = ({ isAdmin = false }) => {
   const educationInfo = useSelector(store => store.educationsReducer.educations);
 
   const [ isHidden, setIsHidden ] = useState(false);
+
+
+  useEffect(() => {
+    if (!aboutInfo) dispatch(thunk_getPersonalInfo());
+    if (!skillInfo) dispatch(thunk_getSkills());
+    if (!projectInfo) dispatch(thunk_getProjects());
+    if (!experienceInfo) dispatch(thunk_getExperiences());
+    if (!educationInfo) dispatch(thunk_getEducations());
+  },[dispatch]);
+
+
 
   useEffect(() => {
     if (!isHidden) {

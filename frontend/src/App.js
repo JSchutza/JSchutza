@@ -16,8 +16,8 @@ import { useUser } from "./context/UserContext.js";
 
 
 
-import { thunk_getExperiences } from "./store/thunks/experiences.js";
-import { thunk_getEducations } from "./store/thunks/educations.js";
+
+
 
 
 
@@ -29,11 +29,7 @@ function App() {
 
 
 
-
   useEffect(() => {
-    // take these out and move to the correct components ****
-    dispatch(thunk_getExperiences());
-    dispatch(thunk_getEducations());
     setLoaded(true);
   }, [dispatch]);
 
@@ -47,7 +43,7 @@ function App() {
 
 
   // if it is an Employer or anyone who is not me
-  if (isUser === null) {
+  if (!isUser) {
     return (
       <>
       <BrowserRouter>
@@ -78,7 +74,7 @@ function App() {
 
 
 // if I am logged in -- give access to admin site so I can update things
-  if (isUser !== null) {
+
     return (
       <BrowserRouter>
         <NavBar userStatus={true} />
@@ -135,7 +131,7 @@ function App() {
           </Switch>
       </BrowserRouter>
       );
-  }
+
 }
 
 export default App;
