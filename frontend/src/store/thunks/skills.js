@@ -6,7 +6,7 @@ import { getSkills, createSkills, deleteSkill, updateSkill } from "../actions/sk
 
 
 const thunk_getSkills = () => async (dispatch) => {
-  const response = await fetch("/api/skills", {
+  const response = await fetch("/api/skills/", {
     headers: {
       "Content-Type": "application/json",
     },
