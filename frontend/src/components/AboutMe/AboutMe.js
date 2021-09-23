@@ -60,13 +60,8 @@ const AboutMe = ({ isAdmin=false }) => {
   }
 
 
-  if (!aboutInfo) {
-    return (
-      <div>
-        <AboutBackup />
-      </div>
-    );
-  }
+  if (!aboutInfo) return ( <AboutBackup /> );
+
 
 
 
