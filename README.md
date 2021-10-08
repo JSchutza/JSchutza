@@ -11,6 +11,7 @@
 * JavaScript
 * Python
 * PHP
+* Rust
 * Go
 * C++
 * Bash script
