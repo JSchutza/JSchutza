@@ -105,7 +105,7 @@ const AboutMe = ({ isAdmin=false }) => {
               </Nav.Item>
               </Nav>
 
-            <div>
+            <div className={styles} >
               <h1>{aboutInfo.firstname} {aboutInfo.lastname}</h1>
             </div>
 
@@ -113,7 +113,7 @@ const AboutMe = ({ isAdmin=false }) => {
               {aboutInfo.avatar === null ? <Image src={personalImg} fluid /> : <Image src={aboutInfo.avatar} fluid /> }
             </div>
 
-            <div>
+            <div className={styles}>
               <h2>{aboutInfo.jobtitle}</h2>
             </div>
 
@@ -123,11 +123,11 @@ const AboutMe = ({ isAdmin=false }) => {
 
         <Jumbotron fluid>
           <Container>
-            <div>
+            <div className={styles}>
               <h2>About Me</h2>
             </div>
 
-            <div>
+            <div className={styles}>
               <p>{aboutInfo.about_text}</p>
             </div>
           </Container>

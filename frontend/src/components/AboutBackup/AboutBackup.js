@@ -26,7 +26,7 @@ const AboutBackup = () => {
             </Nav.Item>
           </Nav>
 
-          <div>
+          <div className={styles}>
             <h1>Joshua Schutza </h1>
           </div>
 
@@ -34,7 +34,7 @@ const AboutBackup = () => {
             <Image src={personalImg} fluid />
           </div>
 
-          <div>
+          <div className={styles}>
             <h2>Full Stack Developer</h2>
           </div>
         </Container>
@@ -42,11 +42,11 @@ const AboutBackup = () => {
 
       <Jumbotron fluid>
         <Container>
-          <div>
+          <div className={styles}>
             <h2>About Me</h2>
           </div>
 
-          <div>
+          <div className={styles}>
             <p>
               I am a determined individual who is working towards a career as a leader, visionary, and advocate.
               One of my many objectives is to impact the workforce through developing individuals
