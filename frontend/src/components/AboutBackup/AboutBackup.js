@@ -5,14 +5,12 @@ import Image from 'react-bootstrap/Image';
 import Nav from 'react-bootstrap/Nav';
 
 
-import personalImg from '../../icons/profile_pic.jpg';
-
 import styles from "./aboutbackup.module.css";
 
 
 
 const AboutBackup = () => {
-
+  const personalImg = 'https://joshuaschutzapersonal.s3.amazonaws.com/profile_img.JPG';
 
   return (
     <>

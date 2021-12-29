@@ -11,13 +11,14 @@ import AboutBackup from "../AboutBackup";
 
 import { thunk_getPersonalInfo } from '../../store/thunks/personal.js';
 
-import personalImg from '../../icons/profile_pic.jpg';
+
 
 
 import styles from "./aboutme.module.css";
 
 
 const AboutMe = ({ isAdmin=false }) => {
+  const personalImg = 'https://joshuaschutzapersonal.s3.amazonaws.com/profile_img.JPG';
   const history = useHistory();
   const aboutInfo = useSelector(store => store.personalInfoReducer.user);
   const [ isHidden, setIsHidden ] = useState(false);
