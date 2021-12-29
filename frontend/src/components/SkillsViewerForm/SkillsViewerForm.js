@@ -19,6 +19,7 @@ import { thunk_createSkills } from "../../store/thunks/skills.js";
 const SkillsViewerForm = () => {
   const [ title, setTitle ] = useState('');
   const [ percentage, setPercent ] = useState(0);
+  const [ img, setImg ] = useState('');
   const currentSkills = useSelector(store => store.skillsReducer.skills)
   const dispatch = useDispatch();
 
@@ -27,7 +28,7 @@ const SkillsViewerForm = () => {
 
   const onSubmit = event => {
     event.preventDefault();
-    const payload = { title, percentage };
+    const payload = { title, percentage, img };
     dispatch(thunk_createSkills(payload));
   }
 
@@ -49,6 +50,7 @@ const SkillsViewerForm = () => {
                   <UpdateSkillButton skillId={eachSkill.id} />
                 </ListGroup.Item>
               </Container>
+              <br />
             </>
           ))
       }
@@ -57,31 +59,43 @@ const SkillsViewerForm = () => {
 
       <Jumbotron fluid>
         <Container>
-    <form onSubmit={onSubmit}>
-      <label>
-        Title
-        <Form.Control
-          type="text"
-          name="title"
-          value={title}
-            onChange={event => setTitle(event.target.value)}
-        />
-      </label>
-    <br />
+          <form onSubmit={onSubmit}>
+            <label>
+              Title
+              <Form.Control
+                type="text"
+                name="title"
+                value={title}
+                  onChange={event => setTitle(event.target.value)}
+              />
+            </label>
+              <br />
 
-      <label>
-        Percentage
-        <Form.Control
-          type="number"
-          name="percentage"
-          value={percentage}
-          onChange={event => setPercent(event.target.value)}
-        />
-      </label>
+            <label>
+              Percentage
+              <Form.Control
+                type="number"
+                name="percentage"
+                value={percentage}
+                onChange={event => setPercent(event.target.value)}
+              />
+            </label>
+              <br />
 
-            <br />
-            <Button variant="primary" onClick={event => onSubmit(event)}> Create </Button>
-    </form>
+            <label>
+              Icon
+              <Form.Control
+                type="text"
+                name="icon"
+                value={img}
+                onChange={event => setImg(event.target.value)}
+              />
+            </label>
+
+              <br />
+              <Button variant="primary" onClick={event => onSubmit(event)}> Create </Button>
+
+          </form>
         </Container>
       </Jumbotron>
     </>
