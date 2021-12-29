@@ -20,3 +20,10 @@
 .about_button_wrap {
   padding: 30px;
 }
+
+
+
+.profile_img img {
+  object-fit: contain;
+  width: 294px;
+}

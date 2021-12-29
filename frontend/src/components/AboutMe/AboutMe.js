@@ -11,7 +11,7 @@ import AboutBackup from "../AboutBackup";
 
 import { thunk_getPersonalInfo } from '../../store/thunks/personal.js';
 
-import personalImg from "../../icons/Profile_Pic.jpg";
+import personalImg from '../../icons/profile_pic.jpg';
 
 
 import styles from "./aboutme.module.css";
@@ -107,7 +107,10 @@ const AboutMe = ({ isAdmin=false }) => {
 
 
           <h1>{aboutInfo.firstname} {aboutInfo.lastname}</h1>
-          {aboutInfo.avatar === null ? <Image src={personalImg} fluid /> : <Image src={aboutInfo.avatar} fluid /> }
+
+          <div className={styles.profile_img} >
+            {aboutInfo.avatar === null ? <Image src={personalImg} fluid /> : <Image src={aboutInfo.avatar} fluid /> }
+          </div>
 
           <h2>{aboutInfo.jobtitle}</h2>
           <h2>About Me</h2>

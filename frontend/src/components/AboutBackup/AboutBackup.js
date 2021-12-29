@@ -5,7 +5,7 @@ import Image from 'react-bootstrap/Image';
 import Nav from 'react-bootstrap/Nav';
 
 
-import personalImg from "../../icons/Profile_Pic.jpg";
+import personalImg from '../../icons/profile_pic.jpg';
 
 import styles from "./aboutbackup.module.css";
 
@@ -35,7 +35,7 @@ const AboutBackup = () => {
               <Image src={personalImg} fluid />
 
 
-              <h2>Online Instructional Assistant</h2>
+              <h2>Full Stack Developer</h2>
               <h2>About Me</h2>
               <p>
                 I am a determined individual who is working towards a career as a leader, visionary, and advocate.
