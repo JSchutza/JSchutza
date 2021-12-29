@@ -18,7 +18,6 @@ import styles from "./projectviewer.module.css";
 
 
 const ProjectViewer = ({ isAdmin=false }) => {
-  const defaultImg = 'https://joshuaschutzapersonal.s3.amazonaws.com/default_project_img.JPG'
   const history = useHistory();
   const dispatch = useDispatch();
   const projectInfo = useSelector(store => store.projectsReducer.projects);
@@ -108,7 +107,7 @@ const ProjectViewer = ({ isAdmin=false }) => {
                 defaultProjectData.map(defaultProject => (
                   <>
                     <Card>
-                      <Card.Img variant="top" src={defaultImg} />
+                      <Card.Img variant="top" src={defaultProject.project_img} />
                       <Card.Body>
                         <Card.Title> {defaultProject.project_name} </Card.Title>
                         <Card.Text>
@@ -132,7 +131,7 @@ const ProjectViewer = ({ isAdmin=false }) => {
                   Object.values(projectInfo).map(eachProject => (
                     <>
                   <Card>
-                    <Card.Img variant="top" src={defaultImg} />
+                    <Card.Img variant="top" src={eachProject.project_img} />
                     <Card.Body>
                           <Card.Title> {eachProject.project_name} </Card.Title>
                       <Card.Text>

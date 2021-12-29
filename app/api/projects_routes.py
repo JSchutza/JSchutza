@@ -38,11 +38,12 @@ def create_project():
   live_link = form.data['live_link']
   github_link = form.data['github_link']
   used_tech = form.data['used_tech']
+  defaultImg = 'https://joshuaschutzapersonal.s3.amazonaws.com/default_project_img.JPG'
 
   if project_name == '' or project_img == '' or description == '' or live_link == '' or github_link == '' or used_tech == '':
     no_errors = False
     project_name = 'default project name'
-    project_img = 'default project img'
+    project_img = defaultImg
     description = 'default project description'
     live_link = 'default project live_link'
     github_link = 'default project github_link'
@@ -121,11 +122,12 @@ def update_single_project(project_id):
   live_link = form.data['live_link']
   github_link = form.data['github_link']
   used_tech = form.data['used_tech']
+  defaultImg = 'https://joshuaschutzapersonal.s3.amazonaws.com/default_project_img.JPG'
 
   if project_name == '' or project_img == '' or description == '' or live_link == '' or github_link == '' or used_tech == '':
     no_errors = False
     project_name = 'default project name'
-    project_img = 'default project img'
+    project_img = defaultImg
     description = 'default project description'
     live_link = 'default project live_link'
     github_link = 'default project github_link'
