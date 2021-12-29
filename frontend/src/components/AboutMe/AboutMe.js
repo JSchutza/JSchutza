@@ -67,14 +67,15 @@ const AboutMe = ({ isAdmin=false }) => {
 
 
   return (
-    <div className={styles.main_wrap} >
-      {isAdmin ?
-      <div className={styles.update_button_wrap} >
-        <Container>
-          <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
-        </Container>
-      </div>
-      : null }
+    <div>
+        {isAdmin ?
+        <div className={styles.update_button_wrap} >
+          <Container>
+            <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
+          </Container>
+        </div>
+        : null }
+
 
       {isHidden ?
           <div className={styles.about_button_wrap} >
@@ -83,44 +84,58 @@ const AboutMe = ({ isAdmin=false }) => {
             </Container>
           </div>
       :
-
-      <Jumbotron fluid>
-        <Container>
+        <div>
+        <Jumbotron fluid>
+          <Container>
             {isAdmin ?
               <Container>
                 <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
               </Container>
               :
-              null
-            }
+              null }
 
 
+              <Nav fill variant="tabs" className="justify-content-center">
+              <Nav.Item>
+                <Nav.Link href={aboutInfo.github_link}>Github</Nav.Link>
+              </Nav.Item>
 
-            <Nav fill variant="tabs" className="justify-content-center">
-            <Nav.Item>
-              <Nav.Link href={aboutInfo.github_link}>Github</Nav.Link>
-            </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href={aboutInfo.linkedin_link}>Linkedin</Nav.Link>
+              </Nav.Item>
+              </Nav>
 
-            <Nav.Item>
-              <Nav.Link href={aboutInfo.linkedin_link}>Linkedin</Nav.Link>
-            </Nav.Item>
-          </Nav>
+            <div>
+              <h1>{aboutInfo.firstname} {aboutInfo.lastname}</h1>
+            </div>
+
+            <div className={styles.profile_img} >
+              {aboutInfo.avatar === null ? <Image src={personalImg} fluid /> : <Image src={aboutInfo.avatar} fluid /> }
+            </div>
+
+            <div>
+              <h2>{aboutInfo.jobtitle}</h2>
+            </div>
+
+          </Container>
+        </Jumbotron>
 
 
-          <h1>{aboutInfo.firstname} {aboutInfo.lastname}</h1>
+        <Jumbotron fluid>
+          <Container>
+            <div>
+              <h2>About Me</h2>
+            </div>
 
-          <div className={styles.profile_img} >
-            {aboutInfo.avatar === null ? <Image src={personalImg} fluid /> : <Image src={aboutInfo.avatar} fluid /> }
-          </div>
-
-          <h2>{aboutInfo.jobtitle}</h2>
-          <h2>About Me</h2>
-          <p>{aboutInfo.about_text}</p>
-
-        </Container>
-      </Jumbotron>
+            <div>
+              <p>{aboutInfo.about_text}</p>
+            </div>
+          </Container>
+        </Jumbotron>
+      </div>
     }
-  </div>
+
+    </div>
   )
 };
 

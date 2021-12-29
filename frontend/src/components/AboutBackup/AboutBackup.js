@@ -13,39 +13,52 @@ const AboutBackup = () => {
   const personalImg = 'https://joshuaschutzapersonal.s3.amazonaws.com/profile_img.JPG';
 
   return (
-    <>
-      <div className={styles.main_wrap} >
+  <div>
+      <Jumbotron fluid>
+        <Container>
+          <Nav fill variant="tabs" className="justify-content-center">
+            <Nav.Item>
+              <Nav.Link href='https://github.com/JSchutza' >Github</Nav.Link>
+            </Nav.Item>
 
-          <Jumbotron fluid>
-            <Container>
-              <Nav fill variant="tabs" className="justify-content-center">
-                <Nav.Item>
-                  <Nav.Link href='https://github.com/JSchutza' >Github</Nav.Link>
-                </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="https://www.linkedin.com/in/joshua-schutza-559819ba/" >Linkedin</Nav.Link>
+            </Nav.Item>
+          </Nav>
 
-                <Nav.Item>
-                  <Nav.Link href="https://www.linkedin.com/in/joshua-schutza-559819ba/" >Linkedin</Nav.Link>
-                </Nav.Item>
-              </Nav>
+          <div>
+            <h1>Joshua Schutza </h1>
+          </div>
 
+          <div className={styles.profile_img} >
+            <Image src={personalImg} fluid />
+          </div>
 
-              <h1>Joshua Schutza </h1>
-              <Image src={personalImg} fluid />
+          <div>
+            <h2>Full Stack Developer</h2>
+          </div>
+        </Container>
+      </Jumbotron>
 
+      <Jumbotron fluid>
+        <Container>
+          <div>
+            <h2>About Me</h2>
+          </div>
 
-              <h2>Full Stack Developer</h2>
-              <h2>About Me</h2>
-              <p>
-                I am a determined individual who is working towards a career as a leader, visionary, and advocate.
-                One of my many objectives is to impact the workforce through developing individuals and drawing out their strengths.
-                I am seeking a working and learning opportunity that will utilize my research skills and natural ability to see growth
-                and potential within people and businesses.
-              </p>
+          <div>
+            <p>
+              I am a determined individual who is working towards a career as a leader, visionary, and advocate.
+              One of my many objectives is to impact the workforce through developing individuals
+              and drawing out their strengths.
 
-            </Container>
-          </Jumbotron>
-      </div>
-    </>
+              I am seeking a working and learning opportunity that will utilize my research skills and
+              natural ability to see growth and potential within people and businesses.
+            </p>
+          </div>
+        </Container>
+      </Jumbotron>
+  </div>
   )
 };
 
