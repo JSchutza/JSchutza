@@ -7,7 +7,6 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 
 
-import defaultImg from "../../icons/default_img.JPG";
 import { thunk_getProjects } from "../../store/thunks/projects.js";
 
 
@@ -19,6 +18,7 @@ import styles from "./projectviewer.module.css";
 
 
 const ProjectViewer = ({ isAdmin=false }) => {
+  const defaultImg = 'https://joshuaschutzapersonal.s3.amazonaws.com/default_project_img.JPG'
   const history = useHistory();
   const dispatch = useDispatch();
   const projectInfo = useSelector(store => store.projectsReducer.projects);
