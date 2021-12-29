@@ -67,8 +67,6 @@ const SkillsViewer = ({ isAdmin=false }) => {
 
 
   return (
-    <>
-
     <div className={styles.main_wrap}>
       {isAdmin ?
       <div className={styles.update_button_wrap} >
@@ -76,8 +74,7 @@ const SkillsViewer = ({ isAdmin=false }) => {
           <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
         </Container>
       </div>
-        :
-          <></>
+        : null
       }
 
 
@@ -88,45 +85,45 @@ const SkillsViewer = ({ isAdmin=false }) => {
         </Container>
       </div>
         :
+      <Container>
+
+        {isAdmin ?
         <Container>
-
-          {isAdmin ?
-          <Container>
-            <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
-          </Container>
-            :
-            <></>
-          }
-
-            <Accordion defaultActiveKey="0">
-              <Card>
-                <Accordion.Toggle as={Card.Header} eventKey="1">
-                  <Button variant="primary">
-                    <h1>Skills</h1>
-                  </Button>
-                </Accordion.Toggle>
-
-                <Accordion.Collapse eventKey="1">
-                  <Card.Body>
-                    <ListGroup variant="flush">
-                      {skillInfo === null ?
-                        defaultSkillData.map(defaultSkill => ( <ListGroup.Item> {defaultSkill} </ListGroup.Item> ))
-                        :
-                          Object.values(skillInfo).map(eachSkill => (
-                            <>
-                              <ListGroup.Item> {eachSkill.title} </ListGroup.Item>
-                            </>
-                      ))
-                    }
-                  </ListGroup>
-                  </Card.Body>
-                </Accordion.Collapse>
-              </Card>
-            </Accordion>
+          <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
         </Container>
-      }
-      </div>
-    </>
+          : null
+        }
+
+        <Accordion defaultActiveKey="0">
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="1">
+              <Button variant="primary">
+                <h1>Skills</h1>
+              </Button>
+            </Accordion.Toggle>
+
+            <Accordion.Collapse eventKey="1">
+              <Card.Body>
+                <ListGroup variant="flush">
+                  {skillInfo === null ?
+                    defaultSkillData.map(defaultSkill => ( <ListGroup.Item> {defaultSkill} </ListGroup.Item> ))
+                    :
+                    <div>
+                      {Object.values(skillInfo).map(eachSkill => (
+                        <div>
+                          <ListGroup.Item> {eachSkill.title} <img src={eachSkill.img} /> </ListGroup.Item>
+                        </div>
+                      ))}
+                    </div>
+                }
+              </ListGroup>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+      </Container>
+    }
+  </div>
   )
 };
 
