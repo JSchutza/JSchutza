@@ -94,7 +94,7 @@ const SkillsViewer = ({ isAdmin=false }) => {
           : null
         }
 
-        <Accordion defaultActiveKey="0">
+        <Accordion defaultActiveKey="1">
           <Card>
             <Accordion.Toggle as={Card.Header} eventKey="1">
               <Button variant="primary">
@@ -108,10 +108,16 @@ const SkillsViewer = ({ isAdmin=false }) => {
                   {skillInfo === null ?
                     defaultSkillData.map(defaultSkill => ( <ListGroup.Item> {defaultSkill} </ListGroup.Item> ))
                     :
-                    <div>
+                    <div className={styles.each_skill_wrap} >
                       {Object.values(skillInfo).map(eachSkill => (
-                        <div>
-                          <ListGroup.Item> {eachSkill.title} <img src={eachSkill.img} /> </ListGroup.Item>
+                        <div className={styles.list_group_item} >
+                          <li className={styles.each_skill_overlay} >
+                             <h1>{eachSkill.title}</h1>
+                          </li>
+
+                          <div className={styles.each_skill_img}>
+                            <img src={eachSkill.img} />
+                          </div>
                         </div>
                       ))}
                     </div>
