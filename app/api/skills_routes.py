@@ -34,15 +34,17 @@ def create_new_skill():
 
   title = form.data['title']
   percentage = form.data['percentage']
+  img = form.data['img']
+  defaultImg = 'https://joshuaschutzapersonal.s3.amazonaws.com/default_project_img.JPG'
 
-
-  if title == '' or percentage == '':
+  if title == '' or percentage == '' or img == '':
     no_errors = False
     title = 'JavaScript'
     percentage = '100'
+    img = defaultImg
 
     if form.validate_on_submit():
-      new_skill = Skill(title=title, percentage=float(percentage))
+      new_skill = Skill(title=title, percentage=float(percentage), img=img)
       db.session.add(new_skill)
       db.session.commit()
 
@@ -50,7 +52,7 @@ def create_new_skill():
 
 
   if form.validate_on_submit() and no_errors:
-    new_skill = Skill(title=form.data['title'], percentage=float(form.data['percentage']))
+    new_skill = Skill(title=form.data['title'], percentage=float(form.data['percentage']), img=form.data['img'])
     db.session.add(new_skill)
     db.session.commit()
 
@@ -91,15 +93,18 @@ def update_single_skill(skill_id):
 
   title = form.data['title']
   percentage = form.data['percentage']
+  img = form.data['img']
+  defaultImg = 'https://joshuaschutzapersonal.s3.amazonaws.com/default_project_img.JPG'
 
-  if title == '' or percentage == '':
+  if title == '' or percentage == '' or img == '':
     no_errors = False
     title = 'JavaScript'
     percentage = '100'
+    img = defaultImg
 
     if form.validate_on_submit():
       the_skill = Skill.query.get(skill_id)
-      the_skill.update_skill(title, float(percentage))
+      the_skill.update_skill(title, float(percentage), img)
       db.session.add(the_skill)
       db.session.commit()
 
@@ -108,7 +113,7 @@ def update_single_skill(skill_id):
 
   if form.validate_on_submit() and no_errors:
     the_skill = Skill.query.get(skill_id)
-    the_skill.update_skill(form.data['title'], float(form.data['percentage']))
+    the_skill.update_skill(form.data['title'], float(form.data['percentage']), form.data['img'])
     db.session.add(the_skill)
     db.session.commit()
     return { the_skill.id: the_skill.to_dict() }
