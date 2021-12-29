@@ -107,10 +107,10 @@ const AboutMe = ({ isAdmin=false }) => {
 
             <div className={styles.about_name} >
               <h1>{aboutInfo.firstname} {aboutInfo.lastname}</h1>
-            </div>
 
-            <div className={styles.profile_img} >
-              {aboutInfo.avatar === null ? <Image src={personalImg} fluid /> : <Image src={aboutInfo.avatar} fluid /> }
+              <div className={styles.profile_img} >
+                {aboutInfo.avatar === null ? <Image src={personalImg} fluid /> : <Image src={aboutInfo.avatar} fluid /> }
+              </div>
             </div>
 
             <div className={styles.about_jobtitle}>
