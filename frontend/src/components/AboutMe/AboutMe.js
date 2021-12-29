@@ -66,7 +66,6 @@ const AboutMe = ({ isAdmin=false }) => {
 
 
   return (
-    <>
     <div className={styles.main_wrap} >
       {isAdmin ?
       <div className={styles.update_button_wrap} >
@@ -74,27 +73,24 @@ const AboutMe = ({ isAdmin=false }) => {
           <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
         </Container>
       </div>
-      :
-        <></>
-      }
+      : null }
 
       {isHidden ?
-      <div className={styles.about_button_wrap} >
-        <Container>
-          <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> About </h1> </Button>
-        </Container>
-      </div>
+          <div className={styles.about_button_wrap} >
+            <Container>
+              <Button variant="outline-dark" onClick={event => handleShow(event)}> <h1> About </h1> </Button>
+            </Container>
+          </div>
       :
 
       <Jumbotron fluid>
         <Container>
-
             {isAdmin ?
               <Container>
                 <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
               </Container>
               :
-              <></>
+              null
             }
 
 
@@ -111,11 +107,7 @@ const AboutMe = ({ isAdmin=false }) => {
 
 
           <h1>{aboutInfo.firstname} {aboutInfo.lastname}</h1>
-          {aboutInfo.avatar === null ?
-            <Image src={personalImg} fluid />
-            :
-            <Image src={aboutInfo.avatar} fluid />
-          }
+          {aboutInfo.avatar === null ? <Image src={personalImg} fluid /> : <Image src={aboutInfo.avatar} fluid /> }
 
           <h2>{aboutInfo.jobtitle}</h2>
           <h2>About Me</h2>
@@ -124,8 +116,7 @@ const AboutMe = ({ isAdmin=false }) => {
         </Container>
       </Jumbotron>
     }
-      </div>
-    </>
+  </div>
   )
 };
 
