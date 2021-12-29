@@ -26,7 +26,7 @@ const UpdateSkillButton = ({ skillId }) => {
 
   const onSubmit = event => {
     event.preventDefault();
-    const payload = { title, percentage };
+    const payload = { title, percentage, img };
     dispatch(thunk_updateSkill(skillId, payload));
   }
 
