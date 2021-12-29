@@ -15,7 +15,34 @@
 
 
 
+
+.about_name {
+
+}
+
+
+
+
 .profile_img img {
   object-fit: contain;
   width: 294px;
+}
+
+
+
+
+.about_jobtitle {
+
+}
+
+
+
+.about_info_title {
+
+}
+
+
+
+.about_info_text {
+
 }
