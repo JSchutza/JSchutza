@@ -1,13 +1,5 @@
 
 
-
-.main_wrap {
-  background-color:coral;
-}
-
-
-
-
 .update_button_wrap {
   margin-left: 50vw;
   padding: 20px;
@@ -23,7 +15,56 @@
 
 
 
+
+.about_name {
+  background-color: rgba(0,0,0,0);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  border: solid black 1px;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+
+
+
+.profile_img {
+  padding: 10px;
+}
+
+
+
 .profile_img img {
   object-fit: contain;
   width: 294px;
+}
+
+
+
+
+.about_jobtitle {
+  margin-top: 15px;
+  color: blueviolet;
+}
+
+
+
+.about_info_title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  height: 14vh;
+  border: solid black 1px;
+  border-radius: 15px;
+}
+
+
+
+.about_info_text {
+  padding: 10px;
+  margin: 20px;
 }

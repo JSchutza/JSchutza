@@ -24,10 +24,12 @@ const thunk_getSkills = () => async (dispatch) => {
 
 
 
-const thunk_createSkills = ({ title, percentage }) => async (dispatch) => {
+const thunk_createSkills = ({ title, percentage, img }) => async (dispatch) => {
   const formData = new FormData();
   formData.append("title", title);
   formData.append("percentage", percentage);
+  formData.append("img", img);
+
 
 
   const response = await fetch("/api/skills", {
@@ -64,10 +66,11 @@ const thunk_deleteSkill = (skillId) => async (dispatch) => {
 
 
 
-const thunk_updateSkill = (skillId, { title, percentage }) => async (dispatch) => {
+const thunk_updateSkill = (skillId, { title, percentage, img }) => async (dispatch) => {
   const formData = new FormData();
   formData.append("title", title);
   formData.append("percentage", percentage);
+  formData.append("img", img);
 
 
   const response = await fetch(`/api/skills/${skillId}`, {

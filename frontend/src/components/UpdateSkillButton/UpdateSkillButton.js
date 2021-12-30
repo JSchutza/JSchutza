@@ -17,6 +17,7 @@ const UpdateSkillButton = ({ skillId }) => {
 
   const [ showform, setShowform ] = useState(false);
   const [ title, setTitle ] = useState(prevInfo?.title);
+  const [ img, setImg ] = useState(prevInfo?.img);
   const [ percentage, setPercent ] = useState(prevInfo?.percentage);
 
 
@@ -25,7 +26,7 @@ const UpdateSkillButton = ({ skillId }) => {
 
   const onSubmit = event => {
     event.preventDefault();
-    const payload = { title, percentage };
+    const payload = { title, percentage, img };
     dispatch(thunk_updateSkill(skillId, payload));
   }
 
@@ -50,6 +51,7 @@ const UpdateSkillButton = ({ skillId }) => {
         <Container>
           <Button variant="primary" onClick={event => hideForm(event)}> Close </Button>
         </Container>
+        <br/>
 
         <Container>
           <form onSubmit={onSubmit}>
@@ -73,8 +75,19 @@ const UpdateSkillButton = ({ skillId }) => {
                 onChange={event => setPercent(event.target.value)}
               />
             </label>
-
             <br />
+
+            <label>
+              Icon
+              <Form.Control
+                type="text"
+                name="icon"
+                value={img}
+                onChange={event => setImg(event.target.value)}
+              />
+            </label>
+            <br />
+
             <Button variant="primary" onClick={event => onSubmit(event)}> Update </Button>
           </form>
         </Container>
