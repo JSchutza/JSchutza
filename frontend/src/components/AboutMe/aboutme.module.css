@@ -51,11 +51,20 @@
 
 
 .about_info_title {
-
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  height: 14vh;
+  border: solid black 1px;
+  border-radius: 15px;
 }
 
 
 
 .about_info_text {
-
+  padding: 10px;
+  margin: 20px;
 }
