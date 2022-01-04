@@ -17,6 +17,7 @@ import { thunk_getPersonalInfo } from '../../store/thunks/personal.js';
 import styles from "./aboutme.module.css";
 
 
+
 const AboutMe = ({ isAdmin=false }) => {
   const personalImg = 'https://joshuaschutzapersonal.s3.amazonaws.com/profile_img.JPG';
   const history = useHistory();
