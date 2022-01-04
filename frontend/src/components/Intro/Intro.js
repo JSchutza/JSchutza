@@ -13,6 +13,7 @@ import Button from 'react-bootstrap/Button'
 import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
 
+import { defaultProjects } from './data.js';
 
 import styles from './intro.module.css';
 
@@ -45,7 +46,6 @@ const Intro = () => {
 
 
 	const About = () => {
-
 
 		return (
 			<div className={styles.about_wrap} >
@@ -86,6 +86,7 @@ const Intro = () => {
 
 
 	const Projects = ({ eachProj }) => {
+		if(!eachProj) eachProj = defaultProjects;
 		const [ idx, setIdx ] = useState(0);
 		const [ allProjects, _ ] = useState(Object.values(eachProj));
 		const [ current, setCurrent ] = useState(allProjects[0]);
