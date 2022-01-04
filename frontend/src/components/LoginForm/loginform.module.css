@@ -2,58 +2,8 @@
 
 
 
-
-.login_containter {
-  padding: 1%;
-}
-
-
-.the_form {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: center;
-}
-
-
-
-.enter_button {
-  position: relative;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-}
-
-.enter_button button {
-  display: flex;
-}
-
-
-.demo_button {
-  position: absolute;
-  width: 50%;
-  top: 10%;
-  left: 100%;
-}
-
-.demo_button a {
-  font-size: 1rem;
-}
-
-
-.spacer {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  padding: 3%;
-  border-radius: 5px;
+.login_wrap {
+  background-color: black;
+  padding: 10px;
+  margin-top: 10px;
 }

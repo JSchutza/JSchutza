@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { login } from '../../store/thunks/session.js';
 import { useHistory } from "react-router-dom";
 import ToolTip from "../ToolTip";
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 
@@ -34,10 +33,8 @@ const LoginForm = () => {
 
 
   return(
-    <>
-    <div>
+    <div className={styles.login_wrap} >
       <form onSubmit={onSubmit}>
-          <Jumbotron fluid>
             <Container>
             <Form.Control
               type="email"
@@ -57,10 +54,8 @@ const LoginForm = () => {
                 <button> <IoIosPower /> </button>
           </ToolTip>
         </Container>
-      </Jumbotron>
       </form>
     </div>
-    </>
   )
 
 
