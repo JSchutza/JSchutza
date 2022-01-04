@@ -13,7 +13,7 @@ import Button from 'react-bootstrap/Button'
 import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
 
-import { defaultProjects } from './data.js';
+import { defaultProjects, defaultSkills } from './data.js';
 
 import styles from './intro.module.css';
 
@@ -23,7 +23,7 @@ const Intro = () => {
 	const history = useHistory();
 	const aboutInfo = useSelector(store => store.personalInfoReducer.user);
 	const projectInfo = useSelector(store => store.projectsReducer.projects);
-	const skillInfo = useSelector(store => store.skillsReducer.skills);
+	let skillInfo = useSelector(store => store.skillsReducer.skills);
 	const dispatch = useDispatch();
 	const { pageType, setPageType } = useSidebar();
 
@@ -150,6 +150,7 @@ const Intro = () => {
 
 
 	const Skills = () => {
+		if(!skillInfo) skillInfo = defaultSkills;
 		return (
 		<div className='skill_wrap' >
 				<h2>Skills</h2>

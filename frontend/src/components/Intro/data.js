@@ -35,8 +35,32 @@ const defaultProjects = [
 ];
 
 
+const defaultSkills = [
+    {title: 'JavaScript',},
+    {title: 'Python',},
+    {title: 'PHP',},
+    {title:'HTML',},
+    {title:'CSS',},
+    {title:'SQL',},
+    {title:'React',},
+    {title:'Redux',},
+    {title:'Express',},
+    {title:'Flask',},
+    {title:'Django',},
+    {title:'Node.js',},
+    {title:'Markdown',},
+    {title:'JSON',},
+    {title:'Bash script',},
+    {title:'Git',},
+    {title:'Windows',},
+    {title:'Linux',},
+    {title:'Docker',},
+    
+];
+
+
 
 export {
     defaultProjects,
-    
+    defaultSkills,
 };
