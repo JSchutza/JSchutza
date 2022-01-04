@@ -36,11 +36,6 @@ const NavBar = ({ userStatus }) => {
   }
 
 
-  const showResume = event => {
-    event.preventDefault();
-    history.push("/resume");
-  }
-
 
   const initLogout = event => {
     event.preventDefault();
@@ -51,12 +46,11 @@ const NavBar = ({ userStatus }) => {
 
 
 
-
+  // if I am not logged-in as a admin
   if (userStatus === false){
     return (
-      <>
       <div>
-          <Nav justify variant="tabs" defaultActiveKey="/">
+          <Nav justify variant="tabs" defaultActiveKey="/login">
 
             <Nav.Item>
               <ToolTip content={'Login'} >
@@ -67,23 +61,16 @@ const NavBar = ({ userStatus }) => {
             <Nav.Item>
               <Nav.Link href="/" onClick={event => showHome(event)}> Home </Nav.Link>
             </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link href="/resume" onClick={event => showResume(event)}> Resume </Nav.Link>
-            </Nav.Item>
-
           </Nav>
       </div>
-    </>
     );
   }
 
 
 
 
-
+  // if I am logged in as a admin
   return (
-    <>
     <div>
         <Nav justify variant="tabs" defaultActiveKey="/">
 
@@ -99,7 +86,6 @@ const NavBar = ({ userStatus }) => {
 
         </Nav>
     </div>
-    </>
   );
 
 

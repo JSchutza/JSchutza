@@ -81,7 +81,6 @@ const Resume = ({ isAdmin=false }) => {
 
 
   return (
-    <>
     <div className={styles.main_wrap}>
       {isAdmin ?
         <div className={styles.update_button_wrap}>
@@ -89,9 +88,7 @@ const Resume = ({ isAdmin=false }) => {
           <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
         </Container>
       </div>
-      :
-        <></>
-      }
+      : null }
 
 
       {isHidden ?
@@ -107,9 +104,7 @@ const Resume = ({ isAdmin=false }) => {
             <Container>
               <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
             </Container>
-            :
-            <></>
-          }
+            : null }
 
 
         <div className={styles.outward_name_wrap} >
@@ -291,7 +286,6 @@ const Resume = ({ isAdmin=false }) => {
     </>
     }
       </div>
-    </>
   )
 
 };

@@ -1,0 +1,36 @@
+
+
+.about_wrap {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+
+
+.about_wrap h3 {
+  color: black;
+  font-size: 1.3rem;
+  padding: 10px;
+}
+
+
+
+
+.projects_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+
+
+
+.projects_wrap h1 {
+  color: black;
+}

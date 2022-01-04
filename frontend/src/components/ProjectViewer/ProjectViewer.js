@@ -67,7 +67,6 @@ const ProjectViewer = ({ isAdmin=false }) => {
 
 
   return (
-    <>
       <div className={styles.main_wrap}>
       {isAdmin ?
         <div className={styles.update_button_wrap}>
@@ -75,9 +74,7 @@ const ProjectViewer = ({ isAdmin=false }) => {
           <Button variant="primary" onClick={event => handleUpdate(event)}> Update </Button>
         </Container>
       </div>
-      :
-        <></>
-      }
+      : null }
 
 
       {isHidden ?
@@ -93,9 +90,7 @@ const ProjectViewer = ({ isAdmin=false }) => {
             <Container>
               <Button variant="outline-danger" onClick={event => handleHide(event)}> <h5> Close </h5> </Button>
             </Container>
-            :
-            <></>
-          }
+            : null }
 
               <Container>
                 <h1> Projects </h1>
@@ -105,7 +100,6 @@ const ProjectViewer = ({ isAdmin=false }) => {
             <CardColumns>
               {projectInfo === null ?
                 defaultProjectData.map(defaultProject => (
-                  <>
                     <Card>
                       <Card.Img variant="top" src={defaultProject.project_img} />
                       <Card.Body>
@@ -125,11 +119,9 @@ const ProjectViewer = ({ isAdmin=false }) => {
                         </a>
                       </Card.Footer>
                     </Card>
-                  </>
                 ))
                 :
                   Object.values(projectInfo).map(eachProject => (
-                    <>
                   <Card>
                     <Card.Img variant="top" src={eachProject.project_img} />
                     <Card.Body>
@@ -149,7 +141,6 @@ const ProjectViewer = ({ isAdmin=false }) => {
                       </a>
                     </Card.Footer>
                   </Card>
-                    </>
                   ))
               }
 
@@ -157,7 +148,6 @@ const ProjectViewer = ({ isAdmin=false }) => {
       </Container>
     }
       </div>
-    </>
   )
 };
 
