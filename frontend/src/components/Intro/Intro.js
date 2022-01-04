@@ -13,6 +13,7 @@ import Button from 'react-bootstrap/Button'
 import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
 
+import { defaultProjects, defaultSkills } from './data.js';
 
 import styles from './intro.module.css';
 
@@ -22,7 +23,7 @@ const Intro = () => {
 	const history = useHistory();
 	const aboutInfo = useSelector(store => store.personalInfoReducer.user);
 	const projectInfo = useSelector(store => store.projectsReducer.projects);
-	const skillInfo = useSelector(store => store.skillsReducer.skills);
+	let skillInfo = useSelector(store => store.skillsReducer.skills);
 	const dispatch = useDispatch();
 	const { pageType, setPageType } = useSidebar();
 
@@ -48,19 +49,35 @@ const Intro = () => {
 
 		return (
 			<div className={styles.about_wrap} >
+				{!aboutInfo ? 
+				<>
+					<h1>Joshua Schutza</h1> 
+					<h3>Full Stack Developer</h3>
+					<ul className="actions">
+					<li>
+						<Link
+							to="/"
+							className="button scrolly"
+							onClick={event => handleClick(event, 'projects')}
+							>Projects</Link>
+					</li>
+				</ul>
+				</>
+				: 
+				<>
 				<h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
-
 				<h3>{aboutInfo?.jobtitle}</h3>
-
 				<ul className="actions">
 					<li>
 						<Link
 							to="/"
 							className="button scrolly"
 							onClick={event => handleClick(event, 'projects')}
-						>Projects</Link>
+							>Projects</Link>
 					</li>
 				</ul>
+				</>
+				}
 			</div>
 		)
 	};
@@ -69,6 +86,7 @@ const Intro = () => {
 
 
 	const Projects = ({ eachProj }) => {
+		if(!eachProj) eachProj = defaultProjects;
 		const [ idx, setIdx ] = useState(0);
 		const [ allProjects, _ ] = useState(Object.values(eachProj));
 		const [ current, setCurrent ] = useState(allProjects[0]);
@@ -132,6 +150,7 @@ const Intro = () => {
 
 
 	const Skills = () => {
+		if(!skillInfo) skillInfo = defaultSkills;
 		return (
 		<div className='skill_wrap' >
 				<h2>Skills</h2>
