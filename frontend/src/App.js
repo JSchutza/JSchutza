@@ -96,6 +96,7 @@ const App = () => {
 
           <Route path='/login' exact>
             <LoginForm />
+            <Footer />
           </Route>
 
         </Switch>
