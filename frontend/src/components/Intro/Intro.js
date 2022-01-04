@@ -46,21 +46,38 @@ const Intro = () => {
 
 	const About = () => {
 
+
 		return (
 			<div className={styles.about_wrap} >
+				{!aboutInfo ? 
+				<>
+					<h1>Joshua Schutza</h1> 
+					<h3>Full Stack Developer</h3>
+					<ul className="actions">
+					<li>
+						<Link
+							to="/"
+							className="button scrolly"
+							onClick={event => handleClick(event, 'projects')}
+							>Projects</Link>
+					</li>
+				</ul>
+				</>
+				: 
+				<>
 				<h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
-
 				<h3>{aboutInfo?.jobtitle}</h3>
-
 				<ul className="actions">
 					<li>
 						<Link
 							to="/"
 							className="button scrolly"
 							onClick={event => handleClick(event, 'projects')}
-						>Projects</Link>
+							>Projects</Link>
 					</li>
 				</ul>
+				</>
+				}
 			</div>
 		)
 	};
