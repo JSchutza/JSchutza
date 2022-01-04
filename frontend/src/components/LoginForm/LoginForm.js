@@ -32,6 +32,7 @@ const LoginForm = () => {
   return(
     <div className={styles.login_wrap} >
       <form onSubmit={onSubmit}>
+        <label>Email</label>
         <input
           type="email"
           placeholder="name@example.com"
@@ -40,6 +41,7 @@ const LoginForm = () => {
           />
           <br />
 
+        <label>Password</label>
         <input
           type="password"
           placeholder="Password"
