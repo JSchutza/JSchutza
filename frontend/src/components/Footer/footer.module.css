@@ -9,3 +9,9 @@
   flex-wrap: nowrap;
   justify-content: flex-end;
 }
+
+
+.footer_wrap a {
+  color: white;
+  text-decoration: none;
+}

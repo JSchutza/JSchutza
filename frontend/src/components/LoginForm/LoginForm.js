@@ -4,15 +4,11 @@ import { useDispatch } from 'react-redux';
 import { login } from '../../store/thunks/session.js';
 import { useHistory } from "react-router-dom";
 import ToolTip from "../ToolTip";
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 
 
 import styles from "./loginform.module.css"
 
 import { IoIosPower } from "react-icons/io";
-
 
 
 
@@ -34,33 +30,31 @@ const LoginForm = () => {
 
 
   return(
-    <>
-    <div>
+    <div className={styles.login_wrap} >
       <form onSubmit={onSubmit}>
-          <Jumbotron fluid>
-            <Container>
-            <Form.Control
-              type="email"
-              placeholder="name@example.com"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              />
+        <label>Email</label>
+        <input
+          type="email"
+          placeholder="name@example.com"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          />
+          <br />
 
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              />
+        <label>Password</label>
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          />
+          <br />
 
           <ToolTip content={"Enter"}>
-                <button> <IoIosPower /> </button>
+            <button> <IoIosPower /> </button>
           </ToolTip>
-        </Container>
-      </Jumbotron>
       </form>
     </div>
-    </>
   )
 
 
