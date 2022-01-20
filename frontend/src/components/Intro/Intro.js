@@ -54,6 +54,10 @@ const Intro = () => {
 					<h1>Joshua Schutza</h1>
 					<h3>Full Stack Developer</h3>
 
+						<div className={styles.profile_img} >
+							<img src={personalImg} />
+						</div>
+
 					<ul className="actions">
 						<li>
 							<Link
@@ -68,6 +72,10 @@ const Intro = () => {
 				<>
 				<h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
 				<h3>{aboutInfo?.jobtitle}</h3>
+
+					<div className={styles.profile_img} >
+						<img src={personalImg} />
+					</div>
 
 				<ul className="actions">
 					<li>

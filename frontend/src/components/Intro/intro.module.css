@@ -3,25 +3,44 @@
 .about_wrap {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-content: center;
   justify-content: center;
   align-items: center;
   width: 100vw;
+  height: 100vh;
 }
 
 
 
 .about_wrap h1 {
-  color:black;
+  color: white;
+  background-color: blue;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 
 
 .about_wrap h3 {
-  color: black;
-  font-size: 1.3rem;
+  color: white;
+  background-color: blue;
   padding: 10px;
+  border-radius: 10px;
+}
+
+
+
+.profile_img {
+
+}
+
+
+
+.profile_img img {
+  object-fit: contain;
+  width: 15vw;
+  border-radius: 15px;
 }
 
 
