@@ -9,7 +9,6 @@ import { thunk_getSkills } from "../../store/thunks/skills.js";
 import { useSidebar } from '../../context/SideBarContext.js';
 
 
-import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button'
 import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
@@ -35,7 +34,7 @@ const Intro = () => {
 	let skillInfo = useSelector(store => store.skillsReducer.skills);
 	const dispatch = useDispatch();
 	const { pageType, setPageType } = useSidebar();
-
+	const overRideStyle = `.btn-primary { color: #fff; background-color: #292246; border-color: #007bff; }`
 
 
 	useEffect(() => {
@@ -194,7 +193,7 @@ const Intro = () => {
 		const [ idx, setIdx ] = useState(0);
 		const [ allProjects, _ ] = useState(Object.values(eachProj));
 		const [ current, setCurrent ] = useState(allProjects[0]);
-
+		const [ view, setView ] = useState(true);
 
 		const transition = event => {
 			event.preventDefault();
@@ -215,37 +214,75 @@ const Intro = () => {
 
 
 
+		// changes renders for gallery view to single view and vice versa
+		const changeView = currentView => {
+			setView(currentView)
+		};
 
 
+
+	// shows all of the projects
+	if(view) {
 		return (
 			<div className={styles.projects_wrap}>
+				<style type="text/css"> {overRideStyle} </style>
+
 				<h1> Projects </h1>
 
-				<div className='eachProj_wrap'>
-				<CardColumns>
-				<Card>
-				<Card.Img variant="top" src={current?.project_img} />
-					<Card.Body>
-						<Card.Title> {current?.project_name} </Card.Title>
-						<Card.Text> {current?.description} </Card.Text>
-					</Card.Body>
-					<Card.Footer>
-						<a href={current?.live_link}>
-							<small className="text-muted">Live</small>
-						</a>
-							<br />
-						<a href={current?.github_link}>
-							<small className="text-muted">GitHub</small>
-						</a>
-
-							<Container>
-								<Button onClick={event => transition(event)} > Next </Button>
-								<Button onClick={event => handleClick(event, 'skills')} > Skills </Button>
-							</Container>
-						</Card.Footer>
-					</Card>
-				</CardColumns>
+				<div>
+					<Button to='/' onClick={() => changeView(!view)} > Single </Button>
 				</div>
+
+			</div>
+		)
+	}
+
+
+	// shows only each individual project card
+		return (
+			<div className={styles.projects_wrap}>
+				<style type="text/css"> {overRideStyle} </style>
+
+				<h1> Projects </h1>
+
+				<div>
+					<Button to='/' onClick={() => changeView(!view)} > All </Button>
+				</div>
+
+				<div className='eachProj_wrap'>
+					<CardColumns>
+						<Card>
+							<Card.Img variant="top" src={current?.project_img} />
+								<Card.Body>
+									<Card.Title> {current?.project_name} </Card.Title>
+									<Card.Text> {current?.description} </Card.Text>
+								</Card.Body>
+
+								<Card.Footer>
+									<a href={current?.live_link}>
+										<small className="text-muted">Live</small>
+									</a>
+										<br />
+									<a href={current?.github_link}>
+										<small className="text-muted">GitHub</small>
+								</a>
+
+							</Card.Footer>
+						</Card>
+					</CardColumns>
+				</div>
+
+
+					<div>
+						<div>
+							<Button onClick={event => transition(event)} > Next </Button>
+						</div>
+
+						<div>
+							<Button onClick={event => handleClick(event, 'skills')} > Skills </Button>
+						</div>
+					</div>
+
 			</div>
 		)
 	}
@@ -270,6 +307,7 @@ const Intro = () => {
 
 
 				<div className={styles.skill_button_wrap}>
+					<style type="text/css"> {overRideStyle} </style>
 					<div>
 						<Button onClick={event => handleClick(event, 'about')} > About </Button>
 					</div>
