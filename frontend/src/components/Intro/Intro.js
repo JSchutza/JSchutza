@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 
+
 import { thunk_getPersonalInfo } from '../../store/thunks/personal.js';
 import { thunk_getProjects } from "../../store/thunks/projects.js";
 import { thunk_getSkills } from "../../store/thunks/skills.js";
@@ -14,9 +15,17 @@ import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
 import ReactModal from 'react-modal';
 
+
+import { BsLinkedin, BsGithub } from "react-icons/bs";
+
+
+
+
 import { defaultProjects, defaultSkills, defaultAbout, modalStyle } from './data.js';
 
+
 import styles from './intro.module.css';
+
 
 
 const Intro = () => {
@@ -71,8 +80,20 @@ const Intro = () => {
 						{!aboutInfo ? <p> {defaultAbout.about_text} </p> : <p> {aboutInfo?.about_text} </p> }
 					</div>
 
-					<div> <a href={defaultAbout.github_link} target='_blank' > GitHub </a></div>
-					<div> <a href={defaultAbout.linkedin_link} target='_blank' > LinkedIn </a> </div>
+
+					<div>
+						<a href={defaultAbout.github_link} target='_blank' >
+							<BsGithub />
+								<br /> GitHub
+						</a>
+					</div>
+
+					<div>
+						 <a href={defaultAbout.linkedin_link} target='_blank' >
+								<BsLinkedin />
+									<br /> LinkedIn
+						 </a>
+					</div>
 
 				</ReactModal>
 
