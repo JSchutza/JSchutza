@@ -71,6 +71,9 @@ const Intro = () => {
 						{!aboutInfo ? <p> {defaultAbout.about_text} </p> : <p> {aboutInfo?.about_text} </p> }
 					</div>
 
+					<div> <a href={defaultAbout.github_link} target='_blank' > GitHub </a></div>
+					<div> <a href={defaultAbout.linkedin_link} target='_blank' > LinkedIn </a> </div>
+
 				</ReactModal>
 
 
