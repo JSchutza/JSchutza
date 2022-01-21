@@ -72,6 +72,8 @@ const NavBar = ({ userStatus }) => {
   // if I am logged in as a admin
   return (
     <div className={styles.nav_wrap} >
+      <style type="text/css"> {overRideStyle} </style>
+
         <Nav justify variant="tabs" defaultActiveKey="/">
 
           <Nav.Item>
