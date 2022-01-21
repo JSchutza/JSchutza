@@ -59,6 +59,12 @@
 
 
 
+.about_text p {
+  color: white;
+}
+
+
+
 .projects_wrap {
   display: flex;
   flex-direction: column;

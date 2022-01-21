@@ -68,7 +68,7 @@ const Intro = () => {
 				>
 
 					<div className={styles.about_text} >
-						<p> {defaultAbout.about_text} </p>
+						{!aboutInfo ? <p> {defaultAbout.about_text} </p> : <p> {aboutInfo?.about_text} </p> }
 					</div>
 
 				</ReactModal>
