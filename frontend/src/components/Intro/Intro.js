@@ -227,10 +227,16 @@ const Intro = () => {
 			<div className={styles.projects_wrap}>
 				<style type="text/css"> {overRideStyle} </style>
 
-				<h1> Projects </h1>
+				<h1> All Projects </h1>
 
-				<div>
-					<Button to='/' onClick={() => changeView(!view)} > Single </Button>
+				<div className={styles.project_button_wrap} >
+					<div>
+						<Button to='/' onClick={() => changeView(!view)} > Single </Button>
+					</div>
+
+					<div>
+						<Button to='/' onClick={() => changeView(!view)} > {'>>>'} </Button>
+					</div>
 				</div>
 
 			</div>
@@ -243,11 +249,17 @@ const Intro = () => {
 			<div className={styles.projects_wrap}>
 				<style type="text/css"> {overRideStyle} </style>
 
-				<h1> Projects </h1>
+				<h1> Each Project </h1>
+
+			<div className={styles.project_button_wrap} >
+				<div>
+					<Button to='/' onClick={() => changeView(!view)} > {'<<<'} </Button>
+				</div>
 
 				<div>
 					<Button to='/' onClick={() => changeView(!view)} > All </Button>
 				</div>
+			</div>
 
 				<div className='eachProj_wrap'>
 					<CardColumns>
@@ -273,7 +285,7 @@ const Intro = () => {
 				</div>
 
 
-					<div>
+					<div className={styles.project_button_wrap} >
 						<div>
 							<Button onClick={event => transition(event)} > Next </Button>
 						</div>

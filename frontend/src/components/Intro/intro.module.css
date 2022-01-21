@@ -122,6 +122,18 @@
 
 
 
+.project_button_wrap {
+  display: flex;
+  width: 70vw;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
 .skill_button_wrap {
   display: flex;
   width: 70vw;
