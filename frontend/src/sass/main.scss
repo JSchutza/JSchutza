@@ -107,13 +107,20 @@
 
 	.skill_wrap {
 		position: relative;
-		left: 33vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 	}
 
 
 }
 
 
+
+
 #root {
-	background-color: white;
+	background-color: #292246;
 }
