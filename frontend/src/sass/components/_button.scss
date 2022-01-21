@@ -30,6 +30,8 @@
 		text-decoration: none;
 		text-transform: uppercase;
 		white-space: nowrap;
+		background-color: blue;
+		margin-top: 10px;
 
 		&:after {
 			@include vendor('transform', 'scale(0.25)');

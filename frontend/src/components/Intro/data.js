@@ -1,4 +1,19 @@
 
+
+const defaultAbout = {
+    about_text: 'I am a determined individual who is working towards a career as a leader, visionary, and advocate. One of my many objectives is to impact the workforce through developing individuals and drawing out their strengths. I am seeking a working and learning opportunity that will utilize my research skills and natural ability to see growth and potential within people and businesses.',
+    avatar: 'https://joshuaschutzapersonal.s3.amazonaws.com/profile_img.JPG',
+    email: 'joshua.schutza@pop.belmont.edu',
+    firstname: 'Joshua',
+    github_link: 'https://github.com/JSchutza',
+    jobtitle: 'Full Stack Developer',
+    lastname: 'Schutza',
+    linkedin_link: 'https://www.linkedin.com/in/joshua-schutza-559819ba/',
+};
+
+
+
+
 const defaultProjects = [
     {
         project_img: 'https://joshuaschutzapersonal.s3.amazonaws.com/default_project_img.JPG',
@@ -22,7 +37,7 @@ const defaultProjects = [
         description: 'An clone of Instagram that allows users to post photos and connect with other users.',
         live_link: 'https://instagram--me.herokuapp.com/',
         github_link: 'https://github.com/JSchutza/Instagram_Clone',
-        
+
     },
     {
         project_img: 'https://joshuaschutzapersonal.s3.amazonaws.com/default_project_img.JPG',
@@ -33,6 +48,8 @@ const defaultProjects = [
 
     },
 ];
+
+
 
 
 const defaultSkills = [
@@ -55,12 +72,33 @@ const defaultSkills = [
     {title:'Windows',},
     {title:'Linux',},
     {title:'Docker',},
-    
+
 ];
 
+
+
+
+const modalStyle = {
+    overlay: {
+      position: 'fixed',
+      backgroundColor: 'transparent'
+    },
+    content: {
+      position: 'absolute',
+      inset: '7vw 25vw',
+      background: '#1f1f35',
+      overflow: 'auto',
+      WebkitOverflowScrolling: 'touch',
+      borderRadius: '4px',
+      outline: 'none',
+      border: 'transparent',
+    }
+  };
 
 
 export {
     defaultProjects,
     defaultSkills,
+    defaultAbout,
+    modalStyle
 };

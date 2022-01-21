@@ -12,14 +12,14 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button'
 import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
+import ReactModal from 'react-modal';
 
-import { defaultProjects, defaultSkills } from './data.js';
+import { defaultProjects, defaultSkills, defaultAbout, modalStyle } from './data.js';
 
 import styles from './intro.module.css';
 
 
 const Intro = () => {
-	const personalImg = 'https://joshuaschutzapersonal.s3.amazonaws.com/profile_img.JPG';
 	const history = useHistory();
 	const aboutInfo = useSelector(store => store.personalInfoReducer.user);
 	const projectInfo = useSelector(store => store.projectsReducer.projects);
@@ -46,36 +46,75 @@ const Intro = () => {
 
 
 	const About = () => {
+		const [ openModal, setOpenModal ] = useState(false);
+
+		const closeModal = () => {
+			setOpenModal(false);
+		};
+
+		const showDetail = event => {
+			event.preventDefault();
+			setOpenModal(true);
+		}
 
 		return (
 			<div className={styles.about_wrap} >
-				{!aboutInfo ? 
+
+				<ReactModal
+					isOpen={openModal}
+					onRequestClose={closeModal}
+					appElement={document.getElementById('root')}
+					style={modalStyle}
+				>
+
+					<div className={styles.about_text} >
+						{!aboutInfo ? <p> {defaultAbout.about_text} </p> : <p> {aboutInfo?.about_text} </p> }
+					</div>
+
+				</ReactModal>
+
+
+				{!aboutInfo ?
 				<>
-					<h1>Joshua Schutza</h1> 
-					<h3>Full Stack Developer</h3>
+					<div onClick={showDetail} className={styles.detail_wrap} >
+						<h1>{defaultAbout.firstname} {defaultAbout.lastname}</h1>
+						<h3>{defaultAbout.jobtitle}</h3>
+
+							<div className={styles.profile_img} >
+								<img src={defaultAbout.avatar} />
+							</div>
+					</div>
+
 					<ul className="actions">
-					<li>
-						<Link
-							to="/"
-							className="button scrolly"
-							onClick={event => handleClick(event, 'projects')}
-							>Projects</Link>
-					</li>
+						<li>
+							<Link
+								to="/"
+								className="button scrolly"
+								onClick={event => handleClick(event, 'projects')}
+								>Projects</Link>
+						</li>
 				</ul>
 				</>
-				: 
+				:
 				<>
-				<h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
-				<h3>{aboutInfo?.jobtitle}</h3>
-				<ul className="actions">
-					<li>
-						<Link
-							to="/"
-							className="button scrolly"
-							onClick={event => handleClick(event, 'projects')}
-							>Projects</Link>
-					</li>
-				</ul>
+					<div onClick={showDetail} className={styles.detail_wrap} >
+						<h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
+						<h3>{aboutInfo?.jobtitle}</h3>
+
+						<div className={styles.profile_img} >
+							<img src={aboutInfo?.avatar ? aboutInfo?.avatar : defaultAbout.avatar} />
+						</div>
+					</div>
+
+					<ul className="actions">
+						<li>
+							<Link
+								to="/"
+								className="button scrolly"
+								onClick={event => handleClick(event, 'projects')}
+								>Projects</Link>
+						</li>
+					</ul>
 				</>
 				}
 			</div>
