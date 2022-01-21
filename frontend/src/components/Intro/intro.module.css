@@ -44,14 +44,35 @@
 
 
 
-.social_links a {
+.social_links div {
+  background-color: #292246;
+  padding: 10px;
+  border-radius: 5px;
+}
 
+
+
+
+.social_links a {
+  color: white;
 }
 
 
 
 .detail_wrap:hover {
   cursor: pointer;
+}
+
+
+
+.detail_wrap:hover h1 {
+  color: #007bff;
+}
+
+
+
+.detail_wrap:hover h3 {
+  color: #007bff;
 }
 
 

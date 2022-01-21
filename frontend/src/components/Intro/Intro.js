@@ -56,6 +56,7 @@ const Intro = () => {
 
 	const About = () => {
 		const [ openModal, setOpenModal ] = useState(false);
+		const [ show, setShow ] = useState(false);
 
 		const closeModal = () => {
 			setOpenModal(false);
@@ -114,10 +115,14 @@ const Intro = () => {
 						</div>
 					</div>
 
-
-					<div onClick={showDetail} className={styles.detail_wrap} >
+					<div
+						onClick={showDetail}
+						onMouseEnter={() => setShow(true)}
+						onMouseLeave={() => setShow(false)}
+						className={styles.detail_wrap}
+					>
 						<h1>{defaultAbout.firstname} {defaultAbout.lastname}</h1>
-						<h3>{defaultAbout.jobtitle}</h3>
+						{show ? <h3> Learn More </h3> : <h3>{defaultAbout.jobtitle}</h3> }
 
 							<div className={styles.profile_img} >
 								<img src={defaultAbout.avatar} />
@@ -151,14 +156,20 @@ const Intro = () => {
 					</div>
 
 
-					<div onClick={showDetail} className={styles.detail_wrap} >
+					<div
+						onClick={showDetail}
+						onMouseEnter={() => setShow(true)}
+						onMouseLeave={() => setShow(false)}
+						className={styles.detail_wrap}
+					>
 						<h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
-						<h3>{aboutInfo?.jobtitle}</h3>
+						{show ? <h3> Learn More </h3> : <h3>{aboutInfo?.jobtitle}</h3> }
 
-						<div className={styles.profile_img} >
-							<img src={aboutInfo?.avatar ? aboutInfo?.avatar : defaultAbout.avatar} />
-						</div>
+							<div className={styles.profile_img} >
+								{!aboutInfo?.avatar ? <img src={defaultAbout.avatar} /> : <img src={aboutInfo?.avatar} /> }
+							</div>
 					</div>
+
 
 					<ul className="actions">
 						<li>
