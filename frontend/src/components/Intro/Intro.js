@@ -100,19 +100,19 @@ const Intro = () => {
 
 				{!aboutInfo ?
 				<>
-				<div className={styles.social_links} >
-					<div>
-						<a href={defaultAbout.github_link} target='_blank' >
-							<BsGithub />
-						</a>
-					</div>
+					<div className={styles.social_links} >
+						<div>
+							<a href={defaultAbout.github_link} target='_blank' >
+								<BsGithub />
+							</a>
+						</div>
 
-					<div>
-						<a href={defaultAbout.linkedin_link} target='_blank' >
-							<BsLinkedin />
-						</a>
+						<div>
+							<a href={defaultAbout.linkedin_link} target='_blank' >
+								<BsLinkedin />
+							</a>
+						</div>
 					</div>
-				</div>
 
 
 					<div onClick={showDetail} className={styles.detail_wrap} >
