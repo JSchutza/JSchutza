@@ -255,8 +255,9 @@ const Intro = () => {
 
 	const Skills = () => {
 		if(!skillInfo) skillInfo = defaultSkills;
+
 		return (
-		<div className='skill_wrap' >
+			<div className='skill_wrap' >
 				<h2>Skills</h2>
 				{Object.values(skillInfo).map(each => (
 					<div className="features">
@@ -267,7 +268,15 @@ const Intro = () => {
 					</div>
 				))}
 
-				<Button onClick={event => handleClick(event, 'about')} > About </Button>
+
+				<div className={styles.skill_button_wrap}>
+					<div>
+						<Button onClick={event => handleClick(event, 'about')} > About </Button>
+					</div>
+					<div>
+						<Button onClick={() => history.push('/resume')} > Resume </Button>
+					</div>
+				</div>
 		</div>
 		)
 	}
