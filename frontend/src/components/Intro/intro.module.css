@@ -9,6 +9,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 
@@ -31,6 +32,12 @@
 
 
 
+.detail_wrap:hover {
+  cursor: pointer;
+}
+
+
+
 .profile_img {
 
 }
@@ -43,6 +50,12 @@
   border-radius: 15px;
 }
 
+
+
+
+.about_text {
+
+}
 
 
 
