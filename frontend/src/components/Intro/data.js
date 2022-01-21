@@ -78,8 +78,27 @@ const defaultSkills = [
 
 
 
+const modalStyle = {
+    overlay: {
+      position: 'fixed',
+      backgroundColor: 'transparent'
+    },
+    content: {
+      position: 'absolute',
+      inset: '7vw 25vw',
+      background: '#1f1f35',
+      overflow: 'auto',
+      WebkitOverflowScrolling: 'touch',
+      borderRadius: '4px',
+      outline: 'none',
+      border: 'transparent',
+    }
+  };
+
+
 export {
     defaultProjects,
     defaultSkills,
     defaultAbout,
+    modalStyle
 };

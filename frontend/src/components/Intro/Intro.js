@@ -14,7 +14,7 @@ import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
 import ReactModal from 'react-modal';
 
-import { defaultProjects, defaultSkills, defaultAbout } from './data.js';
+import { defaultProjects, defaultSkills, defaultAbout, modalStyle } from './data.js';
 
 import styles from './intro.module.css';
 
@@ -64,6 +64,7 @@ const Intro = () => {
 					isOpen={openModal}
 					onRequestClose={closeModal}
 					appElement={document.getElementById('root')}
+					style={modalStyle}
 				>
 
 					<div className={styles.about_text} >
