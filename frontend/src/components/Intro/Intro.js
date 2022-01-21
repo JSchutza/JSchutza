@@ -100,6 +100,21 @@ const Intro = () => {
 
 				{!aboutInfo ?
 				<>
+				<div className={styles.social_links} >
+					<div>
+						<a href={defaultAbout.github_link} target='_blank' >
+							<BsGithub />
+						</a>
+					</div>
+
+					<div>
+						<a href={defaultAbout.linkedin_link} target='_blank' >
+							<BsLinkedin />
+						</a>
+					</div>
+				</div>
+
+
 					<div onClick={showDetail} className={styles.detail_wrap} >
 						<h1>{defaultAbout.firstname} {defaultAbout.lastname}</h1>
 						<h3>{defaultAbout.jobtitle}</h3>
@@ -121,6 +136,21 @@ const Intro = () => {
 				</>
 				:
 				<>
+					<div className={styles.social_links} >
+						<div>
+							<a href={defaultAbout.github_link} target='_blank' >
+								<BsGithub />
+							</a>
+						</div>
+
+						<div>
+							<a href={defaultAbout.linkedin_link} target='_blank' >
+								<BsLinkedin />
+							</a>
+						</div>
+					</div>
+
+
 					<div onClick={showDetail} className={styles.detail_wrap} >
 						<h1>{aboutInfo?.firstname} {aboutInfo?.lastname}</h1>
 						<h3>{aboutInfo?.jobtitle}</h3>

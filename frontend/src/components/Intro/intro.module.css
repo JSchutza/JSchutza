@@ -32,6 +32,24 @@
 
 
 
+.social_links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  width: 40vw;
+}
+
+
+
+.social_links a {
+
+}
+
+
+
 .detail_wrap:hover {
   cursor: pointer;
 }
