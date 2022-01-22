@@ -49,7 +49,7 @@ const Intro = () => {
 
 	.card-columns .card {
 		display: inline-block;
-		width: 215px;
+		width: 275px;
 	}
 
 	.card-img, .card-img-top {
@@ -68,8 +68,7 @@ const Intro = () => {
 
 
 
-	const handleClick = (event, type) => {
-		event.preventDefault();
+	const handleClick = type => {
 		setPageType(type);
 	}
 
@@ -91,6 +90,7 @@ const Intro = () => {
 
 		return (
 			<div className={styles.about_wrap} >
+				<style type="text/css"> {overRideStyle} </style>
 
 				<ReactModal
 					isOpen={openModal}
@@ -151,15 +151,7 @@ const Intro = () => {
 							</div>
 					</div>
 
-					<ul className="actions">
-						<li>
-							<Link
-								to="/"
-								className="button scrolly"
-								onClick={event => handleClick(event, 'projects')}
-								>Projects</Link>
-						</li>
-				</ul>
+						<Button onClick={() => handleClick('projects')} >Projects</Button>
 				</>
 				:
 				<>
@@ -192,16 +184,7 @@ const Intro = () => {
 							</div>
 					</div>
 
-
-					<ul className="actions">
-						<li>
-							<Link
-								to="/"
-								className="button scrolly"
-								onClick={event => handleClick(event, 'projects')}
-								>Projects</Link>
-						</li>
-					</ul>
+						<Button onClick={() => handleClick('projects')} >Projects</Button>
 				</>
 				}
 			</div>
