@@ -104,22 +104,6 @@
 
 
 
-.projects_wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px;
-  background-color: white;
-}
-
-
-
-
-.projects_wrap h1 {
-  color: black;
-}
-
-
 
 .project_button_wrap {
   display: flex;

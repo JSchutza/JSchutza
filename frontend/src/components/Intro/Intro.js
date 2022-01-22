@@ -49,7 +49,7 @@ const Intro = () => {
 
 	.card-columns .card {
 		display: inline-block;
-		width: 50vw;
+		width: 215px;
 	}
 
 	.card-img, .card-img-top {
@@ -256,7 +256,7 @@ const Intro = () => {
 	// shows all of the projects
 	if(view) {
 		return (
-			<div className={styles.projects_wrap}>
+			<div className='intro_projects_wrap'>
 				<style type="text/css"> {overRideStyle + cardStyle} </style>
 
 				<h1> All Projects </h1>
@@ -306,7 +306,7 @@ const Intro = () => {
 
 	// shows only each individual project card
 		return (
-			<div className={styles.projects_wrap}>
+			<div className='intro_projects_wrap'>
 				<style type="text/css"> {overRideStyle} </style>
 
 				<h1> Each Project </h1>
