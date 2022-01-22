@@ -34,8 +34,31 @@ const Intro = () => {
 	let skillInfo = useSelector(store => store.skillsReducer.skills);
 	const dispatch = useDispatch();
 	const { pageType, setPageType } = useSidebar();
-	const overRideStyle = `.btn-primary { color: #fff; background-color: #292246; border-color: #007bff; }`
+	let overRideStyle = `.btn-primary { color: #fff; background-color: #292246; border-color: #007bff; }`
+	let cardStyle = `
+	.card-columns {
+    column-count: 3;
+    -webkit-column-gap: 1.25rem;
+    -moz-column-gap: 1.25rem;
+    grid-column-gap: 1.25rem;
+    column-gap: 1.25rem;
+    orphans: 1;
+    widows: 1;
+    width: 30vw;
+	}
 
+	.card-columns .card {
+		display: inline-block;
+		width: 50vw;
+	}
+
+	.card-img, .card-img-top {
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+    object-fit: contain;
+    width: 15vw;
+	}
+	`
 
 	useEffect(() => {
 		dispatch(thunk_getPersonalInfo());
@@ -194,6 +217,9 @@ const Intro = () => {
 		const [ allProjects, _ ] = useState(Object.values(eachProj));
 		const [ current, setCurrent ] = useState(allProjects[0]);
 		const [ view, setView ] = useState(true);
+		// setup the grid selectors
+		const selectorQueue = ['topleft', 'topright', 'midleft', 'midright', 'botleft', 'botright'];
+
 
 		const transition = event => {
 			event.preventDefault();
@@ -221,11 +247,17 @@ const Intro = () => {
 
 
 
+		const initSelector = () => {
+			if (!selectorQueue.length) selectorQueue = ['topleft', 'topright', 'midleft', 'midright', 'botleft', 'botright'];
+			return selectorQueue.shift();
+		};
+
+
 	// shows all of the projects
 	if(view) {
 		return (
 			<div className={styles.projects_wrap}>
-				<style type="text/css"> {overRideStyle} </style>
+				<style type="text/css"> {overRideStyle + cardStyle} </style>
 
 				<h1> All Projects </h1>
 
@@ -237,6 +269,34 @@ const Intro = () => {
 					<div>
 						<Button to='/' onClick={() => changeView(!view)} > {'>>>'} </Button>
 					</div>
+				</div>
+
+
+				<div className='each_project_wrap' >
+					{allProjects.map(each => (
+							<div className={initSelector()} >
+								<CardColumns>
+									<Card>
+										<Card.Img variant="top" src={each?.project_img} />
+											<Card.Body>
+												<Card.Title> {each?.project_name} </Card.Title>
+												<Card.Text> {each?.description} </Card.Text>
+											</Card.Body>
+
+											<Card.Footer>
+												<a href={each?.live_link}>
+													<small className="text-muted">Live</small>
+												</a>
+													<br />
+												<a href={each?.github_link}>
+													<small className="text-muted">GitHub</small>
+											</a>
+
+										</Card.Footer>
+									</Card>
+								</CardColumns>
+							</div>
+					))}
 				</div>
 
 			</div>
