@@ -16,7 +16,7 @@
 
 .about_wrap h1 {
   color: white;
-  background-color: blue;
+  background-color: #292246;
   padding: 10px;
   border-radius: 10px;
 }
@@ -25,15 +25,54 @@
 
 .about_wrap h3 {
   color: white;
-  background-color: blue;
+  background-color: #292246;
   padding: 10px;
   border-radius: 10px;
 }
 
 
 
+.social_links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  width: 40vw;
+}
+
+
+
+.social_links div {
+  background-color: #292246;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+
+
+.social_links a {
+  color: white;
+}
+
+
+
 .detail_wrap:hover {
   cursor: pointer;
+}
+
+
+
+.detail_wrap:hover h1 {
+  color: #007bff;
+}
+
+
+
+.detail_wrap:hover h3 {
+  color: #007bff;
 }
 
 
@@ -65,17 +104,25 @@
 
 
 
-.projects_wrap {
+
+.project_button_wrap {
   display: flex;
-  flex-direction: column;
+  width: 70vw;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-around;
   align-items: center;
-  padding: 15px;
-  background-color: white;
 }
 
 
 
-
-.projects_wrap h1 {
-  color: black;
+.skill_button_wrap {
+  display: flex;
+  width: 70vw;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
 }

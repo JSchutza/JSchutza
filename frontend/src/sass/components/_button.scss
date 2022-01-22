@@ -30,8 +30,9 @@
 		text-decoration: none;
 		text-transform: uppercase;
 		white-space: nowrap;
-		background-color: blue;
+		background-color: #292246;
 		margin-top: 10px;
+
 
 		&:after {
 			@include vendor('transform', 'scale(0.25)');

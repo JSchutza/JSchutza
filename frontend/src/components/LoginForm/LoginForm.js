@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/thunks/session.js';
 import { useHistory } from "react-router-dom";
-import ToolTip from "../ToolTip";
 
 
 import styles from "./loginform.module.css"
@@ -50,9 +49,7 @@ const LoginForm = () => {
           />
           <br />
 
-          <ToolTip content={"Enter"}>
-            <button> <IoIosPower /> </button>
-          </ToolTip>
+          <button> <IoIosPower /> </button>
       </form>
     </div>
   )

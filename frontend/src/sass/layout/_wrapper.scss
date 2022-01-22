@@ -3,6 +3,8 @@
 /* Wrapper (main) */
 
 	#wrapper {
+		background-color: #292246;
+
 		#sidebar + & {
 			margin-left: _size(sidebar-width);
 
