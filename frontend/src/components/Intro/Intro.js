@@ -282,6 +282,12 @@ const Intro = () => {
 					))}
 				</div>
 
+					<div className={styles.project_button_wrap} >
+						<div>
+							<Button onClick={() => handleClick('skills')} > Skills </Button>
+						</div>
+					</div>
+
 			</div>
 		)
 	}
@@ -334,7 +340,7 @@ const Intro = () => {
 						</div>
 
 						<div>
-							<Button onClick={event => handleClick(event, 'skills')} > Skills </Button>
+							<Button onClick={() => handleClick('skills')} > Skills </Button>
 						</div>
 					</div>
 
@@ -364,7 +370,7 @@ const Intro = () => {
 				<div className={styles.skill_button_wrap}>
 					<style type="text/css"> {overRideStyle} </style>
 					<div>
-						<Button onClick={event => handleClick(event, 'about')} > About </Button>
+						<Button onClick={() => handleClick('about')} > About </Button>
 					</div>
 					<div>
 						<Button onClick={() => history.push('/resume')} > Resume </Button>
