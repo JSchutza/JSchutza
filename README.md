@@ -4,7 +4,7 @@
 ## Drummer turned software engineer.
 ##### - :rocket: I’m looking to collaborate on open-source projects as a volunteer!
 ##### - 😄  Pronouns: He / Him / His
-##### - 🔭  I’m currently learning Rust!
+##### - 🔭  I’m currently learning Kotlin!
 ##### - 📫  How to reach me: Send an email to joshua.schutza@pop.belmont.edu.
 ##### - ⚡  Fun fact: In high school, I frequently played music for the Dallas Stars hockey team at the American Airlines Center for over 2,000 people! 
 
@@ -19,6 +19,7 @@
 # Programing Languages
 * JavaScript
 * Python
+* Kotlin
 * PHP
 * Rust
 * Go
