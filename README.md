@@ -55,5 +55,7 @@
 * Mac
 * Linux
 * Docker
+* Firebase
+* Google Cloud Platform
 
 
