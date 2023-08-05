@@ -115,3 +115,5 @@ dmypy.json
 
 
 heroku_config_vars.txt
+
+.idea

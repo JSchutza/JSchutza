@@ -1,31 +1,39 @@
-FROM node:12 AS build-stage
 
-WORKDIR /frontend
-COPY frontend/. .
+# Use an official Python runtime as the base image
+FROM python:3.8-slim
 
-# You have to set this because it should be set during build time.
-ENV REACT_APP_BASE_URL=https://joshua-schutza.herokuapp.com/
-
-# Build our React App
-RUN npm install
-RUN npm run build
-
-FROM python:3.8
+EXPOSE 5000:5000
+# Set environment variables
+ENV FLASK_APP app.py
+ENV FLASK_RUN_HOST 0.0.0.0
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
 # Setup Flask environment
-ENV FLASK_APP=app
 ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=True
 
-EXPOSE 8000
+# Set the working directory
+WORKDIR /app
 
-WORKDIR /var/www
-COPY . .
-COPY --from=build-stage /frontend/build/* app/static/
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    libpq-dev \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Install Python Dependencies
-RUN pip install -r requirements.txt
+
+
+# Install Python dependencies
+COPY requirements.txt requirements.txt
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt
+
 RUN pip install psycopg2
 
-# Run flask environment
-CMD gunicorn app:app
+# Copy the current directory contents into the container at /app
+COPY . .
+
+# Run the command to start uWSGI
+CMD ["flask", "run"]
+
