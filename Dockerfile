@@ -12,6 +12,7 @@ ENV PYTHONUNBUFFERED 1
 ENV DATABASE_URL=postgresql://postgres:password@localhost:5432/postgres
 ENV ADMIN_EMAIL=fakeemail@gmail.com
 ENV ADMIN_PASSWORD=password
+ENV SECRET_KEY=isasecret
 
 # Setup Flask environment
 ENV FLASK_ENV=production
