@@ -38,6 +38,8 @@ RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
 RUN pip install psycopg2
+RUN pip install google-cloud-firestore
+
 
 # Copy the current directory contents into the container at /app
 COPY . .
