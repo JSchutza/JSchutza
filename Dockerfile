@@ -1,4 +1,4 @@
-FROM node:12 AS build-stage
+FROM node:18 AS build-stage
 
 WORKDIR /frontend
 COPY frontend/. .
@@ -21,7 +21,7 @@ EXPOSE 8000
 
 WORKDIR /var/www
 COPY . .
-COPY --from=build-stage /frontend/build/* app/static/
+COPY --from=build-stage /frontend/dist/* app/static/
 
 # Install Python Dependencies
 RUN pip install -r requirements.txt
